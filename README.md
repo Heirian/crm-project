@@ -1,11 +1,51 @@
 # README
 
+# IBC-Project
+
+The IBC-SPro Project is an IBC routines management system.
+
+# What it uses?
+
 This steps are the necessary to get the
 application up and running.
 
 * Current ruby version - 2.4.2
 
+* Current rails version - 5.1.4
+
+* Current bundler version - 1.16.0.pre.3
+
+* Database gem - development: sqlite3. production: pg
+
+* Bootstrap
+
+* Devise
+
+* CanCanCan
+
 * Gem update - 16/10/2017
+
+# How do I get set up?
+
+To set it up on your local machine here is what you need to do. Install Ruby & Rails current versions.
+Clone this repo using the following command:
+
+git clone https://gitlab.com/heirian/ibc-project
+cd ibc-project
+
+Then resolve dependencies using bundler:
+
+bundle install --without production
+
+Run Migrations:
+
+rails db:migrate
+
+Run rails using
+
+rails server
+
+# Below are the main code verification gems
 
 # Rubocop
 
@@ -16,6 +56,7 @@ Setup your gemfile
 group :development, :test do
   gem 'rubocop', require: false
 end
+
 run
 
 rubocop --auto-gen-config
@@ -55,6 +96,7 @@ setup your gemfile
 group :development, :test do
   gem 'rubycritic'
 end
+
 run
 
 rubycritic
@@ -68,8 +110,9 @@ What to do:
 setup your gemfile
 
 group :development, :test do
-    gem 'brakeman', :require => false
+  gem 'brakeman', require: false
 end
+
 run
 
 brakeman
@@ -81,8 +124,9 @@ Repo: https://github.com/rubysec/bundler-audit
 setup your gemfile
 
 group :development, :test do
-    gem 'bundler-audit', :require => false
+  gem 'bundler-audit', require: false
 end
+
 run
 
 bundler-audit
@@ -96,4 +140,5 @@ setup your gemfile
 group :development do
   gem 'bullet'
 end
+
 Configurations go into config/environments/development.rb

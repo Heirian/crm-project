@@ -47,6 +47,9 @@ gem 'bootstrap-filestyle-rails'
 
 # Devise is a flexible authentication solution for Rails based on Warden - https://github.com/plataformatec/devise
 gem 'devise'
+# CanCanCan is an authorization library which restricts what resources a given user is allowed to access.
+# https://github.com/CanCanCommunity/cancancan
+gem 'cancancan', '~> 2.0'
 
 # Ransack enables the creation of sim and adv search forms for your RoR appl
 # https://github.com/activerecord-hackery/ransack
@@ -62,6 +65,11 @@ gem 'paperclip', '~> 5.0.0'
 
 # activity feed - https://github.com/chaps-io/public_activity
 gem 'public_activity'
+
+# Sanitize is a whitelist-based HTML and CSS sanitizer. Given a list of acceptable elements,
+# attributes, and CSS properties, Sanitize will remove all unacceptable HTML and/or CSS from a string.
+# https://github.com/rgrove/sanitize
+gem 'sanitize'
 
 group :development, :test do
   gem 'brakeman', require: false
