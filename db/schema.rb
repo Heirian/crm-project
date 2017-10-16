@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171016163225) do
+ActiveRecord::Schema.define(version: 20171016172455) do
 
   create_table "addresses", force: :cascade do |t|
     t.string "street_address"
@@ -21,11 +21,22 @@ ActiveRecord::Schema.define(version: 20171016163225) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "bank_accounts", force: :cascade do |t|
+    t.string "bank_name"
+    t.string "bank_branch_number"
+    t.string "account_number"
+    t.integer "person_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["person_id"], name: "index_bank_accounts_on_person_id"
+  end
+
   create_table "cities", force: :cascade do |t|
     t.string "name"
     t.integer "state_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["state_id"], name: "index_cities_on_state_id"
   end
 
   create_table "companies", force: :cascade do |t|
