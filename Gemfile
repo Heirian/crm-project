@@ -64,11 +64,13 @@ gem 'paperclip', '~> 5.0.0'
 gem 'public_activity'
 
 group :development, :test do
+  gem 'brakeman', require: false
   # Call 'byebug' anywhere in the code to stop exec and get a debugger console
   gem 'byebug', platforms: %I[mri mingw x64_mingw]
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
   gem 'rubocop', require: false
+  gem 'rubycritic'
   gem 'selenium-webdriver'
 end
 

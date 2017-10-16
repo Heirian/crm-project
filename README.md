@@ -7,7 +7,7 @@ application up and running.
 
 * Gem update - 16/10/2017
 
-* Rubocop
+# Rubocop
 
 Repo: https://github.com/bbatsov/rubocop
 
@@ -22,8 +22,8 @@ rubocop --auto-gen-config
 
 It is going to generate a .rubocop-todo.yml file. Rename it to .rubocop.yml and add the following content on it
 
-# This is the configuration used to check the rubocop source code.
-# Check out: https://github.com/bbatsov/rubocop
+* This is the configuration used to check the rubocop source code.
+* Check out: https://github.com/bbatsov/rubocop
 
 AllCops:
   TargetRubyVersion: 2.4.2
@@ -44,8 +44,32 @@ Metrics/LineLength:
   Max: 120
 Now run rubocop and start to fix the issues, it is easier if you run rubocop -a.
 
-* Configuration
+# Rubycritic
 
-* Database creation
+Repo: https://github.com/whitesmith/rubycritic
 
-* Database initialization
+What to do:
+
+setup your gemfile
+
+group :development, :test do
+  gem 'rubycritic'
+end
+run
+
+rubycritic
+
+# Brakeman
+
+Repo: https://github.com/presidentbeef/brakeman
+
+What to do:
+
+setup your gemfile
+
+group :development, :test do
+    gem 'brakeman', :require => false
+end
+run
+
+brakeman
