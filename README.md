@@ -73,3 +73,27 @@ end
 run
 
 brakeman
+
+# BUndler audit
+
+Repo: https://github.com/rubysec/bundler-audit
+
+setup your gemfile
+
+group :development, :test do
+    gem 'bundler-audit', :require => false
+end
+run
+
+bundler-audit
+
+# Bullet
+
+Repo: https://github.com/flyerhzm/bullet
+
+setup your gemfile
+
+group :development do
+  gem 'bullet'
+end
+Configurations go into config/environments/development.rb

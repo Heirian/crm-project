@@ -65,6 +65,7 @@ gem 'public_activity'
 
 group :development, :test do
   gem 'brakeman', require: false
+  gem 'bundler-audit', require: false
   # Call 'byebug' anywhere in the code to stop exec and get a debugger console
   gem 'byebug', platforms: %I[mri mingw x64_mingw]
   # Adds support for Capybara system testing and selenium driver
@@ -75,6 +76,7 @@ group :development, :test do
 end
 
 group :development do
+  gem 'bullet'
   gem 'listen', '>= 3.0.5', '< 3.2'
   # Access an IRBconsole on exception pag or by using <%= console %> in the code
   gem 'web-console', '>= 3.3.0'
