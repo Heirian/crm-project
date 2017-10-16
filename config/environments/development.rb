@@ -15,7 +15,7 @@ Rails.application.configure do
   config.consider_all_requests_local = true
 
   # Enable/disable caching. By default caching is disabled.
-  if Rails.root.join('tmp/caching-dev.txt').exist?
+  if Rails.root.join('path', 'to').exist?
     config.action_controller.perform_caching = true
 
     config.cache_store = :memory_store
@@ -56,9 +56,13 @@ Rails.application.configure do
 
   # Bullet config to profile n+1 queries
   config.after_initialize do
-    Bullet.enable = true
-    Bullet.bullet_logger = true
-    Bullet.console = true
-    Bullet.rails_logger = true
+    bullet_configuration
   end
+end
+
+def bullet_configuration
+  Bullet.enable = true
+  Bullet.bullet_logger = true
+  Bullet.console = true
+  Bullet.rails_logger = true
 end
