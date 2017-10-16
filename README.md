@@ -2,7 +2,7 @@
 
 # IBC-Project
 
-The IBC-SPro Project is an IBC routines management system.
+  The IBC-SPro Project is an IBC routines management system.
 
 # What it uses?
 
@@ -27,118 +27,119 @@ application up and running.
 
 # How do I get set up?
 
-To set it up on your local machine here is what you need to do. Install Ruby & Rails current versions.
-Clone this repo using the following command:
+  To set it up on your local machine here is what you need to do. Install Ruby & Rails current versions.
+  Clone this repo using the following command:
 
-git clone https://gitlab.com/heirian/ibc-project
-cd ibc-project
+  git clone https://gitlab.com/heirian/ibc-project
 
-Then resolve dependencies using bundler:
+  cd ibc-project
 
-bundle install --without production
+  Then resolve dependencies using bundler:
 
-Run Migrations:
+  bundle install --without production
 
-rails db:migrate
+  Run Migrations:
 
-Run rails using
+  rails db:migrate
 
-rails server
+  Run rails using
+
+  rails server
 
 # Below are the main code verification gems
 
-# Rubocop
+  # Rubocop
 
-Repo: https://github.com/bbatsov/rubocop
+    Repo: https://github.com/bbatsov/rubocop
 
-Setup your gemfile
+    Setup your gemfile
 
-group :development, :test do
-  gem 'rubocop', require: false
-end
+    group :development, :test do
+      gem 'rubocop', require: false
+    end
 
-run
+    run
 
-rubocop --auto-gen-config
+    rubocop --auto-gen-config
 
-It is going to generate a .rubocop-todo.yml file. Rename it to .rubocop.yml and add the following content on it
+    It is going to generate a .rubocop-todo.yml file. Rename it to .rubocop.yml and add the following content on it
 
-* This is the configuration used to check the rubocop source code.
-* Check out: https://github.com/bbatsov/rubocop
+    * This is the configuration used to check the rubocop source code.
+    * Check out: https://github.com/bbatsov/rubocop
 
-AllCops:
-  TargetRubyVersion: 2.4.2
+    AllCops:
+      TargetRubyVersion: 2.4.2
 
-  Include:
-    - '**/config.ru'
-  Exclude:
-    - 'vendor/**/*'
-    - 'db/**/*'
-    - 'db/schema.rb'
-Rails:
-  Enabled: true
+      Include:
+        - '**/config.ru'
+      Exclude:
+        - 'vendor/**/*'
+        - 'db/**/*'
+        - 'db/schema.rb'
+    Rails:
+      Enabled: true
 
-Style/Documentation:
-  Enabled: false
+    Style/Documentation:
+      Enabled: false
 
-Metrics/LineLength:
-  Max: 120
-Now run rubocop and start to fix the issues, it is easier if you run rubocop -a.
+    Metrics/LineLength:
+      Max: 120
+    Now run rubocop and start to fix the issues, it is easier if you run rubocop -a.
 
-# Rubycritic
+  # Rubycritic
 
-Repo: https://github.com/whitesmith/rubycritic
+    Repo: https://github.com/whitesmith/rubycritic
 
-What to do:
+    What to do:
 
-setup your gemfile
+    setup your gemfile
 
-group :development, :test do
-  gem 'rubycritic'
-end
+      group :development, :test do
+        gem 'rubycritic'
+      end
 
-run
+    run
 
-rubycritic
+    rubycritic
 
-# Brakeman
+  # Brakeman
 
-Repo: https://github.com/presidentbeef/brakeman
+    Repo: https://github.com/presidentbeef/brakeman
 
-What to do:
+    What to do:
 
-setup your gemfile
+    setup your gemfile
 
-group :development, :test do
-  gem 'brakeman', require: false
-end
+    group :development, :test do
+      gem 'brakeman', require: false
+    end
 
-run
+    run
 
-brakeman
+    brakeman
 
-# BUndler audit
+  # BUndler audit
 
-Repo: https://github.com/rubysec/bundler-audit
+    Repo: https://github.com/rubysec/bundler-audit
 
-setup your gemfile
+    setup your gemfile
 
-group :development, :test do
-  gem 'bundler-audit', require: false
-end
+    group :development, :test do
+      gem 'bundler-audit', require: false
+    end
 
-run
+    run
 
-bundler-audit
+    bundler-audit
 
-# Bullet
+  # Bullet
 
-Repo: https://github.com/flyerhzm/bullet
+    Repo: https://github.com/flyerhzm/bullet
 
-setup your gemfile
+    setup your gemfile
 
-group :development do
-  gem 'bullet'
-end
+    group :development do
+      gem 'bullet'
+    end
 
-Configurations go into config/environments/development.rb
+    Configurations go into config/environments/development.rb
