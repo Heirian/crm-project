@@ -1,6 +1,6 @@
 class Person < ActiveRecord::Migration[5.1]
   def change
-    create_table :persons do |t|
+    create_table :people do |t|
       t.timestamps
     end
   end
