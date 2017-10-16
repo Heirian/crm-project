@@ -1,24 +1,51 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
+This steps are the necessary to get the
 application up and running.
 
-Things you may want to cover:
+* Current ruby version - 2.4.2
 
-* Ruby version
+* Gem update - 16/10/2017
 
-* System dependencies
+* Rubocop
+
+Repo: https://github.com/bbatsov/rubocop
+
+Setup your gemfile
+
+group :development, :test do
+  gem 'rubocop', require: false
+end
+run
+
+rubocop --auto-gen-config
+
+It is going to generate a .rubocop-todo.yml file. Rename it to .rubocop.yml and add the following content on it
+
+# This is the configuration used to check the rubocop source code.
+# Check out: https://github.com/bbatsov/rubocop
+
+AllCops:
+  TargetRubyVersion: 2.4.2
+
+  Include:
+    - '**/config.ru'
+  Exclude:
+    - 'vendor/**/*'
+    - 'db/**/*'
+    - 'db/schema.rb'
+Rails:
+  Enabled: true
+
+Style/Documentation:
+  Enabled: false
+
+Metrics/LineLength:
+  Max: 120
+Now run rubocop and start to fix the issues, it is easier if you run rubocop -a.
 
 * Configuration
 
 * Database creation
 
 * Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...

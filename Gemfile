@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 source 'https://rubygems.org'
 ruby '~> 2.4.2'
 
@@ -66,6 +68,7 @@ group :development, :test do
   gem 'byebug', platforms: %I[mri mingw x64_mingw]
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
+  gem 'rubocop', require: false
   gem 'selenium-webdriver'
 end
 
