@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171016173421) do
+ActiveRecord::Schema.define(version: 20171016184107) do
 
   create_table "addresses", force: :cascade do |t|
     t.string "street_address"
@@ -19,8 +19,10 @@ ActiveRecord::Schema.define(version: 20171016173421) do
     t.integer "city_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "place_id"
     t.index ["city_id"], name: "index_addresses_on_city_id"
     t.index ["person_id"], name: "index_addresses_on_person_id"
+    t.index ["place_id"], name: "index_addresses_on_place_id"
   end
 
   create_table "bank_accounts", force: :cascade do |t|
@@ -61,6 +63,9 @@ ActiveRecord::Schema.define(version: 20171016173421) do
     t.integer "person_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "place_id"
+    t.index ["person_id"], name: "index_emails_on_person_id"
+    t.index ["place_id"], name: "index_emails_on_place_id"
   end
 
   create_table "individuals", force: :cascade do |t|
@@ -78,6 +83,25 @@ ActiveRecord::Schema.define(version: 20171016173421) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "type"
+  end
+
+  create_table "phones", force: :cascade do |t|
+    t.string "area_code"
+    t.string "country_code"
+    t.string "number"
+    t.integer "person_id"
+    t.integer "place_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["person_id"], name: "index_phones_on_person_id"
+    t.index ["place_id"], name: "index_phones_on_place_id"
+  end
+
+  create_table "places", force: :cascade do |t|
+    t.integer "person_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["person_id"], name: "index_places_on_person_id"
   end
 
   create_table "states", force: :cascade do |t|
