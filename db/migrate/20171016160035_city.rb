@@ -6,5 +6,7 @@ class City < ActiveRecord::Migration[5.1]
 
       t.timestamps
     end
+    
+    add_index :cities, :state_id
   end
 end
