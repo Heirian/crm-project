@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class CountriesController < ApplicationController
-  before_action :initialize, only: %I[show edit update destroy]
+  before_action :set_country, only: %I[show edit update destroy]
   def index
     @countries = Country.all
   end
@@ -30,7 +30,7 @@ class CountriesController < ApplicationController
 
   private
 
-  def initialize
+  def set_country
     @country = Country.find(params[:id])
   end
 
