@@ -15,14 +15,11 @@ ActiveRecord::Schema.define(version: 20171016182229) do
   create_table "addresses", force: :cascade do |t|
     t.string "street_address"
     t.integer "zip_code"
-    t.integer "person_id"
-    t.integer "city_id"
-    t.integer "place_id"
+    t.string "addressable_type"
+    t.integer "addressable_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["city_id"], name: "index_addresses_on_city_id"
-    t.index ["person_id"], name: "index_addresses_on_person_id"
-    t.index ["place_id"], name: "index_addresses_on_place_id"
+    t.index ["addressable_type", "addressable_id"], name: "index_addresses_on_addressable_type_and_addressable_id"
   end
 
   create_table "bank_accounts", force: :cascade do |t|
@@ -51,12 +48,11 @@ ActiveRecord::Schema.define(version: 20171016182229) do
 
   create_table "emails", force: :cascade do |t|
     t.string "email"
-    t.integer "person_id"
-    t.integer "place_id"
+    t.string "emailable_type"
+    t.integer "emailable_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["person_id"], name: "index_emails_on_person_id"
-    t.index ["place_id"], name: "index_emails_on_place_id"
+    t.index ["emailable_type", "emailable_id"], name: "index_emails_on_emailable_type_and_emailable_id"
   end
 
   create_table "people", force: :cascade do |t|
@@ -79,18 +75,19 @@ ActiveRecord::Schema.define(version: 20171016182229) do
     t.string "area_code"
     t.string "country_code"
     t.string "number"
-    t.integer "person_id"
-    t.integer "place_id"
+    t.string "phonable_type"
+    t.integer "phonable_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["person_id"], name: "index_phones_on_person_id"
-    t.index ["place_id"], name: "index_phones_on_place_id"
+    t.index ["phonable_type", "phonable_id"], name: "index_phones_on_phonable_type_and_phonable_id"
   end
 
   create_table "places", force: :cascade do |t|
+    t.string "name"
     t.integer "person_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_places_on_name"
     t.index ["person_id"], name: "index_places_on_person_id"
   end
 
