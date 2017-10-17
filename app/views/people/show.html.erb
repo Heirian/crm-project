@@ -1,0 +1,14 @@
+<br>
+<div class="row">
+  <div class="col-12">
+    <ul class="listing">
+      <div class="col-md-4" align="center">
+        <h1>
+          <%= link_to @person.name, person_path(@person) %>
+        </h1>
+        <%= link_to "#{t(:delete)}", person_path(@person), method: :delete,
+        data: {confirm: "#{t(:delete_person?)}"}, class: 'btn btn-danger' %>
+      </div>
+    </ul>
+  </div>
+</div>
