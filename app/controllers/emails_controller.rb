@@ -11,9 +11,16 @@ class EmailsController < ApplicationController
     redirect_to @emailable
   end
 
+  def destroy
+    @email = @emailable.emails.find(params[:id])
+    @email.destroy
+    flash[:danger] = I18n.t(:email_deleted_successfully)
+    redirect_to @emailable
+  end
+
   private
 
   def email_params
-    params.require(:email).permit(:email)
+    params.require(:email).permit(:body)
   end
 end

@@ -1,1 +1,3 @@
 <p><%= phone.country_code %> - <%= phone.area_code %> - <%= phone.number %></p>
+<%= link_to "#{t(:delete)}", person_phone_path(@person, phone), method: :delete,
+data: { confirm: "#{t(:delete_phone?)}" }, class: 'btn btn-danger' %>

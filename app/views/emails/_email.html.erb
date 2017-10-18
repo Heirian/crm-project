@@ -1,1 +1,3 @@
-<p><%= email.email %></p>
+<p><%= email.body %></p>
+<%= link_to "#{t(:delete)}", person_email_path(@person, email), method: :delete,
+data: { confirm: "#{t(:delete_email?)}" }, class: 'btn btn-danger' %>

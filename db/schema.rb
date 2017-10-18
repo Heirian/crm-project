@@ -14,7 +14,7 @@ ActiveRecord::Schema.define(version: 20171016182229) do
 
   create_table "addresses", force: :cascade do |t|
     t.string "street_address"
-    t.integer "zip_code"
+    t.string "zip_code"
     t.string "addressable_type"
     t.integer "addressable_id"
     t.datetime "created_at", null: false
@@ -47,7 +47,7 @@ ActiveRecord::Schema.define(version: 20171016182229) do
   end
 
   create_table "emails", force: :cascade do |t|
-    t.string "email"
+    t.string "body"
     t.string "emailable_type"
     t.integer "emailable_id"
     t.datetime "created_at", null: false

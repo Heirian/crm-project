@@ -1,0 +1,3 @@
+<p><%= address.street_address %> - <%= address.zip_code %></p>
+<%= link_to "#{t(:delete)}", person_address_path(@person, address), method: :delete,
+data: { confirm: "#{t(:delete_address?)}" }, class: 'btn btn-danger' %>

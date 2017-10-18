@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
 class Email < ApplicationRecord
-  validates :email, presence: true
+  validates :body, presence: true
   belongs_to :emailable, polymorphic: true
 end

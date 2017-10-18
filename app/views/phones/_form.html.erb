@@ -1,7 +1,25 @@
 <%= form_for [phonable, Phone.new] do |ff| %>
   <div class="form-group">
     <div class="control-label col-md-5">
-      <%= ff.label :number, t(:new_email) %>
+      <%= ff.label :country_code, t(:country_code) %>
+    </div>
+    <div class="col-md-3">
+      <%= ff.text_field :country_code, class: "form-control", placeholder: I18n.t(:add_country_code) %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="control-label col-md-5">
+      <%= ff.label :area_code, t(:area_code) %>
+    </div>
+    <div class="col-md-3">
+      <%= ff.text_field :area_code, class: "form-control", placeholder: I18n.t(:add_area_code) %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="control-label col-md-5">
+      <%= ff.label :number %>
     </div>
     <div class="col-md-3">
       <%= ff.text_field :number, class: "form-control", placeholder: I18n.t(:add_phone_number) %>
