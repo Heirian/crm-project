@@ -71,6 +71,11 @@ gem 'public_activity'
 # https://github.com/rgrove/sanitize
 gem 'sanitize'
 
+# Add some nice ActiveModel/ActiveRecord validators.
+# https://github.com/fnando/validators
+gem 'validators'
+gem "cpf_cnpj"
+
 group :development, :test do
   gem 'brakeman', require: false
   gem 'bundler-audit', require: false
