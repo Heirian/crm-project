@@ -9,6 +9,15 @@
         <%= link_to "#{t(:delete)}", person_path(@person), method: :delete,
         data: {confirm: "#{t(:delete_person?)}"}, class: 'btn btn-danger' %>
       </div>
+
+      <div>
+        <h4>
+          <%= t(:emails) %>
+        </h4>
+        <%= render @person.emails %>
+        <%= render 'shared/errors', object: @email %>
+        <%= render 'emails/form', emailable: @person %>
+      </div>
     </ul>
   </div>
 </div>

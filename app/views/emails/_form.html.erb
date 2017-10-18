@@ -1,0 +1,11 @@
+<%= form_for [emailable, Email.new] do |ef| %>
+  <div class="form-group">
+    <div class="control-label col-md-5">
+      <%= ef.label :email, t(:new_email) %>
+    </div>
+    <div class="col-md-3">
+      <%= ef.text_field :email, class: "form-control", placeholder: I18n.t(:add_new_email) %>
+    </div>
+  </div>
+  <%= ef.submit class: 'btn btn-primary' %>
+<% end %>

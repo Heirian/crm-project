@@ -7,6 +7,10 @@ class PeopleController < ApplicationController
     @people = Person.all
   end
 
+  def show
+    @email = @person.emails.new
+  end
+
   def new; end
 
   def new_company; end
@@ -35,14 +39,16 @@ class PeopleController < ApplicationController
 
   def set_person
     @person = Person.find(params[:id])
+    @person.emails.new
   end
 
   def new_person
     @person = Person.new
+    @person.emails.new
   end
 
   def person_params
     params.require(:person).permit(:name, :type, :inscricao_estadual, :trading_name, :cnpj,
-                                   :cpf, :rg, :birthday, :marital_status, :gender)
+                                   :cpf, :rg, :birthday, :marital_status, :gender, :emailable)
   end
 end

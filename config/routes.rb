@@ -6,8 +6,13 @@ Rails.application.routes.draw do
   resources :countries
   resources :states
   resources :cities
+  resources :emails
   get '/new_company', to: 'people#new_company'
   get '/new_individual', to: 'people#new_individual'
-  resources :people
+  resources :people do
+    resources :emails, module: :people
+    resources :phones, module: :people
+    resources :addresses, module: :people
+  end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
