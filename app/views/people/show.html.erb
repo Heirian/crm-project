@@ -38,6 +38,14 @@
         <%= render 'addresses/form', addressable: @person %>
       </div>
 
+      <div>
+        <h4>
+          <%= t(:bank_accounts) %>
+        </h4>
+        <%= render @person.bank_accounts %>
+        <%= render 'bank_accounts/form' %>
+      </div>
+
       <hr />
 
       <div>

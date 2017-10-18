@@ -13,6 +13,7 @@ Rails.application.routes.draw do
     resources :emails, module: :people
     resources :phones, module: :people
     resources :addresses, module: :people
+    resources :bank_accounts
   end
   resources :places do
     resources :emails, module: :people
