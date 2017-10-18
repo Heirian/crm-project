@@ -1,0 +1,20 @@
+<br>
+<div class="row">
+  <div class="col-12">
+    <% @places.each do |place| %>
+      <ul class="listing">
+        <div class="col-md-4" align="center">
+          <h3>
+            <%= link_to place.name, place_path(place) %>
+          </h3>
+          <p>
+            <%= place.type %>
+          </p>
+          <%= link_to "#{t(:delete)}", place_path(place), method: :delete,
+          data: {confirm: "#{t(:delete_place?)}"}, class: 'btn btn-danger' %>
+        </div>
+      </ul>
+      <br>
+    <% end %>
+  </div>
+</div>

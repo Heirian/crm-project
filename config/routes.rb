@@ -14,5 +14,10 @@ Rails.application.routes.draw do
     resources :phones, module: :people
     resources :addresses, module: :people
   end
+  resources :places do
+    resources :emails, module: :people
+    resources :phones, module: :people
+    resources :addresses, module: :people
+  end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

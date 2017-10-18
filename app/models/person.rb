@@ -5,4 +5,5 @@ class Person < ApplicationRecord
   has_many :emails, as: :emailable, dependent: :destroy
   has_many :phones, as: :phonable, dependent: :destroy
   has_many :addresses, as: :addressable, dependent: :destroy
+  has_many :places, dependent: :destroy
 end

@@ -37,6 +37,15 @@
         <%= render @person.addresses %>
         <%= render 'addresses/form', addressable: @person %>
       </div>
+
+      <hr />
+
+      <div>
+        <h4>
+          <%= t(:places) %>
+        </h4>
+        <%= render @person.places %>
+      </div>
     </ul>
   </div>
 </div>
