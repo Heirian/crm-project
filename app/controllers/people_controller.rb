@@ -2,10 +2,12 @@
 
 class PeopleController < ApplicationController
   before_action :set_person, only: %I[show edit update destroy]
-  before_action :new_person, only: %I[new_company new_individual]
+  before_action :new_person, only: %I[new new_company new_individual]
   def index
     @people = Person.all
   end
+
+  def new; end
 
   def new_company; end
 
@@ -13,7 +15,7 @@ class PeopleController < ApplicationController
 
   def create
     @person = Person.new(person_params)
-    return render 'person_select_page' unless @person.save
+    return render 'new' unless @person.save
     redirect_to people_path
   end
 

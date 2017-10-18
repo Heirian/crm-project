@@ -8,7 +8,6 @@ Rails.application.routes.draw do
   resources :cities
   get '/new_company', to: 'people#new_company'
   get '/new_individual', to: 'people#new_individual'
-  resources :people, except: :new
-
+  resources :people
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
