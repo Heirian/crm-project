@@ -10,6 +10,8 @@
         data: {confirm: "#{t(:delete_person?)}"}, class: 'btn btn-danger' %>
       </div>
 
+      <hr />
+
       <div>
         <h4>
           <%= t(:emails) %>
@@ -52,6 +54,9 @@
         <h4>
           <%= t(:places) %>
         </h4>
+        <div>
+          <%= link_to t(:add_new_place), new_place_path, class: 'btn btn-primary' %>
+        </div>
         <%= render @person.places %>
       </div>
     </ul>

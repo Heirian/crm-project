@@ -15,11 +15,13 @@ ActiveRecord::Schema.define(version: 20171016182229) do
   create_table "addresses", force: :cascade do |t|
     t.string "street_address"
     t.string "zip_code"
+    t.integer "city_id"
     t.string "addressable_type"
     t.integer "addressable_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["addressable_type", "addressable_id"], name: "index_addresses_on_addressable_type_and_addressable_id"
+    t.index ["city_id"], name: "index_addresses_on_city_id"
   end
 
   create_table "bank_accounts", force: :cascade do |t|
