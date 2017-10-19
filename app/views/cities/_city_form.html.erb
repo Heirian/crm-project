@@ -1,3 +1,8 @@
+<script type="text/javascript">
+  $(document).ready(function() { $("#select2-state").select2();
+    theme: "bootstrap"
+  });
+</script>
 
 <div class="row">
   <div class="col-md-12">
@@ -14,11 +19,10 @@
       <div class="form-group">
         <div class="row">
           <div class="col-md-offset-2 col-md-8">
-            <%= f.collection_select :state_id, State.all, :id, :name, { include_blank: false }, { multiple: false } %>
+            <%= f.collection_select :state_id, State.all, :id, :name, { include_blank: false }, { multiple: false, class: 'form-control', id: 'select2-state' } %>
           </div>
         </div>
       </div>
-
 
       <div class="form-group">
         <div class="col-md-offset-5 col-md-4 btn-group">
