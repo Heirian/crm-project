@@ -74,8 +74,6 @@ ActiveRecord::Schema.define(version: 20171016182229) do
   end
 
   create_table "phones", force: :cascade do |t|
-    t.string "area_code"
-    t.string "country_code"
     t.string "number"
     t.string "phonable_type"
     t.integer "phonable_id"

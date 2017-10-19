@@ -2,7 +2,7 @@
 
 class Person < ApplicationRecord
   validates :name, :type, presence: true
-  validates :name, format: /\A[`!@#\$%\^&*+_=]+\z/
+  validates :name, format: /\A[^`!@#\$%\^&*+_=]+\z/
   validates_with PersonValidator, fields: [:type]
   # add any other characters you'd like to disallow inside the [ brackets ]
   # metacharacters [, \, ^, $, ., |, ?, *, +, (, and ) need to be escaped with a \

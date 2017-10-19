@@ -76,6 +76,9 @@ gem 'sanitize'
 gem 'cpf_cnpj'
 gem 'validators'
 
+# phone
+gem 'phonelib'
+
 group :development, :test do
   gem 'brakeman', require: false
   gem 'bundler-audit', require: false

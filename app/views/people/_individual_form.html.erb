@@ -8,7 +8,7 @@
 
       <div class="form-group">
         <div class="control-label col-md-5">
-          <%= f.label :name, "#{t(:person)}" %>
+          <%= f.label :name, "#{t(:name)}" %>
         </div>
         <div class="col-md-4">
           <%= f.text_field :name, class: "form-control", placeholder: "#{t(:enter_person_name)}" %>
@@ -31,14 +31,14 @@
         <div class="col-md-12 col-sm-12 col-xs-12 form-gender-fix-position">
           <div class="col-md-4 col-md-offset-2 col-sm-4 col-offset-2 col-xs-6">
             <h4>
-              <%= f.radio_button :gender, 'woman' %>
-              <%= label :gender, t(:woman) %>
+              <%= f.radio_button :gender, :female %>
+              <%= label :gender, t(:female) %>
             </h4>
           </div>
           <div class="col-md-4 col-sm-4 col-xs-6">
             <h4>
-              <%= f.radio_button :gender, 'man', checked: true %>
-              <%= label :gender, t(:man) %>
+              <%= f.radio_button :gender, :male, checked: true %>
+              <%= label :gender, t(:male) %>
             </h4>
           </div>
         </div>

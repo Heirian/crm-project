@@ -1,11 +1,13 @@
 # frozen_string_literal: true
 
-class People::PhonesController < PhonesController
-  before_action :set_phonable
+module Place
+  class PhonesController < ::PhonesController
+    before_action :set_phonable
 
-  private
+    private
 
-  def set_phonable
-    @phonable = Place.find(params[:person_id])
+    def set_phonable
+      @phonable = Place.find(params[:place_id])
+    end
   end
 end

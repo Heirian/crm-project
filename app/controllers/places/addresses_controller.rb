@@ -1,11 +1,13 @@
 # frozen_string_literal: true
 
-class People::AddressesController < AddressesController
-  before_action :set_addressable
+module Place
+  class AddressesController < ::AddressesController
+    before_action :set_addressable
 
-  private
+    private
 
-  def set_addressable
-    @addressable = Place.find(params[:person_id])
+    def set_addressable
+      @addressable = Place.find(params[:place_id])
+    end
   end
 end

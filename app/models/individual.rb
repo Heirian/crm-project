@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class Individual < Person
-  include EnumHelper
   validates :birthday, :gender, :marital_status, :rg, :cpf, presence: true
   validates :rg, format: /\A[^A-Z`!@#\$%\^&*+_=]+\z/
   validates_cpf_format_of :cpf

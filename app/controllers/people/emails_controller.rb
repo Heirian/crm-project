@@ -1,11 +1,13 @@
 # frozen_string_literal: true
 
-class People::EmailsController < EmailsController
-  before_action :set_emailable
+module People
+  class EmailsController < ::EmailsController
+    before_action :set_emailable
 
-  private
+    private
 
-  def set_emailable
-    @emailable = Person.find(params[:person_id])
+    def set_emailable
+      @emailable = Person.find(params[:person_id])
+    end
   end
 end
