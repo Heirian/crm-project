@@ -42,3 +42,14 @@ en:
   delete_country?: "Do you want to delete this country?"
   #emails
   add_new_email: "Add a new email"
+  #person
+  activerecord:
+    enums:
+      person:
+        marital_status:
+          single: "Single"
+          married: "Married"
+          divorced: "Divorced"
+          separated: "Separated"
+          widowed: "Widowed"
+          common_law_marriage: "Common-law Marriage"

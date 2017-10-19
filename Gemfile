@@ -73,8 +73,8 @@ gem 'sanitize'
 
 # Add some nice ActiveModel/ActiveRecord validators.
 # https://github.com/fnando/validators
+gem 'cpf_cnpj'
 gem 'validators'
-gem "cpf_cnpj"
 
 group :development, :test do
   gem 'brakeman', require: false

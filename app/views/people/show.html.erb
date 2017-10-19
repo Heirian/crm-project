@@ -6,6 +6,45 @@
         <h1>
           <%= link_to @person.name, person_path(@person) %>
         </h1>
+
+        <p>
+          <%= @person.trading_name %>
+        </p>
+
+        <p>
+          <%= @person.type %>
+        </p>
+
+        <p>
+          <%= @person.birthday %>
+        </p>
+
+        <% if @person.type == 'Individual' %>
+          <p>
+            <%= @person.gender%>
+          </p>
+
+          <p>
+            <%= @person.marital_status %>
+          </p>
+        <% end %>
+
+        <p>
+          <%= @person.cpf %>
+        </p>
+
+        <p>
+          <%= @person.rg %>
+        </p>
+
+        <p>
+          <%= @person.cnpj %>
+        </p>
+
+        <p>
+          <%= @person.inscricao_estadual %>
+        </p>
+
         <%= link_to "#{t(:delete)}", person_path(@person), method: :delete,
         data: {confirm: "#{t(:delete_person?)}"}, class: 'btn btn-danger' %>
       </div>
