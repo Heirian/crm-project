@@ -76,8 +76,13 @@ gem 'sanitize'
 gem 'cpf_cnpj'
 gem 'validators'
 
-# phone
+# phone validaton - https://github.com/daddyz/phonelib
 gem 'phonelib'
+
+# When your app is using Paranoia, calling destroy on an ActiveRecord object
+# doesn't actually destroy the database record, Soft delete
+# https://github.com/rubysherpas/paranoia
+gem 'paranoia', '~> 2.3', '>= 2.3.1'
 
 group :development, :test do
   gem 'brakeman', require: false

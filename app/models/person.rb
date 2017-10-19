@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class Person < ApplicationRecord
+  acts_as_paranoid
+
   validates :name, :type, presence: true
   validates :name, format: /\A[^`!@#\$%\^&*+_=]+\z/
   validates_with PersonValidator, fields: [:type]
