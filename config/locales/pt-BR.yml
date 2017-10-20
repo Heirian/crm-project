@@ -111,6 +111,16 @@ pt-BR:
   create_address: "Adicionar endereço"
   #bankaccount
   bank_accounts: "Contas bancárias"
+  bank_name: "Nome do banco"
   add_bank_name: "Adicionar nome do banco"
+  bank_branch_number: "Agência bancária"
   add_bank_branch_number: "Adicionar agência bancária"
+  account_number: "Número da conta"
   add_account_number: "Adicionar conta bancária"
+  #places
+  places: "Locais"
+  add_new_place: "Adicionar um novo local"
+  new_place: "Novo local"
+  place: "Local"
+  enter_place_name: "Coloque o nome do local"
+  add_a_place: "Adicionar um local"
