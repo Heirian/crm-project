@@ -19,7 +19,7 @@
         <h4>
           <%= t(:emails) %>
         </h4>
-        <%= render @place.emails %>
+        <%= render @place.emails, emailable: @place %>
         <%= render 'emails/form', emailable: @place %>
       </div>
 
@@ -29,7 +29,7 @@
         <h4>
           <%= t(:phones) %>
         </h4>
-        <%= render @place.phones %>
+        <%= render @place.phones, phonable: @place %>
         <%= render 'phones/form', phonable: @place %>
       </div>
 
@@ -39,7 +39,7 @@
         <h4>
           <%= t(:addresses) %>
         </h4>
-        <%= render @place.addresses %>
+        <%= render @place.addresses, addressable: @place %>
         <%= render 'addresses/form', addressable: @place %>
       </div>
     </ul>
