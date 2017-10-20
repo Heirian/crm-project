@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class AddressesController < ApplicationController
+  before_action :authenticate_user!
   def create
     @address = @addressable.addresses.new(address_params)
     if @address.save

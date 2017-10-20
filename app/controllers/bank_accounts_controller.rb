@@ -3,6 +3,7 @@
 class BankAccountsController < ApplicationController
   before_action :set_person, only: %I[create update destroy]
   before_action :set_bank_account, only: %I[update destroy]
+  before_action :authenticate_user!
   def create
     @bank_account = @person.bank_accounts.new(bank_account_params)
     if @bank_account.save
