@@ -2,6 +2,7 @@
 
 class CitiesController < ApplicationController
   before_action :set_city, only: %I[show edit update destroy]
+  before_action :authenticate_user!
   def index
     @cities = City.all
   end

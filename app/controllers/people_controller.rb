@@ -3,6 +3,7 @@
 class PeopleController < ApplicationController
   before_action :set_person, only: %I[show edit update destroy]
   before_action :new_person, only: %I[new new_company new_individual]
+  before_action :authenticate_user!
   def index
     @people = Person.all
   end

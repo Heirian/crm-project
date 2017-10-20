@@ -2,6 +2,7 @@
 
 class StatesController < ApplicationController
   before_action :set_state, only: %I[show edit update destroy]
+  before_action :authenticate_user!
   def index
     @states = State.all
   end
