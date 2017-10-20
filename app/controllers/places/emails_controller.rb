@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Place
+module Places
   class EmailsController < ::EmailsController
     before_action :set_emailable
 

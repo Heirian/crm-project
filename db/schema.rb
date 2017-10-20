@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171019181742) do
+ActiveRecord::Schema.define(version: 20171016182229) do
 
   create_table "addresses", force: :cascade do |t|
     t.string "street_address"
@@ -18,10 +18,13 @@ ActiveRecord::Schema.define(version: 20171019181742) do
     t.integer "city_id"
     t.string "addressable_type"
     t.integer "addressable_id"
+    t.datetime "deleted_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["addressable_type", "addressable_id"], name: "index_addresses_on_addressable_type_and_addressable_id"
     t.index ["city_id"], name: "index_addresses_on_city_id"
+    t.index ["deleted_at"], name: "index_addresses_on_deleted_at"
+    t.index ["zip_code"], name: "index_addresses_on_zip_code"
   end
 
   create_table "bank_accounts", force: :cascade do |t|
@@ -29,31 +32,43 @@ ActiveRecord::Schema.define(version: 20171019181742) do
     t.string "bank_branch_number"
     t.string "account_number"
     t.integer "person_id"
+    t.datetime "deleted_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["account_number"], name: "index_bank_accounts_on_account_number"
+    t.index ["deleted_at"], name: "index_bank_accounts_on_deleted_at"
     t.index ["person_id"], name: "index_bank_accounts_on_person_id"
   end
 
   create_table "cities", force: :cascade do |t|
     t.string "name"
     t.integer "state_id"
+    t.datetime "deleted_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["deleted_at"], name: "index_cities_on_deleted_at"
+    t.index ["name"], name: "index_cities_on_name"
     t.index ["state_id"], name: "index_cities_on_state_id"
   end
 
   create_table "countries", force: :cascade do |t|
     t.string "name"
+    t.datetime "deleted_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["deleted_at"], name: "index_countries_on_deleted_at"
+    t.index ["name"], name: "index_countries_on_name"
   end
 
   create_table "emails", force: :cascade do |t|
     t.string "body"
     t.string "emailable_type"
     t.integer "emailable_id"
+    t.datetime "deleted_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["body"], name: "index_emails_on_body"
+    t.index ["deleted_at"], name: "index_emails_on_deleted_at"
     t.index ["emailable_type", "emailable_id"], name: "index_emails_on_emailable_type_and_emailable_id"
   end
 
@@ -65,12 +80,14 @@ ActiveRecord::Schema.define(version: 20171019181742) do
     t.integer "marital_status", default: 0
     t.string "cpf"
     t.string "rg"
-    t.string "trading_name"
+    t.string "company_name"
     t.string "cnpj"
     t.string "inscricao_estadual"
+    t.datetime "deleted_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.datetime "deleted_at"
+    t.index ["cnpj"], name: "index_people_on_cnpj"
+    t.index ["cpf"], name: "index_people_on_cpf"
     t.index ["deleted_at"], name: "index_people_on_deleted_at"
     t.index ["type"], name: "index_people_on_type"
   end
@@ -79,16 +96,21 @@ ActiveRecord::Schema.define(version: 20171019181742) do
     t.string "number"
     t.string "phonable_type"
     t.integer "phonable_id"
+    t.datetime "deleted_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["deleted_at"], name: "index_phones_on_deleted_at"
+    t.index ["number"], name: "index_phones_on_number"
     t.index ["phonable_type", "phonable_id"], name: "index_phones_on_phonable_type_and_phonable_id"
   end
 
   create_table "places", force: :cascade do |t|
     t.string "name"
     t.integer "person_id"
+    t.datetime "deleted_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["deleted_at"], name: "index_places_on_deleted_at"
     t.index ["name"], name: "index_places_on_name"
     t.index ["person_id"], name: "index_places_on_person_id"
   end
@@ -96,9 +118,12 @@ ActiveRecord::Schema.define(version: 20171019181742) do
   create_table "states", force: :cascade do |t|
     t.string "name"
     t.integer "country_id"
+    t.datetime "deleted_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["country_id"], name: "index_states_on_country_id"
+    t.index ["deleted_at"], name: "index_states_on_deleted_at"
+    t.index ["name"], name: "index_states_on_name"
   end
 
   create_table "users", force: :cascade do |t|
@@ -116,8 +141,10 @@ ActiveRecord::Schema.define(version: 20171019181742) do
     t.integer "failed_attempts", default: 0, null: false
     t.string "unlock_token"
     t.datetime "locked_at"
+    t.datetime "deleted_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["deleted_at"], name: "index_users_on_deleted_at"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["unlock_token"], name: "index_users_on_unlock_token", unique: true
