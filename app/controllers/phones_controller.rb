@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class PhonesController < ApplicationController
+  before_action :authenticate_user!
   def create
     @phone = @phonable.phones.new(phone_params)
     if @phone.save

@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class EmailsController < ApplicationController
+  before_action :authenticate_user!
   def create
     @email = @emailable.emails.new(email_params)
     if @email.save
