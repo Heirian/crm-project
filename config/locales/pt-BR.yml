@@ -1,0 +1,110 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# The following keys must be escaped otherwise they will not be retrieved by
+# the default I18n backend:
+#
+# true, false, on, off, yes, no
+#
+# Instead, surround them with single quotes.
+#
+# en:
+#   'true': 'foo'
+#
+# To learn more, please read the Rails Internationalization guide
+# available at http://guides.rubyonrails.org/i18n.html.
+
+en:
+  activerecord:
+    enums:
+      person:
+        marital_status:
+          single: "Single"
+          married: "Married"
+          divorced: "Divorced"
+          separated: "Separated"
+          widowed: "Widowed"
+          common_law_marriage: "Common-law Marriage"
+        gender:
+          female: "Female"
+          male: "Male"
+      individual:
+        marital_status:
+          single: "Single"
+          married: "Married"
+          divorced: "Divorced"
+          separated: "Separated"
+          widowed: "Widowed"
+          common_law_marriage: "Common-law Marriage"
+        gender:
+          female: "Female"
+          male: "Male"
+  hello: "Hello world"
+  home: "Home"
+  delete: "Delete"
+  #country
+  add_a_country: "Add the country"
+  update_country: "Update country"
+  new_country: "New country"
+  country: "Country"
+  enter_country_name: "Enter the country name"
+  delete_country?: "Do you want to delete this country?"
+  #state
+  state: "State"
+  enter_state_name: "Enter state name"
+  add_a_state: "Add the state"
+  update_state: "Update state"
+  #city
+  city: "City"
+  enter_city_name: "Enter city name"
+  add_a_city: "Add the city"
+  update_city: "Update city"
+  #emails
+  new_email: "New email"
+  add_new_email: "Add a new email"
+  #person
+  name: "Name"
+  enter_person_name: "Enter person name"
+  company_name: "Company name"
+  enter_company_name: "Enter company name"
+  trading_name: "Trading name"
+  enter_trading_name: "Enter trading name"
+  female: "Female"
+  male: "Male"
+  cpf: "CPF"
+  enter_cpf: "Enter CPF"
+  rg: "RG"
+  enter_rg: "Enter RG"
+  add_a_person: "Add person register"
+  update_person: "Update person register"
+  cnpj: "CNPJ"
+  enter_cnpj: "Enter CNPJ"
+  inscricao_estadual: "Inscrição Estadual"
+  enter_inscricao_estadual: "Enter Inscrição Estadual"
+  #phones
+  add_phone_number: "Add phone number"
+  phone_number: "Phone number"
+  example_number_format_letter: "COUNTRY CODE 0 AREA CODE 0000-0000"
+  example_number_format: "00 0 00 0000-0000"
+  #addresses
+  add_street_address: "Add street address"
+  add_zip_code: "Add zip code"
+  #bankaccount
+  add_bank_name: "Add bank name"
+  add_bank_branch_number: "Add branch number"
+  add_account_number: "Add account number"
