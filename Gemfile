@@ -71,19 +71,6 @@ gem 'public_activity'
 # https://github.com/rgrove/sanitize
 gem 'sanitize'
 
-# Add some nice ActiveModel/ActiveRecord validators.
-# https://github.com/fnando/validators
-gem 'cpf_cnpj'
-gem 'validators'
-
-# phone validaton - https://github.com/daddyz/phonelib
-gem 'phonelib'
-
-# When your app is using Paranoia, calling destroy on an ActiveRecord object
-# doesn't actually destroy the database record, Soft delete
-# https://github.com/rubysherpas/paranoia
-gem 'paranoia', '~> 2.3', '>= 2.3.1'
-
 group :development, :test do
   gem 'brakeman', require: false
   gem 'bundler-audit', require: false
@@ -92,7 +79,7 @@ group :development, :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
   gem 'rubocop', require: false
-  gem 'rubycritic', require: false
+  gem 'rubycritic'
   gem 'selenium-webdriver'
 end
 

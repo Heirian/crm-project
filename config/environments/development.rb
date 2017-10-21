@@ -58,8 +58,6 @@ Rails.application.configure do
   config.after_initialize do
     bullet_configuration
   end
-
-  config.i18n.available_locales = ['pt-BR', :en]
 end
 
 def bullet_configuration
