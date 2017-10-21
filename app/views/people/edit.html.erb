@@ -1,9 +1,0 @@
-<%= render 'form_page_title', title: t(:edit_person) %>
-
-<%= render 'shared/errors', object: @person %>
-
-<% if @person.type == 'Company' %>
-  <%= render 'company_form' %>
-<% else %>
-  <%= render 'individual_form' %>
-<% end %>
