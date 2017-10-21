@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+<% if request.fullpath != '/users/sign_in' %>
   <%= render 'layouts/head' %>
   <body class="  ">
     <div class="bg-dark dk" id="wrap">
@@ -9,5 +10,11 @@
     <%= yield %>
   </div>
   </body>
+<% else %>
+  <%= render 'layouts/headLogin' %>
+    <body class="login">
+      <%= yield %>
+    </body>
+<% end %>
   <%= render 'layouts/footer' %>
 </html>

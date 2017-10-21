@@ -1,26 +1,38 @@
-<h2>Log in</h2>
-
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
-
-  <% if devise_mapping.rememberable? -%>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+<body class="login">
+  <div class="form-signin">
+    <div class="text-center">
+      <img src="" alt="IBC PRO">
     </div>
-  <% end -%>
+    <hr>
+      <div class="tab-content">
+        <div id="login" class="tab-pane active">
+          <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+              <%= f.email_field :email, class:"form-control top",placeholder:"email", autofocus: true %>
+              <%= f.password_field :password,class:"form-control bottom",placeholder:"password",  autocomplete: "off" %>
+              <%= f.submit "Log in", class: "btn btn-lg btn-primary btn-block" %>
 
-  <div class="actions">
-    <%= f.submit "Log in" %>
-  </div>
-<% end %>
+          <% end %>
+        </div>
+      </div>
+      <hr>
+    </div>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 
-<%= render "devise/shared/links" %>
+<!--Bootstrap -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.1/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+  (function($) {
+    $(document).ready(function() {
+      $('.list-inline li > a').click(function() {
+        var activeForm = $(this).attr('href') + ' > form';
+        //console.log(activeForm);
+        $(activeForm).addClass('animated fadeIn');
+        //set timer to 1 seconds, after that, unload the animate animation
+        setTimeout(function() {
+          $(activeForm).removeClass('animated fadeIn');
+        }, 1000);
+      });
+    });
+  })(jQuery);
+</script>
+</body>
