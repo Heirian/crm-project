@@ -1,0 +1,103 @@
+<br>
+<div class="row">
+  <div class="col-12">
+    <ul class="listing">
+      <div class="col-md-4" align="center">
+        <h1>
+          <%= link_to @person.name, person_path(@person) %>
+        </h1>
+
+        <p>
+          <%= @person.company_name %>
+        </p>
+
+        <p>
+          <%= @person.type %>
+        </p>
+
+        <p>
+          <%= @person.birthday %>
+        </p>
+
+        <% if @person.type == 'Individual' %>
+          <p>
+            <%= @person.gender%>
+          </p>
+
+          <p>
+            <%= @person.marital_status %>
+          </p>
+        <% end %>
+
+        <p>
+          <%= @person.cpf %>
+        </p>
+
+        <p>
+          <%= @person.rg %>
+        </p>
+
+        <p>
+          <%= @person.cnpj %>
+        </p>
+
+        <p>
+          <%= @person.inscricao_estadual %>
+        </p>
+
+        <%= link_to "#{t(:delete)}", person_path(@person), method: :delete,
+        data: {confirm: "#{t(:delete_person?)}"}, class: 'btn btn-danger' %>
+      </div>
+
+      <hr />
+
+      <div>
+        <h4>
+          <%= t(:emails) %>
+        </h4>
+        <%= render @person.emails, emailable: @person %>
+        <%= render 'emails/form', emailable: @person %>
+      </div>
+
+      <hr />
+
+      <div>
+        <h4>
+          <%= t(:phones) %>
+        </h4>
+        <%= render @person.phones, phonable: @person %>
+        <%= render 'phones/form', phonable: @person %>
+      </div>
+
+      <hr />
+
+      <div>
+        <h4>
+          <%= t(:addresses) %>
+        </h4>
+        <%= render @person.addresses, addressable: @person %>
+        <%= render 'addresses/form', addressable: @person %>
+      </div>
+
+      <div>
+        <h4>
+          <%= t(:bank_accounts) %>
+        </h4>
+        <%= render @person.bank_accounts %>
+        <%= render 'bank_accounts/form' %>
+      </div>
+
+      <hr />
+
+      <div>
+        <h4>
+          <%= t(:places) %>
+        </h4>
+        <div>
+          <%= link_to t(:add_new_place), new_place_path, class: 'btn btn-primary' %>
+        </div>
+        <%= render @person.places %>
+      </div>
+    </ul>
+  </div>
+</div>

@@ -1,14 +1,20 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Testapp</title>
-    <%= csrf_meta_tags %>
-
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
-
-  <body>
+<% if request.fullpath != '/users/sign_in' %>
+  <%= render 'layouts/head' %>
+  <body class="  ">
+    <div class="bg-dark dk" id="wrap">
+    <%= render 'layouts/header' %>
+    <%= render 'layouts/nav-menu' %>
+    <%= render 'layouts/flash_messages' %>
     <%= yield %>
+  </div>
   </body>
+<% else %>
+  <%= render 'layouts/headLogin' %>
+    <body class="login">
+      <%= yield %>
+    </body>
+<% end %>
+  <%= render 'layouts/footer' %>
 </html>

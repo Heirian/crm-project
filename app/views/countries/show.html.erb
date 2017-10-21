@@ -1,0 +1,14 @@
+<br>
+<div class="row">
+  <div class="col-12">
+    <ul class="listing">
+      <div class="col-md-4" align="center">
+        <h1>
+          <%= link_to @country.name, country_path(@country) %>
+        </h1>
+        <%= link_to "#{t(:delete)}", country_path(@country), method: :delete,
+        data: {confirm: "#{t(:delete_country?)}"}, class: 'btn btn-danger' %>
+      </div>
+    </ul>
+  </div>
+</div>

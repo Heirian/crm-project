@@ -1,0 +1,54 @@
+
+<div class="row">
+  <div class="col-md-12">
+    <%= form_for(@person, html: { class: "form-horizontal", role: "form" }) do |f| %>
+      <div class="type-person-no-display">
+        <%= f.select :type, ['Company'] if @person.new_record? %>
+      </div>
+
+      <div class="form-group">
+        <div class="control-label col-md-5">
+          <%= f.label :name, "#{t(:trading_name)}" %>
+        </div>
+        <div class="col-md-4">
+          <%= f.text_field :name, class: "form-control", placeholder: "#{t(:enter_trading_name)}" %>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="control-label col-md-5">
+          <%= f.label :company_name, "#{t(:company_name)}" %>
+        </div>
+        <div class="col-md-4">
+          <%= f.text_field :company_name, class: "form-control", placeholder: "#{t(:enter_company_name)}" %>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="control-label col-md-5">
+          <%= f.label :cnpj, "#{t(:cnpj)}" %>
+        </div>
+        <div class="col-md-4">
+          <%= f.text_field :cnpj, class: "form-control", placeholder: "#{t(:enter_cnpj)}" %>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="control-label col-md-5">
+          <%= f.label :inscricao_estadual, "#{t(:inscricao_estadual)}" %>
+        </div>
+        <div class="col-md-4">
+          <%= f.text_field :inscricao_estadual, class: "form-control", placeholder: "#{t(:enter_inscricao_estadual)}" %>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="col-md-offset-5 col-md-4 btn-group">
+          <%= f.submit(@person.new_record? ? "#{t(:add_a_person)}" : "#{t(:update_person)}",
+                            class: "btn btn-primary") %>
+          <%= link_to "#{t(:home)}", root_path, class: "btn btn-primary" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
