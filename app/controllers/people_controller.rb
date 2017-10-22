@@ -8,7 +8,13 @@ class PeopleController < ApplicationController
     @people = Person.all
   end
 
-  def show;end
+  def show
+    @countries = Country.all
+    @country = Country.first
+    @states = @country.states
+    @state = @states.first
+    @cities = @state.cities
+  end
 
   def new; end
 
