@@ -57,6 +57,7 @@ pt-BR:
   hello: "Hello world"
   home: "Home"
   delete: "Deletar"
+  welcome: "Bem-vindo"
   #country
   add_a_country: "Adicionar país"
   update_country: "Atualizar país"
@@ -114,3 +115,7 @@ pt-BR:
   add_bank_name: "Adicionar nome do banco"
   add_bank_branch_number: "Adicionar agência bancária"
   add_account_number: "Adicionar conta bancária"
+  #users
+  logged_in_as: "Conectado como"
+  edit_profile: "Editar perfil"
+  logout: "Sair"

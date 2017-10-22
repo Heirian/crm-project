@@ -51,6 +51,10 @@ gem 'devise'
 # https://github.com/CanCanCommunity/cancancan
 gem 'cancancan', '~> 2.0'
 
+# Rails admin
+gem 'rails_admin', github: 'sferik/rails_admin'
+gem 'rails_admin_rollincode', '~&gt;; 1.0'
+
 # Ransack enables the creation of sim and adv search forms for your RoR appl
 # https://github.com/activerecord-hackery/ransack
 gem 'ransack'
