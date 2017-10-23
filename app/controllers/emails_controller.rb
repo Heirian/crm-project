@@ -12,6 +12,10 @@ class EmailsController < ApplicationController
     redirect_to @emailable
   end
 
+  def edit
+    @email = @emailable.emails.find(params[:id])
+  end
+
   def destroy
     @email = @emailable.emails.find(params[:id])
     @email.destroy
