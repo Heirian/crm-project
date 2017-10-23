@@ -1,9 +1,9 @@
 <%= form_for [phonable, Phone.new] do |ff| %>
   <div class="form-group">
-    <div class="control-label col-md-5">
+    <div class="control-label">
       <%= ff.label :number, "#{t(:phone_number)}: #{t(:example_number_format_letter)}" %>
     </div>
-    <div class="col-md-3">
+    <div>
       <%= ff.text_field :number, class: "form-control", placeholder: "#{I18n.t(:add_phone_number)}: #{t(:example_number_format)}" %>
     </div>
   </div>

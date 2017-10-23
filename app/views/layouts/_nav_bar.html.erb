@@ -16,10 +16,21 @@
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <%= link_to t(:edit_profile), edit_user_registration_path, class: 'dropdown-item' %>
-            <%= link_to "Change your password", edit_user_registration_path, class: 'dropdown-item' %>
+            <%= link_to t(:change_your_password), edit_user_registration_path, class: 'dropdown-item' %>
             <div class="dropdown-divider"></div>
             <%= link_to t(:logout), destroy_user_session_path, method: :delete, class: 'dropdown-item'  %>
           </div>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <%= t(:person_record) %>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <%= link_to t(:new_company), new_company_path, class: 'dropdown-item' %>
+              <%= link_to t(:new_individual), new_individual_path, class: 'dropdown-item' %>
+              <div class="dropdown-divider"></div>
+              <%= link_to t(:logout), destroy_user_session_path, method: :delete, class: 'dropdown-item'  %>
+            </div>
+          </li>
         </li>
         <li class="nav-item">
           <div class="nav-link disabled">

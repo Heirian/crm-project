@@ -1,7 +1,7 @@
 <br>
-<div class="row">
+<div class="container">
   <div class="col-12">
-    <ul class="listing">
+    <div align="center">
       <div class="col-md-4" align="center">
         <h1>
           <%= link_to @person.name, person_path(@person) %>
@@ -12,29 +12,29 @@
         </p>
 
         <p>
-          <%= @person.type %>
+          <%= t(:type) %>: <%= @person.type %>
         </p>
 
         <p>
-          <%= @person.birthday %>
+          <%= t(:birthday) %>: <%= @person.birthday %>
         </p>
 
         <% if @person.type == 'Individual' %>
           <p>
-            <%= @person.gender%>
+            <%= t(:gender) %>: <%= @person.gender%>
           </p>
 
           <p>
-            <%= @person.marital_status %>
+            <%= t(:marital_status) %>: <%= @person.marital_status %>
           </p>
         <% end %>
 
         <p>
-          <%= @person.cpf %>
+          <%= t(:cpf) %>: <%= @person.cpf %>
         </p>
 
         <p>
-          <%= @person.rg %>
+          <%= t(:rg) %>: <%= @person.rg %>
         </p>
 
         <p>
@@ -50,41 +50,45 @@
       </div>
 
       <hr />
+        <div class="col-12">
+          <div class="row">
+            <div class="col-6">
+              <h4>
+                <%= t(:emails) %>
+              </h4>
+              <%= render @person.emails, emailable: @person %>
+              <%= render 'emails/form', emailable: @person %>
+            </div>
 
-      <div>
-        <h4>
-          <%= t(:emails) %>
-        </h4>
-        <%= render @person.emails, emailable: @person %>
-        <%= render 'emails/form', emailable: @person %>
+            <div class="col-6">
+              <h4>
+                <%= t(:phones) %>
+              </h4>
+              <%= render @person.phones, phonable: @person %>
+              <%= render 'phones/form', phonable: @person %>
+          </div>
+        </div>
       </div>
 
       <hr />
+      <div class="col-12">
+        <div class="row">
+          <div class="col-6">
+            <h4>
+              <%= t(:addresses) %>
+            </h4>
+            <%= render @person.addresses, addressable: @person %>
+            <%= render 'addresses/form', addressable: @person %>
+          </div>
 
-      <div>
-        <h4>
-          <%= t(:phones) %>
-        </h4>
-        <%= render @person.phones, phonable: @person %>
-        <%= render 'phones/form', phonable: @person %>
-      </div>
-
-      <hr />
-
-      <div>
-        <h4>
-          <%= t(:addresses) %>
-        </h4>
-        <%= render @person.addresses, addressable: @person %>
-        <%= render 'addresses/form', addressable: @person %>
-      </div>
-
-      <div>
-        <h4>
-          <%= t(:bank_accounts) %>
-        </h4>
-        <%= render @person.bank_accounts %>
-        <%= render 'bank_accounts/form' %>
+          <div class="col-6">
+            <h4>
+              <%= t(:bank_accounts) %>
+            </h4>
+            <%= render @person.bank_accounts %>
+            <%= render 'bank_accounts/form' %>
+          </div>
+        </div>
       </div>
 
       <hr />
@@ -96,6 +100,7 @@
         <div>
           <%= link_to t(:add_new_place), new_place_path, class: 'btn btn-primary' %>
         </div>
+        <br>
         <%= render @person.places %>
       </div>
     </ul>

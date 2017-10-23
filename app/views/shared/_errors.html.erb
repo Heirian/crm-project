@@ -1,19 +1,24 @@
-<% if object.errors.any? %>
-  <div class="row">
-    <div class="col-md-8 col-md-offset-2">
-      <div class="alert alert-danger">
-        <ul>
-          <a href="#" class="close">&#215</a>
-          <% object.errors.full_messages.each do |message| %>
-            <li>
-              <%= message %>
-            </li>
-          <% end %>
-        </ul>
-      </div>
-    </div>
+<div class="container">
+  <div align="center">
+    <% if object.errors.any? %>
+
+        <div class="col-md-6">
+          <div class="alert alert-danger">
+            <ul>
+              <a href="#" class="close">&#215</a>
+              <% object.errors.full_messages.each do |message| %>
+                <li>
+                  <%= message %>
+                </li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+
+    <% end %>
   </div>
-<% end %>
+</div>
+<br>
 
 <script type="text/javascript">
 $(".alert a").click(function() {

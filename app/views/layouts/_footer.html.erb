@@ -1,12 +1,6 @@
 <footer class="footer">
   <div class="container">
     <div align="center">
-
-      <% if user_signed_in? %>
-        <p>
-          <%= link_to t(:home), root_path %>
-        </p>
-      <% end %>
       <p class="text-muted">
         <%= full_title(yield(:title)) %> • 2017 • <%= t(:rights_reserved) %>
       </p>

@@ -1,7 +1,7 @@
 <br>
-<div class="row">
+<div class="container">
   <div class="col-12">
-    <ul class="listing">
+    <div align="center">
       <div class="col-md-4" align="center">
         <h1>
           <%= link_to @place.name, place_path(@place) %>
@@ -9,38 +9,43 @@
         <%= link_to "#{t(:delete)}", place_path(@place), method: :delete,
         data: {confirm: "#{t(:delete_place?)}"}, class: 'btn btn-danger' %>
       </div>
-
+      <br>
       <div>
         <%= t(:place_manager) %>
         <%= link_to @place.person.name, person_path(@place.person) %>
       </div>
 
-      <div>
-        <h4>
-          <%= t(:emails) %>
-        </h4>
-        <%= render @place.emails, emailable: @place %>
-        <%= render 'emails/form', emailable: @place %>
+    </div>
+    <hr />
+      <div class="col-12">
+        <div class="row">
+          <div class="col-6">
+            <h4>
+              <%= t(:emails) %>
+            </h4>
+            <%= render @place.emails, emailable: @place %>
+            <%= render 'emails/form', emailable: @place %>
+          </div>
+
+          <div class="col-6">
+            <h4>
+              <%= t(:phones) %>
+            </h4>
+            <%= render @place.phones, phonable: @place %>
+            <%= render 'phones/form', phonable: @place %>
+          </div>
+        </div>
       </div>
-
       <hr />
+      <div class="col-6">
 
-      <div>
-        <h4>
-          <%= t(:phones) %>
-        </h4>
-        <%= render @place.phones, phonable: @place %>
-        <%= render 'phones/form', phonable: @place %>
-      </div>
-
-      <hr />
-
-      <div>
-        <h4>
-          <%= t(:addresses) %>
-        </h4>
-        <%= render @place.addresses, addressable: @place %>
-        <%= render 'addresses/form', addressable: @place %>
+        <div>
+          <h4>
+            <%= t(:addresses) %>
+          </h4>
+          <%= render @place.addresses, addressable: @place %>
+          <%= render 'addresses/form', addressable: @place %>
+        </div>
       </div>
     </ul>
   </div>
