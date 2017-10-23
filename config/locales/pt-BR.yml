@@ -257,6 +257,12 @@ pt-BR:
           male: "Masculino"
   hello: "Hello world"
   home: "Página inicial"
+  admin_area: "Área administrativa"
+  #locations
+  locations: "Localização"
+  all_countries: "Países"
+  all_states: "Estados"
+  all_cities: "Cidades"
   delete: "Deletar"
   #country
   add_a_country: "Adicionar país"
@@ -282,6 +288,12 @@ pt-BR:
   add_new_email: "Adicionar um email"
   create_email: "Adicionar email"
   #person
+  person_record: "Registro pessoa"
+  new_individual: "Nova pessoa física"
+  all_individual_record: "Pessoas físicas"
+  new_company: "Nova pessoa júridica"
+  all_company_record: "Pessoas jurídicas"
+  all_people_record: "Pessoas"
   name: "Nome"
   enter_person_name: "Coloque o nome da pessoa"
   company_name: "Razão social"
@@ -328,6 +340,7 @@ pt-BR:
   enter_place_name: "Coloque o nome do local"
   add_a_place: "Adicionar um local"
   #users
+  change_your_password: "Trocar senha"
   logged_in_as: "Conectado como"
   edit_profile: "Editar perfil"
   logout: "Sair"
