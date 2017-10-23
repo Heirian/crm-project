@@ -1,0 +1,19 @@
+<div class="container">
+  <div align="center">
+    <div class="col-6">
+      <%= form_for [@emailable, @email] do |ef| %>
+        <div class="form-group">
+          <div class="control-label">
+            <%= ef.label :body, t(:new_email) %>
+          </div>
+          <div>
+            <%= ef.text_field :body, class: "form-control", placeholder: I18n.t(:add_new_email) %>
+          </div>
+        </div>
+        <%= ef.submit t(:update_email), class: 'btn btn-primary' %>
+      <% end %>
+      <hr/>
+      <%= link_to "#{t(:back)}", :back %>
+    </div>
+  </div>
+</div>

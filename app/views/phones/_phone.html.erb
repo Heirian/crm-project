@@ -1,4 +1,9 @@
 <p><%= Phonelib.parse("#{phone.number}").full_international  %></p>
+<% if phonable == @person %>
+  <%= link_to "#{t(:edit)}", edit_person_phone_path(phonable, phone), class: 'btn btn-info' %>
+<% else %>
+  <%= link_to "#{t(:edit)}", edit_place_phone_path(phonable, phone), class: 'btn btn-info' %>
+<% end %>
 <% if current_user.has_role? :admin  %>
   <%= link_to "#{t(:delete)}", person_phone_path(phonable, phone), method: :delete,
   data: { confirm: "#{t(:delete_phone?)}" }, class: 'btn btn-danger' %>

@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 class BankAccountsController < ApplicationController
-  before_action :set_person, only: %I[create update destroy]
-  before_action :set_bank_account, only: %I[update destroy]
+  before_action :set_person, only: %I[create edit update destroy]
+  before_action :set_bank_account, only: %I[edit update destroy]
   before_action :authenticate_user!
   def create
     @bank_account = @person.bank_accounts.new(bank_account_params)
@@ -13,6 +13,8 @@ class BankAccountsController < ApplicationController
     end
     redirect_to @person
   end
+
+  def edit; end
 
   def update
     if @bank_account.update(bank_account_params)

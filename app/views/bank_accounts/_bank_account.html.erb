@@ -1,4 +1,5 @@
 <p><%= bank_account.bank_name %> - <%= bank_account.bank_branch_number %> - <%= bank_account.account_number %></p>
+<%= link_to "#{t(:edit)}", edit_person_bank_account_path(@person, bank_account), class: 'btn btn-info' %>
 <% if current_user.has_role? :admin  %>
   <%= link_to "#{t(:delete)}", person_bank_account_path(@person, bank_account), method: :delete,
   data: { confirm: "#{t(:delete_bank_account?)}" }, class: 'btn btn-danger' %>

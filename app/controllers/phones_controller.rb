@@ -12,6 +12,20 @@ class PhonesController < ApplicationController
     redirect_to @phonable
   end
 
+  def edit
+    @phone = @phonable.phones.find(params[:id])
+  end
+
+  def update
+    @phone = @phonable.phones.find(params[:id])
+    if @phone.update(phone_params)
+      flash[:success] = I18n.t(:email_add_success)
+    else
+      flash[:danger] = @phone.errors.full_messages
+    end
+    redirect_to @phonable
+  end
+
   def destroy
     @phone = @phonable.phones.find(params[:id])
     @phone.destroy
