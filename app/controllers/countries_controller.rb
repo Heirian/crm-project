@@ -14,6 +14,7 @@ class CountriesController < ApplicationController
   def create
     @country = Country.new(country_params)
     return render 'new' unless @country.save
+    flash[:success] = I18n.t(:country_add_success)
     redirect_to countries_path
   end
 

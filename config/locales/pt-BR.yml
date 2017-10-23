@@ -211,6 +211,7 @@ pt-BR:
     attributes:
       user:
         password: "Senha"
+        delete_at: "Apagado em"
       person:
         cpf: "CPF"
         cnpj: "CNPJ"
@@ -219,6 +220,18 @@ pt-BR:
         company_name: "Razão social"
         birthday: "Data de nascimento"
         rg: "RG"
+        delete_at: "Apagado em"
+      bank_account:
+        bank_name: "Nome do banco"
+        bank_branch_number: "Agência bancária"
+        account_number: "Número da conta"
+        person: "Proprietário"
+        delete_at: "Apagado em"
+      email:
+        body: "Campo do email"
+        delete_at: "Apagado em"
+      phone:
+        delete_at: "Apagado em"
     enums:
       person:
         marital_status:
@@ -243,7 +256,7 @@ pt-BR:
           female: "Feminino"
           male: "Masculino"
   hello: "Hello world"
-  home: "Home"
+  home: "Página inicial"
   delete: "Deletar"
   #country
   add_a_country: "Adicionar país"
@@ -316,3 +329,6 @@ pt-BR:
   logged_in_as: "Conectado como"
   edit_profile: "Editar perfil"
   logout: "Sair"
+  email: "Email"
+  password: "Senha"
+  profile: "Perfil"
