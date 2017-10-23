@@ -1,4 +1,6 @@
 <p><%= Phonelib.parse("#{phone.number}").full_international  %></p>
-<%= link_to "#{t(:delete)}", person_phone_path(phonable, phone), method: :delete,
-data: { confirm: "#{t(:delete_phone?)}" }, class: 'btn btn-danger' %>
+<% if current_user.has_role? :admin  %>
+  <%= link_to "#{t(:delete)}", person_phone_path(phonable, phone), method: :delete,
+  data: { confirm: "#{t(:delete_phone?)}" }, class: 'btn btn-danger' %>
+<% end %>
 <hr />

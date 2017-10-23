@@ -1,31 +1,42 @@
-
-<div class="row">
-  <div class="col-md-12">
-    <%= form_for(@place, html: { class: "form-horizontal", role: "form" }) do |f| %>
-      <div class="form-group">
-        <div class="control-label col-md-5">
-          <%= f.label :name, "#{t(:place)}" %>
-        </div>
-        <div class="col-md-4">
-          <%= f.text_field :name, class: "form-control", placeholder: "#{t(:enter_place_name)}" %>
-        </div>
-      </div>
-
-      <div class="form-group">
-        <div class="row">
-          <div class="col-md-offset-2 col-md-8">
-            <%= f.collection_select :person_id, Person.all, :id, :name, {include_blank: false}, {:multiple => false} %>
+<script type="text/javascript">
+  $(document).ready(function () {
+    $("#select2-person").select2();
+    theme : "bootstrap"
+  });
+</script>
+<br>
+<div class="container">
+  <div align="center">
+    <div class="col-6">
+        <%= form_for(@place, html: { class: "form-horizontal", role: "form" }) do |f| %>
+          <div class="form-group">
+            <div class="control-label">
+              <%= f.label :name, "#{t(:place)}" %>
+            </div>
+            <div>
+              <%= f.text_field :name, class: "form-control", placeholder: "#{t(:enter_place_name)}" %>
+            </div>
           </div>
-        </div>
-      </div>
 
-      <div class="form-group">
-        <div class="col-md-offset-5 col-md-4 btn-group">
-          <%= f.submit(@place.new_record? ? "#{t(:add_a_place)}" : "#{t(:update_place)}",
-                            class: "btn btn-primary") %>
-          <%= link_to "#{t(:home)}", root_path, class: "btn btn-primary" %>
-        </div>
-      </div>
-    <% end %>
+          <div class="form-group">
+            <div class="control-label">
+              <%= f.label :person_id, "#{t(:place_manager)}" %>
+            </div>
+              <div>
+                <%= f.collection_select :person_id, Person.all, :id, :name, {include_blank: false}, { multiple: false, class: 'form-control', id: 'select2-person'} %>
+              </div>
+
+          </div>
+
+          <div class="form-group">
+            <div>
+              <%= f.submit(@place.new_record? ? "#{t(:add_a_place)}" : "#{t(:update_place)}",
+                                class: "btn btn-primary") %>
+              <br>
+              <%= link_to "#{t(:back)}", :back %>
+            </div>
+          </div>
+        <% end %>
+    </div>
   </div>
 </div>

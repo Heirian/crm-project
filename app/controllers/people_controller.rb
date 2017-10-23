@@ -8,6 +8,14 @@ class PeopleController < ApplicationController
     @people = Person.all
   end
 
+  def company_index
+    @people = Company.all
+  end
+
+  def individual_index
+    @people = Individual.all
+  end
+
   def show; end
 
   def new; end
@@ -45,7 +53,7 @@ class PeopleController < ApplicationController
   end
 
   def person_params
-    params.require(:person).permit(:name, :type, :inscricao_estadual, :trading_name, :cnpj,
+    params.require(:person).permit(:name, :type, :inscricao_estadual, :company_name, :cnpj,
                                    :cpf, :rg, :birthday, :marital_status, :gender)
   end
 end

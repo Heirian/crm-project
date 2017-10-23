@@ -8,18 +8,15 @@
         </h1>
 
         <p>
-          <%= @person.company_name %>
+          <%= @person.type %>
         </p>
 
-        <p>
-          <%= t(:type) %>: <%= @person.type %>
-        </p>
 
-        <p>
-          <%= t(:birthday) %>: <%= @person.birthday %>
-        </p>
 
         <% if @person.type == 'Individual' %>
+          <p>
+            <%= t(:birthday) %>: <%= @person.birthday %>
+          </p>
           <p>
             <%= t(:gender) %>: <%= @person.gender%>
           </p>
@@ -27,26 +24,34 @@
           <p>
             <%= t(:marital_status) %>: <%= @person.marital_status %>
           </p>
+
+          <p>
+            <%= t(:cpf) %>: <%= @person.cpf %>
+          </p>
+
+          <p>
+            <%= t(:rg) %>: <%= @person.rg %>
+          </p>
+        <% else %>
+          <p>
+            <%= @person.company_name %>
+          </p>
+          <p>
+          <%= t(:cnpj) %>: <%= @person.cnpj %>
+          </p>
+
+          <p>
+            <%= t(:inscricao_estadual) %>: <%= @person.inscricao_estadual %>
+          </p>
         <% end %>
 
-        <p>
-          <%= t(:cpf) %>: <%= @person.cpf %>
-        </p>
 
-        <p>
-          <%= t(:rg) %>: <%= @person.rg %>
-        </p>
 
-        <p>
-          <%= @person.cnpj %>
-        </p>
 
-        <p>
-          <%= @person.inscricao_estadual %>
-        </p>
-
-        <%= link_to "#{t(:delete)}", person_path(@person), method: :delete,
-        data: {confirm: "#{t(:delete_person?)}"}, class: 'btn btn-danger' %>
+        <% if current_user.has_role? :admin  %>
+          <%= link_to "#{t(:delete)}", person_path(@person), method: :delete,
+          data: {confirm: "#{t(:delete_person?)}"}, class: 'btn btn-danger' %>
+        <% end %>
       </div>
 
       <hr />
@@ -90,18 +95,17 @@
           </div>
         </div>
       </div>
-
+    </div>
       <hr />
 
       <div>
         <h4>
           <%= t(:places) %>
         </h4>
+        <%= render @person.places %>
         <div>
           <%= link_to t(:add_new_place), new_place_path, class: 'btn btn-primary' %>
         </div>
-        <br>
-        <%= render @person.places %>
       </div>
     </ul>
   </div>

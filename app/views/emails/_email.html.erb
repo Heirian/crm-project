@@ -1,4 +1,6 @@
 <p><%= email.body %></p>
-<%= link_to "#{t(:delete)}", person_email_path(emailable, email), method: :delete,
-data: { confirm: "#{t(:delete_email?)}" }, class: 'btn btn-danger' %>
+<% if current_user.has_role? :admin  %>
+  <%= link_to "#{t(:delete)}", person_email_path(emailable, email), method: :delete,
+  data: { confirm: "#{t(:delete_email?)}" }, class: 'btn btn-danger' %>
+<% end %>
 <hr />

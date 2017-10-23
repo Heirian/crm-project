@@ -52,6 +52,8 @@ gem 'devise-i18n-views'
 # https://github.com/CanCanCommunity/cancancan
 gem 'cancancan', '~> 2.0'
 
+# add roles
+gem 'rolify'
 # Rails admin
 gem 'rails_admin'
 gem 'rails_admin_rollincode'
