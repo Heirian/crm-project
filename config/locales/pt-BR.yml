@@ -390,6 +390,9 @@ pt-BR:
   back: "Voltar"
   marital_status: "Estado cívil"
   edit: "Editar"
+  select_person_type: "Selecione o tipo de cadastro"
+  individual: "Pessoa física"
+  company: "Pessoa jurídica"
   #phones
   add_phone_number: "Adicionar número de telefone"
   phone_number: "Número de telefone"
