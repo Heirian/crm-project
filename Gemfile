@@ -47,9 +47,16 @@ gem 'bootstrap-filestyle-rails'
 
 # Devise is a flexible authentication solution for Rails based on Warden - https://github.com/plataformatec/devise
 gem 'devise'
+gem 'devise-i18n-views'
 # CanCanCan is an authorization library which restricts what resources a given user is allowed to access.
 # https://github.com/CanCanCommunity/cancancan
 gem 'cancancan', '~> 2.0'
+
+# add roles
+gem 'rolify'
+# Rails admin
+gem 'rails_admin'
+gem 'rails_admin_rollincode'
 
 # Ransack enables the creation of sim and adv search forms for your RoR appl
 # https://github.com/activerecord-hackery/ransack
@@ -83,6 +90,8 @@ gem 'phonelib'
 # doesn't actually destroy the database record, Soft delete
 # https://github.com/rubysherpas/paranoia
 gem 'paranoia', '~> 2.3', '>= 2.3.1'
+
+gem 'rails-i18n', '~> 5.0.0'
 
 group :development, :test do
   gem 'brakeman', require: false

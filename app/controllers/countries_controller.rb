@@ -3,6 +3,7 @@
 class CountriesController < ApplicationController
   before_action :set_country, only: %I[show edit update destroy]
   before_action :authenticate_user!
+  load_and_authorize_resource
   def index
     @countries = Country.all
   end
@@ -14,6 +15,7 @@ class CountriesController < ApplicationController
   def create
     @country = Country.new(country_params)
     return render 'new' unless @country.save
+    flash[:success] = I18n.t(:country_add_success)
     redirect_to countries_path
   end
 

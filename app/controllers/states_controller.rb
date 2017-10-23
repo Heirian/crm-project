@@ -3,6 +3,7 @@
 class StatesController < ApplicationController
   before_action :set_state, only: %I[show edit update destroy]
   before_action :authenticate_user!
+  load_and_authorize_resource
   def index
     @states = State.all
   end

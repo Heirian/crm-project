@@ -12,6 +12,10 @@ class AddressesController < ApplicationController
     redirect_to @addressable
   end
 
+  def edit
+    @address = @addressable.addresses.find(params[:id])
+  end
+
   def update
     @address = @addressable.addresses.find(params[:id])
     if @address.update(address_params)

@@ -60,5 +60,5 @@ pt-BR:
       not_found: "não encontrado"
       not_locked: "não está bloqueada"
       not_saved:
-        one: "1 erro está proibindo %{resource} de ser salvo:"
+        one: "Um erro está proibindo %{resource} de ser salvo:"
         other: "%{count} estão proibindo %{resource} de ser salvo:"

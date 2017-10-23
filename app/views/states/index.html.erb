@@ -1,9 +1,8 @@
-<br>
-<div class="row">
-  <div class="col-12">
+<div class="container">
+  <div align="center">
     <% @states.each do |state| %>
-      <ul class="listing">
-        <div class="col-md-4" align="center">
+
+        <div class="col-md-4">
           <h3>
             <%= link_to state.name, state_path(state) %>
           </h3>
@@ -14,7 +13,6 @@
           <%= link_to "#{t(:delete)}", state_path(state), method: :delete,
           data: { confirm: "#{t(:delete_state?)}" }, class: 'btn btn-danger' %>
         </div>
-      </ul>
       <br>
     <% end %>
   </div>

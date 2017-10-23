@@ -12,6 +12,20 @@ class EmailsController < ApplicationController
     redirect_to @emailable
   end
 
+  def edit
+    @email = @emailable.emails.find(params[:id])
+  end
+
+  def update
+    @email = @emailable.emails.find(params[:id])
+    if @email.update(email_params)
+      flash[:success] = I18n.t(:email_add_success)
+    else
+      flash[:danger] = @email.errors.full_messages
+    end
+    redirect_to @emailable
+  end
+
   def destroy
     @email = @emailable.emails.find(params[:id])
     @email.destroy
