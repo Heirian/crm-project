@@ -1,11 +1,14 @@
-<%= render 'shared/errors', object: @person %>
+<div class="container">
+  <div align="center">
+    <%= render 'shared/errors', object: @person %>
+    <div class="col-6">
+      <%= render 'form_page_title', title: t(:select_person_type) %>
 
-<%= render 'form_page_title', title: t(:select_person_type) %>
-
-<h3>
-  <%= link_to t(:individual), new_individual_path %>
-</h3>
-
-<h3>
-  <%= link_to t(:company), new_company_path %>
-</h3>
+      <h3>
+        <%= link_to t(:individual), new_individual_path %>
+        •
+        <%= link_to t(:company), new_company_path %>
+      </h3>
+    </div>
+  </div>
+</div>
