@@ -6,8 +6,8 @@
         <h1>
           <%= link_to @place.name, place_path(@place) %>
         </h1>
-        <%= link_to "#{t(:delete)}", place_path(@place), method: :delete,
-        data: {confirm: "#{t(:delete_place?)}"}, class: 'btn btn-danger' %>
+        <%= link_to t(:delete), place_path(@place), method: :delete,
+        data: {confirm: t(:delete_place?)}, class: 'btn btn-danger' %>
       </div>
       <br>
       <div>
