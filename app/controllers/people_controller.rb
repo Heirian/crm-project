@@ -26,7 +26,12 @@ class PeopleController < ApplicationController
 
   def create
     @person = Person.new(person_params)
-    return render 'new' unless @person.save
+    unless @person.save
+      flash[:danger] = @person.errors.full_messages
+      return render 'new_company' if @person.type == 'Company'
+      return render 'new_individual'
+    end
+    flash[:success] = I18n.t(:person_register_add_success)
     redirect_to people_path
   end
 

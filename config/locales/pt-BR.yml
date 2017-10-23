@@ -187,10 +187,10 @@ pt-BR:
       models:
         person:
           attributes:
-            cpf:
-              invalid_cpf: "inválido"
             cnpj:
               invalid_cnpj: "inválido"
+            cpf:
+              invalid_cpf: "inválido"
     models:
       user: "Usuário"
       users: "Usuários"
@@ -260,7 +260,6 @@ pt-BR:
         password: "Senha"
         delete_at: "Apagado em"
         password_confirm: "Confirme sua senha"
-        password_actual: "Sua senha atual"
       person:
         type: "Tipo"
         cpf: "CPF"
@@ -346,7 +345,6 @@ pt-BR:
   all_countries: "Países"
   all_states: "Estados"
   all_cities: "Cidades"
-  all_places: "Locais"
   delete: "Deletar"
   #country
   add_a_country: "Adicionar país"
@@ -363,15 +361,17 @@ pt-BR:
   new_state: "Adicionar novo estado"
   edit_state: "Editar estado"
   #city
-  new_city: "Nova cidade"
   city: "Cidade"
   enter_city_name: "Coloque o nome da cidade"
   add_a_city: "Adicionar cidade"
   update_city: "Atualizar cidade"
+  new_city: "Nova cidade"
+  all_places: "Todos os lugares"
   #emails
   new_email: "Novo email"
   add_new_email: "Adicionar um email"
   create_email: "Adicionar email"
+  update_email: "Atualizar email"
   #person
   person_record: "Registro pessoa"
   new_individual: "Nova pessoa física"
@@ -405,17 +405,22 @@ pt-BR:
   individual: "Pessoa física"
   company: "Pessoa jurídica"
   #phones
+  phones: 'Telefones'
   add_phone_number: "Adicionar número de telefone"
   phone_number: "Número de telefone"
-  example_number_format_letter: "Código do país 0 Código de área 0000-0000"
-  example_number_format: "00 0 00 0000-0000"
+  example_number_format_letter: "Código do país + 0 + Código de área + 0000-0000"
+  example_number_format: "99 0 99 9999-9999"
   create_phone: "Adicionar telefone"
+  edit_phone: "Atualizar tefelone"
   #addresses
+  addresses: "Endereços"
   street_address: "Endereço"
   add_street_address: "Adicionar endereço"
   zip_code: "CEP"
   add_zip_code: "Adicionar CEP"
   create_address: "Adicionar endereço"
+  update_address: "Atualizar endereço"
+  edit_address: "Editar endereço"
   #bankaccount
   bank_accounts: "Contas bancárias"
   bank_name: "Nome do banco"
@@ -424,6 +429,7 @@ pt-BR:
   add_bank_branch_number: "Adicionar agência bancária"
   account_number: "Número da conta"
   add_account_number: "Adicionar conta bancária"
+  update_bank_account: "Atualizar conta bancária"
   #places
   places: "Locais"
   add_new_place: "Adicionar um novo local"
@@ -431,6 +437,7 @@ pt-BR:
   place: "Local"
   enter_place_name: "Coloque o nome do local"
   add_a_place: "Adicionar um local"
+  place_manager: "Responsável"
   #users
   change_your_password: "Trocar senha"
   logged_in_as: "Conectado como"
@@ -439,5 +446,4 @@ pt-BR:
   email: "Email"
   password: "Senha"
   profile: "Perfil"
-  back: "Voltar"
   rights_reserved: "Todos os direitos reservados"
