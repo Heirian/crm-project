@@ -108,3 +108,7 @@ en:
   add_bank_name: "Add bank name"
   add_bank_branch_number: "Add branch number"
   add_account_number: "Add account number"
+  #users
+  logged_in_as: "Logged in as"
+  edit_profile: "Edit profile"
+  logout: "Logout"

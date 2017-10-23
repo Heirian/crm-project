@@ -76,8 +76,7 @@ pt-BR:
   update_city: "Atualizar cidade"
   #emails
   new_email: "Novo email"
-  add_new_email: "Adicionar um email"
-  create_email: "Adicionar email"
+  add_new_email: "Adicionar um new email"
   #person
   name: "Nome"
   enter_person_name: "Coloque o nome da pessoa"
@@ -102,7 +101,6 @@ pt-BR:
   phone_number: "Número de telefone"
   example_number_format_letter: "Código do país 0 Código de área 0000-0000"
   example_number_format: "00 0 00 0000-0000"
-  create_phone: "Adicionar telefone"
   #addresses
   street_address: "Endereço"
   add_street_address: "Adicionar endereço"
@@ -110,17 +108,6 @@ pt-BR:
   add_zip_code: "Adicionar CEP"
   create_address: "Adicionar endereço"
   #bankaccount
-  bank_accounts: "Contas bancárias"
-  bank_name: "Nome do banco"
   add_bank_name: "Adicionar nome do banco"
-  bank_branch_number: "Agência bancária"
   add_bank_branch_number: "Adicionar agência bancária"
-  account_number: "Número da conta"
   add_account_number: "Adicionar conta bancária"
-  #places
-  places: "Locais"
-  add_new_place: "Adicionar um novo local"
-  new_place: "Novo local"
-  place: "Local"
-  enter_place_name: "Coloque o nome do local"
-  add_a_place: "Adicionar um local"
