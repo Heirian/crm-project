@@ -183,6 +183,14 @@ pt-BR:
         col_sep: Separador de coluna
         col_sep_help: Deixe em branco para utilizar o padrão ('%{value}') # value is default_col_sep
   activerecord:
+    errors:
+      models:
+        person:
+          attributes:
+            cpf:
+              invalid_cpf: "inválido"
+            cnpj:
+              invalid_cnpj: "inválido"
     models:
       user: "Usuário"
       users: "Usuários"
@@ -252,6 +260,7 @@ pt-BR:
         password: "Senha"
         delete_at: "Apagado em"
         password_confirm: "Confirme sua senha"
+        password_actual: "Sua senha atual"
       person:
         type: "Tipo"
         cpf: "CPF"
@@ -337,6 +346,7 @@ pt-BR:
   all_countries: "Países"
   all_states: "Estados"
   all_cities: "Cidades"
+  all_places: "Locais"
   delete: "Deletar"
   #country
   add_a_country: "Adicionar país"
@@ -353,6 +363,7 @@ pt-BR:
   new_state: "Adicionar novo estado"
   edit_state: "Editar estado"
   #city
+  new_city: "Nova cidade"
   city: "Cidade"
   enter_city_name: "Coloque o nome da cidade"
   add_a_city: "Adicionar cidade"
@@ -421,4 +432,5 @@ pt-BR:
   email: "Email"
   password: "Senha"
   profile: "Perfil"
+  back: "Voltar"
   rights_reserved: "Todos os direitos reservados"

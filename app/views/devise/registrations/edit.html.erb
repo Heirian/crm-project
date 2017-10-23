@@ -21,13 +21,13 @@
       </div>
       <br>
       <div class="col-md-4 col-md-offset-4">
-        <%= f.password_field :password_confirmation, class: 'form-control', placeholder: t(:password_confirmation) %>
+        <%= f.password_field :password_confirmation, class: 'form-control', placeholder:  t('activerecord.attributes.user.password_confirm') %>
       </div>
       <br>
 
       <div class="col-md-4 col-md-offset-4">
         <i>(<%= t('.we_need_your_current_password_to_confirm_your_changes', :default => 'we need your current password to confirm your changes') %>)</i><br />
-        <%= f.password_field :current_password , class: "form-control", placeholder: t(:password_actual)%></div>
+        <%= f.password_field :current_password , class: "form-control", placeholder: t('activerecord.attributes.user.password_actual') %></div>
       <br>
       <div><%= f.submit t('.update', :default => "Update"), class: 'btn btn-primary' %></div>
     <% end %>
