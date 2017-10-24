@@ -7,15 +7,16 @@
                <span class="icon-bar"></span>
            </button>
            <a class="navbar-brand" href="/">
-               <img src="./img/logo.png" />
+               <img src="/img/logo.png" />
 
            </a>
 
        </div>
 
        <span class="logout-spn" >
-         <a href="#" style="color:#fff;">LOGOUT</a>
-
+        <% if request.fullpath != '/pt-BR/users/sign_in' %>
+            <%= link_to t(:logout), destroy_user_session_path, method: :delete %>
+        <% end %>
        </span>
    </div>
 </div>
