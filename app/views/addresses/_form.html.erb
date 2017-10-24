@@ -38,7 +38,7 @@
 <div class="form-group">
 
     <div>
-      <%= af.grouped_collection_select :state_id, Country.order(:name), :states, :name, :id, :name, { include_blank: false }, { multiple: false, class: 'form-control', id: 'select2-state' } %>
+      <%= af.grouped_collection_select :state_id, Country.includes(:states).order(:name), :states, :name, :id, :name, { include_blank: false }, { multiple: false, class: 'form-control', id: 'select2-state' } %>
     </div>
 
 </div>
@@ -46,7 +46,7 @@
 <div class="form-group">
 
     <div>
-      <%= af.grouped_collection_select :city_id, State.order(:name), :cities, :name, :id, :name, { include_blank: false }, { multiple: false, class: 'form-control', id: 'select2-city' } %>
+      <%= af.grouped_collection_select :city_id, State.includes(:cities).order(:name), :cities, :name, :id, :name, { include_blank: false }, { multiple: false, class: 'form-control', id: 'select2-city' } %>
     </div>
 
 </div>

@@ -5,7 +5,7 @@ class StatesController < ApplicationController
   before_action :authenticate_user!
   load_and_authorize_resource
   def index
-    @states = State.all
+    @states = State.all.includes(:country)
   end
 
   def new
@@ -14,19 +14,28 @@ class StatesController < ApplicationController
 
   def create
     @state = State.new(state_params)
-    return render 'new' unless @state.save
+    unless @state.save
+      flash[:danger] = @state.errors.full_messages
+      return render 'new'
+    end
+    flash[:success] = I18n.t(:state_add_success)
     redirect_to states_path
   end
 
   def edit; end
 
   def update
-    return render 'edit' unless @state.update(state_params)
+    unless @state.update(state_params)
+      flash[:danger] = @state.errors.full_messages
+      return render 'edit'
+    end
+    flash[:success] = I18n.t(:state_update_successfully)
     redirect_to states_path
   end
 
   def destroy
     @state.destroy
+    flash[:danger] = I18n.t(:state_deleted_successfully)
     redirect_to states_path
   end
 
