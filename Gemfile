@@ -34,8 +34,6 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-# Bootstrap 4 (beta) - https://github.com/twbs/bootstrap-rubygem
-gem 'bootstrap', '~> 4.0.0.beta'
 # jquery for bootstrap - https://github.com/rails/jquery-rails
 gem 'jquery-rails'
 # gem to control pages pagination - https://github.com/mislav/will_paginate
