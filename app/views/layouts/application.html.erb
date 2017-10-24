@@ -4,18 +4,34 @@
     <title><%= full_title(yield(:title)) %></title>
     <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%#= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'bootstrap' %>
+    <%= stylesheet_link_tag 'custom' %>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <%#= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+      $( function() {
+        $( "#menu" ).menu();
+      } );
+    </script>
   </head>
 
   <body>
     <header>
       <%= render 'layouts/nav_bar' %>
     </header>
+
+    <div id="wrapper">
+
+      <% if request.fullpath != '/pt-BR/users/sign_in' %>
+        <%= render 'layouts/menu-sidebar' %>
+      <% end %>
+    </div>
     <%= render 'layouts/flash_messages' %>
-
-    <%= yield %>
-
+      <%= yield %>
     <%= render 'layouts/footer' %>
 
   </body>
