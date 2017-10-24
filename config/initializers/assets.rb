@@ -4,10 +4,8 @@
 
 # Version of your assets, change this if you want to expire all your assets.
 Rails.application.config.assets.version = '1.0'
-Rails.application.config.assets.precompile += %w( bootstrap.css )
-Rails.application.config.assets.precompile += %w( font-awesome.css )
-Rails.application.config.assets.precompile += %w( custom.css )
-Rails.application.config.assets.precompile += %w( jquery-1.10.2.js )
+Rails.application.config.assets.precompile += %w( bootstrap.scss )
+Rails.application.config.assets.precompile += %w( custom.scss )
 Rails.application.config.assets.precompile += %w( bootstrap.min.js )
 Rails.application.config.assets.precompile += %w( custom.js )
 

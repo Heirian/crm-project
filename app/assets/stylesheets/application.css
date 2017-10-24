@@ -10,6 +10,8 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
+ *= require bootstrap
+ *= require custom
  *= require select2
  *= require select2-bootstrap
  *= require_tree .
@@ -20,14 +22,6 @@
    position: relative;
    min-height: 100%;
    word-wrap: break-word;
- }
-
- body {
-   /* Margin bottom by footer height */
-   margin-bottom: 70px;
-   min-height: 100%;
-   background-color: #ADD8E6;
-   font-family: arial;
  }
 
  .footer {
