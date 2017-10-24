@@ -91,6 +91,7 @@ gem 'phonelib'
 # https://github.com/rubysherpas/paranoia
 gem 'paranoia', '~> 2.3', '>= 2.3.1'
 
+# internationalization
 gem 'rails-i18n', '~> 5.0.0'
 
 group :development, :test do
@@ -115,6 +116,9 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3'
+  # see better errors screens
+  gem 'better_errors'
+  gem 'binding_of_caller'
 end
 
 group :production do
