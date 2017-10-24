@@ -447,3 +447,6 @@ pt-BR:
   password: "Senha"
   profile: "Perfil"
   rights_reserved: "Todos os direitos reservados"
+  #buttons
+  view: "Visualizar"
+  edit: "Editar"

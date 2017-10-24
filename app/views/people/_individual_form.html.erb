@@ -1,78 +1,92 @@
-<div class="container">
-  <div align="center">
-    <div class="col-6">
-    <%= form_for(@person, html: { class: "form-horizontal", role: "form" }) do |f| %>
-      <div class="type-person-no-display">
-        <%= f.select :type, ['Individual'] if @person.new_record?  %>
-      </div>
+<br>
+<div id="page-wrapper">
+   <div id="page-inner">
+      <div class="container">
+         <div class="col-12">
+            <div align="center">
+               <div>
+                  <div class="row">
+                     <div class="col-md-12">
+                        <h2><%= @person.id %> - <%= @person.name %></h2>
+                     </div>
+                  </div>
+                  <%= form_for(@person, html: { class: "form-horizontal", role: "form" }) do |f| %>
+                    <div class="type-person-no-display">
+                      <%= f.select :type, ['Individual'] if @person.new_record?  %>
+                    </div>
 
-      <div class="form-group">
-        <div class="control-label">
-          <%= f.label :name, "#{t(:name)}" %>
-        </div>
-        <div>
-          <%= f.text_field :name, class: "form-control", placeholder: "#{t(:enter_person_name)}" %>
-        </div>
-      </div>
+                    <div class="form-group">
+                      <div class="control-label">
+                        <%= f.label :name, "#{t(:name)}" %>
+                      </div>
+                      <div>
+                        <%= f.text_field :name, class: "form-control", placeholder: "#{t(:enter_person_name)}" %>
+                      </div>
+                    </div>
 
-      <div class="form-group">
-          <h4>
-            <%= t(:person_birthday) %>
-          </h4>
-          <%= date_select :person, :birthday, { start_year: 2002, end_year: 1905, order: [:day, :month, :year]}, class: "form-control select-date"  %>
-      </div>
+                    <div class="form-group">
+                        <h4>
+                          <%= t(:person_birthday) %>
+                        </h4>
+                        <%= date_select :person, :birthday, { start_year: 2002, end_year: 1905, order: [:day, :month, :year]}, class: "form-control select-date"  %>
+                    </div>
 
-      <div class="form-group">
-        <h4 class="control-label">
-          <%= f.label :gender %>
-        </h4>
-        <h5>
-          <%= f.radio_button :gender, :female %>
-          <%= label :gender, t(:female) %>
-        </h5>
-        <h5>
-          <%= f.radio_button :gender, :male, checked: true %>
-          <%= label :gender, t(:male) %>
-        </h5>
+                    <div class="form-group">
+                      <h4 class="control-label">
+                        <%= f.label :gender %>
+                      </h4>
+                      <h5>
+                        <%= f.radio_button :gender, :female %>
+                        <%= label :gender, t(:female) %>
+                      </h5>
+                      <h5>
+                        <%= f.radio_button :gender, :male, checked: true %>
+                        <%= label :gender, t(:male) %>
+                      </h5>
 
-      </div>
+                    </div>
 
 
-      <div class="form-group">
-        <div class="control-label">
-          <%= f.label :cpf, "#{t(:cpf)}" %>
-        </div>
-        <div>
-          <%= f.text_field :cpf, class: "form-control", placeholder: "#{t(:enter_cpf)}" %>
-        </div>
-      </div>
+                    <div class="form-group">
+                      <div class="control-label">
+                        <%= f.label :cpf, "#{t(:cpf)}" %>
+                      </div>
+                      <div>
+                        <%= f.text_field :cpf, class: "form-control", placeholder: "#{t(:enter_cpf)}" %>
+                      </div>
+                    </div>
 
-      <div class="form-group">
-        <div class="control-label">
-          <%= f.label :rg, "#{t(:rg)}" %>
-        </div>
-        <div>
-          <%= f.text_field :rg, class: "form-control", placeholder: "#{t(:enter_rg)}" %>
-        </div>
+                    <div class="form-group">
+                      <div class="control-label">
+                        <%= f.label :rg, "#{t(:rg)}" %>
+                      </div>
+                      <div>
+                        <%= f.text_field :rg, class: "form-control", placeholder: "#{t(:enter_rg)}" %>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <div class="control-label">
+                        <%= f.label :marital_status, t(:marital_status) %>
+                      </div>
+                      <div>
+                        <%= f.select :marital_status, options_for_enum(@person, :marital_status), {}, { class: 'form-control' } %>
+                      </div>
+                    </div>
+                    <br>
+                    <div class="form-group">
+                      <div>
+                        <%= f.submit(@person.new_record? ? "#{t(:add_a_person)}" : "#{t(:update_person)}",
+                                          class: "btn btn-primary") %>
+                      </div>
+                    </div>
+                  <% end %>
+
+               </div>
+
+
+            </ul>
+         </div>
       </div>
-      <div class="form-group">
-        <div class="control-label">
-          <%= f.label :marital_status, t(:marital_status) %>
-        </div>
-        <div>
-          <%= f.select :marital_status, options_for_enum(@person, :marital_status), {}, { class: 'form-control' } %>
-        </div>
-      </div>
-      <br>
-      <div class="form-group">
-        <div>
-          <%= f.submit(@person.new_record? ? "#{t(:add_a_person)}" : "#{t(:update_person)}",
-                            class: "btn btn-primary") %>
-        </div>
-      </div>
-    <% end %>
-    <hr />
-    <%= link_to t(:back), :back %>
-    </div>
-  </div>
+   </div>
+</div>
 </div>

@@ -1,114 +1,121 @@
 <br>
-<div class="container">
-  <div class="col-12">
-    <div align="center">
-      <div>
-        <h1>
-          <%= link_to @person.name, person_path(@person) %>
-        </h1>
+<div id="page-wrapper">
+   <div id="page-inner">
+      <div class="container">
+         <div class="col-12">
+            <div align="center">
+               <div>
+                  <div class="row">
+                     <div class="col-md-12">
+                        <h2><%= @person.id %> - <%= @person.name %></h2>
+                     </div>
+                  </div>
+                  <div class="row">
+                     <div class="col-lg-6 col-md-6">
+                        <div class="form-group">
+                           <label class="control-label col-md-3">Tipo</label>
+                           <input class="form-control" value="<%= @person.type %>" disabled />
+                        </div>
+                        <% if @person.type == 'Individual' %>
+                        <div class="form-group" >
+                           <label class="control-label col-md-3"><%= t(:birthday) %></label>
+                           <input class="form-control" value="<%= @person.birthday %>" disabled />
+                        </div>
+                        <div class="form-group">
+                           <label class="control-label col-md-3"><%= t(:gender) %></label>
+                           <input class="form-control" value="<%= @person.gender %>" disabled />
+                        </div>
+                     </div>
+                     <div class="col-lg-6 col-md-6">
+                        <div class="form-group">
+                           <label class="control-label col-md-3"><%= t(:marital_status) %></label>
+                           <input class="form-control" value="<%= @person.marital_status %>" disabled />
+                        </div>
+                        <div class="form-group">
+                           <label class="control-label col-md-3"><%= t(:cpf) %></label>
+                           <input class="form-control" value="<%= @person.cpf %>" disabled />
+                        </div>
+                        <div class="form-group">
+                           <label class="control-label col-md-3"><%= t(:rg) %></label>
+                           <input class="form-control" value="<%= @person.rg %>" disabled />
+                        </div>
+                        <% else %>
+                        <div class="form-group">
+                           <label class="control-label col-md-3"><%= t(:company_name) %></label>
+                           <input class="form-control" value="<%= @person.company_name %>" disabled />
+                        </div>
+                        <div class="form-group">
+                           <label class="control-label col-md-3"><%= t(:cnpj) %></label>
+                           <input class="form-control" value="<%= @person.cnpj %>" disabled />
+                        </div>
+                        <div class="form-group">
+                           <label><%= t(:inscricao_estadual) %></label>
+                           <input class="form-control" value="<%= @person.inscricao_estadual %>" disabled />
+                        </div>
+                        <% end %>
+                     </div>
+                  </div>
+                  <% if current_user.has_role? :admin  %>
+                  <%= link_to t(:edit), edit_person_path(@person), class: 'btn btn-warning' %>
+                  <%= link_to "#{t(:delete)}", person_path(@person), method: :delete,
+                     data: {confirm: "#{t(:delete_person?)}"}, class: 'btn btn-danger' %>
+                  <% end %>
+               </div>
+               <!--<hr />
+                  <div class="col-12">
+                    <div class="row">
+                      <div class="col-6">
+                        <h4>
+                          <%= t(:emails) %>
+                        </h4>
+                        <%= render @person.emails, emailable: @person %>
+                        <%= render 'emails/form', emailable: @person %>
+                      </div>
 
-        <p>
-          <%= @person.type %>
-        </p>
+                      <div class="col-6">
+                        <h4>
+                          <%= t(:phones) %>
+                        </h4>
+                        <%= render @person.phones, phonable: @person %>
+                        <%= render 'phones/form', phonable: @person %>
+                    </div>
+                  </div>
+                  </div>-->
+               <!--<hr />
+                  <div class="col-12">
+                    <div class="row">
+                      <div class="col-6">
+                        <h4>
+                          <%= t(:addresses) %>
+                        </h4>
+                        <%= render @person.addresses, addressable: @person %>
+                        <%= render 'addresses/form', addressable: @person %>
+                      </div>
 
-
-
-        <% if @person.type == 'Individual' %>
-          <p>
-            <%= t(:birthday) %>: <%= @person.birthday %>
-          </p>
-          <p>
-            <%= t(:gender) %>: <%= @person.gender%>
-          </p>
-
-          <p>
-            <%= t(:marital_status) %>: <%= @person.marital_status %>
-          </p>
-
-          <p>
-            <%= t(:cpf) %>: <%= @person.cpf %>
-          </p>
-
-          <p>
-            <%= t(:rg) %>: <%= @person.rg %>
-          </p>
-        <% else %>
-          <p>
-            <%= @person.company_name %>
-          </p>
-          <p>
-          <%= t(:cnpj) %>: <%= @person.cnpj %>
-          </p>
-
-          <p>
-            <%= t(:inscricao_estadual) %>: <%= @person.inscricao_estadual %>
-          </p>
-        <% end %>
-
-
-
-
-        <% if current_user.has_role? :admin  %>
-          <%= link_to "#{t(:delete)}", person_path(@person), method: :delete,
-          data: {confirm: "#{t(:delete_person?)}"}, class: 'btn btn-danger' %>
-        <% end %>
-      </div>
-
-      <hr />
-        <div class="col-12">
-          <div class="row">
-            <div class="col-6">
-              <h4>
-                <%= t(:emails) %>
-              </h4>
-              <%= render @person.emails, emailable: @person %>
-              <%= render 'emails/form', emailable: @person %>
+                      <div class="col-6">
+                        <h4>
+                          <%= t(:bank_accounts) %>
+                        </h4>
+                        <%= render @person.bank_accounts %>
+                        <%= render 'bank_accounts/form' %>
+                      </div>
+                    </div>
+                  </div>-->
             </div>
-
-            <div class="col-6">
-              <h4>
-                <%= t(:phones) %>
-              </h4>
-              <%= render @person.phones, phonable: @person %>
-              <%= render 'phones/form', phonable: @person %>
-          </div>
-        </div>
+            <!--<hr />
+               <div>
+                 <h4>
+                   <%= t(:places) %>
+                 </h4>
+                 <br>
+                 <%= render @person.places %>
+                 <div>
+                   <%= link_to t(:add_new_place), new_place_path, class: 'btn btn-primary' %>
+                 </div>
+                 <br>
+               </div>-->
+            </ul>
+         </div>
       </div>
-
-      <hr />
-      <div class="col-12">
-        <div class="row">
-          <div class="col-6">
-            <h4>
-              <%= t(:addresses) %>
-            </h4>
-            <%= render @person.addresses, addressable: @person %>
-            <%= render 'addresses/form', addressable: @person %>
-          </div>
-
-          <div class="col-6">
-            <h4>
-              <%= t(:bank_accounts) %>
-            </h4>
-            <%= render @person.bank_accounts %>
-            <%= render 'bank_accounts/form' %>
-          </div>
-        </div>
-      </div>
-    </div>
-      <hr />
-
-      <div>
-        <h4>
-          <%= t(:places) %>
-        </h4>
-        <br>
-        <%= render @person.places %>
-        <div>
-          <%= link_to t(:add_new_place), new_place_path, class: 'btn btn-primary' %>
-        </div>
-        <br>
-      </div>
-    </ul>
-  </div>
+   </div>
 </div>
