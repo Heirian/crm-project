@@ -1,71 +1,21 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <%= link_to 'IBC-SPro', root_path, class: 'navbar-brand' %>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+<div class="navbar navbar-inverse navbar-fixed-top">
+   <div class="adjust-nav">
+       <div class="navbar-header">
+           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+           </button>
+           <a class="navbar-brand" href="/">
+               <img src="./img/logo.png" />
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav ml-auto nav">
-      <% if user_signed_in? %>
-        <li class="nav-item">
-          <%= link_to t(:home), root_path, class: 'nav-link' %>
-        </li>
-        <% if current_user.has_role? :admin  %>
-          <li>
-            <%= link_to t(:admin_area), rails_admin_path, class: 'nav-link' %>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <%= t(:locations) %>
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <%= link_to t(:new_country), new_country_path, class: 'dropdown-item' %>
-              <%= link_to t(:all_countries), countries_path, class: 'dropdown-item' %>
-              <div class="dropdown-divider"></div>
-              <%= link_to t(:new_state), new_state_path, class: 'dropdown-item' %>
-              <%= link_to t(:all_states), states_path, class: 'dropdown-item' %>
-              <div class="dropdown-divider"></div>
-              <%= link_to t(:new_city), new_city_path, class: 'dropdown-item' %>
-              <%= link_to t(:all_cities), cities_path, class: 'dropdown-item' %>
-              <div class="dropdown-divider"></div>
-              <%= link_to t(:new_place), new_place_path, class: 'dropdown-item' %>
-              <%= link_to t(:all_places), places_path, class: 'dropdown-item' %>
-            </div>
-          </li>
-        <% end %>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <%= t(:person_record) %>
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <%= link_to t(:new_individual), new_individual_path, class: 'dropdown-item' %>
-            <%= link_to t(:all_individual_record), individual_index_path, class: 'dropdown-item' %>
-            <div class="dropdown-divider"></div>
-            <%= link_to t(:new_company), new_company_path, class: 'dropdown-item' %>
-            <%= link_to t(:all_company_record), company_index_path, class: 'dropdown-item' %>
-            <div class="dropdown-divider"></div>
-            <%= link_to t(:all_people_record), people_path, class: 'dropdown-item' %>
-          </div>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <%= t(:profile) %>
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <%= link_to t(:edit_profile), edit_user_registration_path, class: 'dropdown-item' %>
-            <%= link_to t(:change_your_password), edit_user_registration_path, class: 'dropdown-item' %>
-            <div class="dropdown-divider"></div>
-            <%= link_to t(:logout), destroy_user_session_path, method: :delete, class: 'dropdown-item'  %>
-          </div>
-        </li>
-        <li class="nav-item">
-          <div class="nav-link disabled">
-            <%= t(:logged_in_as) %> <strong><%= current_user.email %></strong>
-          </div>
-        </li>
+           </a>
 
-      <% end %>
-    </ul>
-  </div>
-</nav>
-<hr />
+       </div>
+
+       <span class="logout-spn" >
+         <a href="#" style="color:#fff;">LOGOUT</a>
+
+       </span>
+   </div>
+</div>
