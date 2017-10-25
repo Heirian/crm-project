@@ -1,8 +1,8 @@
 <script type="text/javascript">
   $(document).ready(function () {
-    $("#select2-city").select2();
-    $("#select2-state").select2();
     $("#select2-country").select2();
+    $("#select2-state").select2();
+    $("#select2-city").select2();
     theme : "bootstrap"
   });
 </script>
@@ -38,7 +38,7 @@
 <div class="form-group">
 
     <div>
-      <%= af.grouped_collection_select :state_id, Country.order(:name), :states, :name, :id, :name, { include_blank: false }, { multiple: false, class: 'form-control', id: 'select2-state' } %>
+      <%= af.grouped_collection_select :state_id, Country.includes(:states).order(:name), :states, :name, :id, :name, { include_blank: false }, { multiple: false, class: 'form-control', id: 'select2-state' } %>
     </div>
 
 </div>
@@ -46,9 +46,18 @@
 <div class="form-group">
 
     <div>
-      <%= af.grouped_collection_select :city_id, State.order(:name), :cities, :name, :id, :name, { include_blank: false }, { multiple: false, class: 'form-control', id: 'select2-city' } %>
+      <%= af.grouped_collection_select :city_id, State.includes(:cities).order(:name), :cities, :name, :id, :name, { include_blank: false }, { multiple: false, class: 'form-control', id: 'select2-city' } %>
     </div>
 
+</div>
+
+<div class="form-group">
+  <div class="control-label">
+    <%= af.label :kind %>
+  </div>
+  <div>
+    <%= af.select :kind, options_for_enum(Address.new, :kind), {}, { class: 'form-control' } %>
+  </div>
 </div>
 
 <%= af.submit t(:create_address), class: 'btn btn-primary' %>

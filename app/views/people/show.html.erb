@@ -103,10 +103,9 @@
           <%= t(:places) %>
         </h4>
         <br>
+        <%= link_to t(:add_new_place), new_place_path(person_id: @person.id), class: 'btn btn-primary' %>
         <%= render @person.places %>
-        <div>
-          <%= link_to t(:add_new_place), new_place_path, class: 'btn btn-primary' %>
-        </div>
+
         <br>
       </div>
     </ul>

@@ -9,6 +9,14 @@
           <div>
             <%= ff.text_field :number, class: "form-control", placeholder: "#{I18n.t(:add_phone_number)}: #{t(:example_number_format)}" %>
           </div>
+          <div class="form-group">
+            <div class="control-label">
+              <%= ff.label :kind %>
+            </div>
+            <div>
+              <%= ff.select :kind, options_for_enum(@phone, :kind), {}, { class: 'form-control' } %>
+            </div>
+          </div>
         </div>
         <%= ff.submit t(:edit_phone), class: 'btn btn-primary' %>
       <% end %>

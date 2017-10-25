@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171023111207) do
+ActiveRecord::Schema.define(version: 20171025115826) do
 
   create_table "addresses", force: :cascade do |t|
     t.string "street_address"
@@ -23,9 +23,11 @@ ActiveRecord::Schema.define(version: 20171023111207) do
     t.datetime "updated_at", null: false
     t.integer "country_id"
     t.integer "state_id"
+    t.integer "kind", default: 0
     t.index ["addressable_type", "addressable_id"], name: "index_addresses_on_addressable_type_and_addressable_id"
     t.index ["city_id"], name: "index_addresses_on_city_id"
     t.index ["deleted_at"], name: "index_addresses_on_deleted_at"
+    t.index ["kind"], name: "index_addresses_on_kind"
     t.index ["zip_code"], name: "index_addresses_on_zip_code"
   end
 
@@ -48,6 +50,8 @@ ActiveRecord::Schema.define(version: 20171023111207) do
     t.datetime "deleted_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "country_id"
+    t.index ["country_id"], name: "index_cities_on_country_id"
     t.index ["deleted_at"], name: "index_cities_on_deleted_at"
     t.index ["name"], name: "index_cities_on_name"
     t.index ["state_id"], name: "index_cities_on_state_id"
@@ -69,9 +73,11 @@ ActiveRecord::Schema.define(version: 20171023111207) do
     t.datetime "deleted_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "kind", default: 0
     t.index ["body"], name: "index_emails_on_body"
     t.index ["deleted_at"], name: "index_emails_on_deleted_at"
     t.index ["emailable_type", "emailable_id"], name: "index_emails_on_emailable_type_and_emailable_id"
+    t.index ["kind"], name: "index_emails_on_kind"
   end
 
   create_table "people", force: :cascade do |t|
@@ -101,7 +107,9 @@ ActiveRecord::Schema.define(version: 20171023111207) do
     t.datetime "deleted_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "kind", default: 0
     t.index ["deleted_at"], name: "index_phones_on_deleted_at"
+    t.index ["kind"], name: "index_phones_on_kind"
     t.index ["number"], name: "index_phones_on_number"
     t.index ["phonable_type", "phonable_id"], name: "index_phones_on_phonable_type_and_phonable_id"
   end

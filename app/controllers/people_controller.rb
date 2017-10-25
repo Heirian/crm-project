@@ -28,7 +28,7 @@ class PeopleController < ApplicationController
     @person = Person.new(person_params)
     unless @person.save
       flash[:danger] = @person.errors.full_messages
-      return render 'new_company' if @person.type == 'Company'
+      return render 'new_company' if @person.type.equal? 'Company'
       return render 'new_individual'
     end
     flash[:success] = I18n.t(:person_register_add_success)
@@ -38,19 +38,24 @@ class PeopleController < ApplicationController
   def edit; end
 
   def update
-    return render 'edit' unless @person.update(person_params)
+    unless @person.update(person_params)
+      flash[:danger] = @person.errors.full_messages
+      return render 'edit'
+    end
+    flash[:success] = I18n.t(:person_updated_successfully)
     redirect_to people_path
   end
 
   def destroy
     @person.destroy
+    flash[:danger] = I18n.t(:person_deleted_successfully)
     redirect_to people_path
   end
 
   private
 
   def set_person
-    @person = Person.find(params[:id])
+    @person = Person.includes(addresses: { city: { state: [:country] } }).find(params[:id])
   end
 
   def new_person
