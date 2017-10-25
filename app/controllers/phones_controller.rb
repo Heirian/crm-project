@@ -36,6 +36,6 @@ class PhonesController < ApplicationController
   private
 
   def phone_params
-    params.require(:phone).permit(:country_code, :area_code, :number, :kind)
+    params.require(:phone).permit(:country_code, :area_code, :number, :kind, :main)
   end
 end
