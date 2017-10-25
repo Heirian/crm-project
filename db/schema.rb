@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171025130310) do
+ActiveRecord::Schema.define(version: 20171025152523) do
 
   create_table "addresses", force: :cascade do |t|
     t.string "street_address"
@@ -110,6 +110,7 @@ ActiveRecord::Schema.define(version: 20171025130310) do
     t.datetime "updated_at", null: false
     t.integer "kind", default: 0
     t.boolean "main", default: false
+    t.text "instant_message"
     t.index ["deleted_at"], name: "index_phones_on_deleted_at"
     t.index ["kind"], name: "index_phones_on_kind"
     t.index ["number"], name: "index_phones_on_number"

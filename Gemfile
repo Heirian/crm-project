@@ -92,6 +92,9 @@ gem 'paranoia', '~> 2.3', '>= 2.3.1'
 # internationalization
 gem 'rails-i18n', '~> 5.0.0'
 
+# forms control
+gem 'formtastic', '~> 3.1', '>= 3.1.5'
+
 group :development, :test do
   gem 'brakeman', require: false
   gem 'bundler-audit', require: false
