@@ -1,26 +1,7 @@
 <script type="text/javascript">
   $(document).ready(function () {
     // Set up the Select2 control
-    $('#select2-person').select2({
-        ajax: {
-            url: '/places/new'
-        }
-    });
-
-    // Fetch the preselected item, and add to the control
-    var personSelect = $('#select2-person');
-    $.ajax({
-        type: 'GET',
-        url: '/places/new' + person_id
-    }).then(function (data) {
-        // manually trigger the `select2:select` event
-        personSelect.trigger({
-            type: 'select2:select',
-            params: {
-                data: data
-            }
-        });
-    });
+    $('#select2-person').select2();
     theme : "bootstrap"
   });
 </script>

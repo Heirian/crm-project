@@ -2,9 +2,11 @@
 
 class Email < ApplicationRecord
   before_save :downcase_email
-  validates :body, presence: true
+  validates :body, :kind, presence: true
   validates_email_format_of :body, disposable: true
   belongs_to :emailable, polymorphic: true
+
+  enum kind: { personal: 0, work: 1, message: 2 }
 
   private
 
