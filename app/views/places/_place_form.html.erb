@@ -1,6 +1,7 @@
 <script type="text/javascript">
   $(document).ready(function () {
-    $("#select2-person").select2();
+    // Set up the Select2 control
+    $('#select2-person').select2();
     theme : "bootstrap"
   });
 </script>
@@ -23,7 +24,7 @@
               <%= f.label :person_id, t(:place_manager) %>
             </div>
               <div>
-                <%= f.collection_select :person_id, Person.all, :id, :name, {include_blank: false}, { multiple: false, class: 'form-control', id: 'select2-person'} %>
+                <%= f.collection_select :person_id, Person.order(:name), :id, :name, {include_blank: false, value: :person_id}, { multiple: false, class: 'form-control', id: 'select2-person'} %>
               </div>
 
           </div>

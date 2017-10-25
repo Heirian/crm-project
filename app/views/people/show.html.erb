@@ -103,20 +103,49 @@
                     </div>
                   </div>-->
             </div>
-            <!--<hr />
-               <div>
-                 <h4>
-                   <%= t(:places) %>
-                 </h4>
-                 <br>
-                 <%= render @person.places %>
-                 <div>
-                   <%= link_to t(:add_new_place), new_place_path, class: 'btn btn-primary' %>
-                 </div>
-                 <br>
-               </div>-->
-            </ul>
-         </div>
+
+            <div class="col-6">
+              <h4>
+                <%= t(:phones) %>
+              </h4>
+              <%= render @person.phones, phonable: @person %>
+              <%= render 'phones/form', phonable: @person %>
+          </div>
+        </div>
+      </div>
+
+      <hr />
+      <div class="col-12">
+        <div class="row">
+          <div class="col-6">
+            <h4>
+              <%= t(:addresses) %>
+            </h4>
+            <%= render @person.addresses, addressable: @person %>
+            <%= render 'addresses/form', addressable: @person %>
+          </div>
+
+          <div class="col-6">
+            <h4>
+              <%= t(:bank_accounts) %>
+            </h4>
+            <%= render @person.bank_accounts %>
+            <%= render 'bank_accounts/form' %>
+          </div>
+        </div>
+      </div>
+    </div>
+      <hr />
+
+      <div>
+        <h4>
+          <%= t(:places) %>
+        </h4>
+        <br>
+        <%= link_to t(:add_new_place), new_place_path(person_id: @person.id), class: 'btn btn-primary' %>
+        <%= render @person.places %>
+
+        <br>
       </div>
    </div>
 </div>

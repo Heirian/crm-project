@@ -1,6 +1,7 @@
 <script type="text/javascript">
-  $(document).ready(function() { $("#select2-state").select2();
-    theme: "bootstrap"
+  $(document).ready(function() {
+    $("#select2-country").select2();
+    $("#select2-state").select2();
   });
 </script>
 
@@ -18,9 +19,19 @@
       </div>
 
       <div class="form-group">
+
           <div>
-            <%= f.collection_select :state_id, State.all, :id, :name, { include_blank: false }, { multiple: false, class: 'form-control', id: 'select2-state' } %>
+            <%= f.collection_select :country_id, Country.order(:name), :id, :name, { include_blank: false }, { multiple: false, class: 'form-control', id: 'select2-country' } %>
           </div>
+
+      </div>
+
+      <div class="form-group">
+
+          <div>
+            <%= f.grouped_collection_select :state_id, Country.includes(:states).order(:name), :states, :name, :id, :name, { include_blank: false }, { multiple: false, class: 'form-control', id: 'select2-state' } %>
+          </div>
+
       </div>
 
       <div class="form-group">

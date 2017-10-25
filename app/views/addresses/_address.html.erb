@@ -1,5 +1,6 @@
 <p><%= address.street_address %> - <%= address.zip_code %></p>
 <p><%= address.city.name %> - <%= address.city.state.name %> - <%= address.city.state.country.name %></p>
+<p><%= address.kind %> </p>
 <% if addressable == @person %>
   <%= link_to "#{t(:edit)}", edit_person_address_path(addressable, address), class: 'btn btn-info' %>
 <% else %>
