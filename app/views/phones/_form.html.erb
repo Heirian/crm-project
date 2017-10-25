@@ -1,4 +1,9 @@
-<%= form_for [phonable, Phone.new] do |ff| %>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $("#select2-instant-message").select2();
+  });
+</script>
+<%= semantic_form_for [phonable, Phone.new] do |ff| %>
   <div class="form-group">
     <div class="control-label">
       <%= ff.label :number, "#{t(:phone_number)}: #{t(:example_number_format_letter)}" %>
@@ -14,6 +19,12 @@
         <%= ff.select :kind, options_for_enum(Phone.new, :kind), {}, { class: 'form-control' } %>
       </div>
     </div>
+    <div class="form-group">
+        <%= ff.label :main %>
+        <%= ff.check_box :main, {}, true, false %>
+    </div>
+    <%= ff.input :instant_message, as: :select, input_html: { class:'form-control', id: 'select2-instant-message',
+                  multiple:'multiple' }, collection: Phone::INSTANT_MESSAGES_OPTIONS.invert %>
   </div>
   <%= ff.submit t(:create_phone), class: 'btn btn-primary' %>
 <% end %>

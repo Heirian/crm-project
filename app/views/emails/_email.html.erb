@@ -1,5 +1,6 @@
 <p><%= email.body %></p>
 <p><%= email.kind %></p>
+<p><%= t(:main) if email.main.equal? true %></p>
 <% if emailable == @person %>
   <%= link_to "#{t(:edit)}", edit_person_email_path(emailable, email), class: 'btn btn-info' %>
 <% else %>
