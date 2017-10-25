@@ -21,7 +21,7 @@
                      <td><%= person.type %></td>
                      <td>
                         <%= link_to "#{t(:view)}", person_path(person), class: 'btn btn-primary' %>
-                        <%= link_to "#{t(:edit)}", person_path(person), class: 'btn btn-warning' %>
+                        <%= link_to "#{t(:edit)}", edit_person_path(person), class: 'btn btn-warning' %>
                         <%= link_to "#{t(:delete)}", person_path(person), method: :delete,
                              data: {confirm: "#{t(:delete_person?)}"}, class: 'btn btn-danger' %>
                       </td>
