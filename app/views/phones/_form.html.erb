@@ -21,14 +21,14 @@
                         </div>
                         <div class="form-group">
                            <div class="control-label">
-                              <%= ff.label :kind %>
+                              <label for="email_body">Tipo</label>
                            </div>
                            <div>
                               <%= ff.select :kind, options_for_enum(Phone.new, :kind), {}, { class: 'form-control' } %>
                            </div>
                         </div>
                         <div class="form-group">
-                           <%= ff.label :main %>
+                           <label for="email_body">Principal</label>
                            <%= ff.check_box :main, {}, true, false %>
                         </div>
                         <%= ff.input :instant_message, as: :select, input_html: { class:'form-control', id: 'select2-instant-message',

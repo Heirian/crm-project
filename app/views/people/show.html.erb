@@ -20,7 +20,11 @@
               <div class="col-lg-offset-1 col-lg-6 col-md-6">
                 <div class="form-group"><br><br>
                   <label class="control-label col-3"><%= t(:type) %></label>
-                  <input class="form-control col-6" value="<%= @person.type %>" disabled />
+                  <% if @person.type == 'Individual' %>
+                    <input class="form-control col-6" value="Pessoa Física" disabled />
+                  <% else %>
+                  <input class="form-control" value="Pessoa Juridica" disabled />
+                  <% end %>
                 </div>
                 <% if @person.type == 'Individual' %>
                 <div class="form-group" >
@@ -29,7 +33,11 @@
                 </div>
                 <div class="form-group">
                   <label class="control-label col-3"><%= t(:gender) %></label>
-                  <input class="form-control" value="<%= @person.gender %>" disabled />
+                  <% if :gender != 'female' %>
+                    <input class="form-control" value="Masculino" disabled />
+                  <% else %>
+                  <input class="form-control" value="Feminino" disabled />
+                  <% end %>
                 </div>
               </div>
 

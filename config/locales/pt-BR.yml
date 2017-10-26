@@ -340,6 +340,7 @@ pt-BR:
   hello: "Hello world"
   home: "Página inicial"
   admin_area: "Área administrativa"
+  add_new_phone: "Adicionar novo telefone"
   #locations
   locations: "Localização"
   all_countries: "Países"
@@ -453,3 +454,18 @@ pt-BR:
   #buttons
   view: "Visualizar"
   edit: "Editar"
+  username: "Usuário"
+  individual: "Pessoa Física"
+  company: "Pessoa Juridica"
+  code: "ID"
+  type: "Tipo"
+  birthday: "Data nascimento"
+  gender: "Gênero"
+  manager: "Responsável"
+  personal: "Pessoal"
+  work: "Profissional"
+  message: "Mensagem"
+  main: "Principal"
+  kind: "Tipo"
+  
+  instant_message: "Mensagem"
