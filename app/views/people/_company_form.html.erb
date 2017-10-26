@@ -1,55 +1,56 @@
-<div class="container">
-  <div align="center">
-    <div class="col-6">
-    <%= form_for(@person, html: { class: "form-horizontal", role: "form" }) do |f| %>
-      <div class="type-person-no-display">
-        <%= f.select :type, ['Company'] if @person.new_record? %>
-      </div>
 
-      <div class="form-group">
-        <div class="control-label">
-          <%= f.label :name, "#{t(:trading_name)}" %>
-        </div>
-        <div>
-          <%= f.text_field :name, class: "form-control", placeholder: "#{t(:enter_trading_name)}" %>
-        </div>
-      </div>
+<div style="margin-top: 0;padding-left: 17%;background-color: #fff;">
+   <div class="row">
+      <div class="col-md-12">
+         <!-- BEGIN VALIDATION STATES-->
+         <div class="portlet light portlet-fit portlet-form bordered">
+            <div class="portlet-body"><br />
+               <%= form_for(@person, html: { class: "form-horizontal", role: "form" }) do |f| %>
+               <div class="type-person-no-display" hidden>
+                  <%= f.select :type, ['Company'] if @person.new_record? %>
+               </div>
+               <div class="form-body">
+               <div class="form-group">
+                  <label class="control-label col-md-3"><%= "#{t(:trading_name)}" %></label>
+                  <div class="col-md-9">
+                     <%= f.text_field :name, class: "form-control", placeholder: "#{t(:enter_trading_name)}" %>
+                  </div>
+               </div>
+               <div class="form-group">
+                  <label class="control-label col-md-3"><%= "#{t(:company_name)}" %></label>
+                  <div class="col-md-9">
+                     <%= f.text_field :company_name, class: "form-control", placeholder: "#{t(:enter_company_name)}" %>
+                  </div>
+               </div>
+               <div class="form-group">
+                  <label class="control-label col-md-3"><%= "#{t(:cnpj)}" %></label>
+                  <div class="col-md-9">
+                     <%= f.text_field :cnpj, class: "form-control", placeholder: "#{t(:enter_cnpj)}" %>
+                  </div>
+               </div>
+               <div class="form-group">
+                  <label class="control-label col-md-3"><%= "#{t(:inscricao_estadual)}" %></label>
+                  <div class="col-md-9">
+                     <%= f.text_field :inscricao_estadual, class: "form-control", placeholder: "#{t(:enter_inscricao_estadual)}" %>
+                  </div>
+               </div>
+               <div class="form-actions">
+                  <div class="row">
+                     <div class="col-md-offset-3 col-md-9">
+                        <%= f.submit(@person.new_record? ? "#{t(:add_a_person)}" : "#{t(:update_person)}",
+                           class: "btn btn-primary") %>
+                     </div>
+                  </div>
+               </div>
+               <% end %>
+               <br /><br />
+               <div class="col-md-offset-3 col-md-9">
+                  <%= link_to t(:back), :back,class: "btn btn-primary" %>
+               </div>
 
-      <div class="form-group">
-        <div class="control-label">
-          <%= f.label :company_name, "#{t(:company_name)}" %>
-        </div>
-        <div>
-          <%= f.text_field :company_name, class: "form-control", placeholder: "#{t(:enter_company_name)}" %>
-        </div>
+            </div>
+         </div>
       </div>
-
-      <div class="form-group">
-        <div class="control-label">
-          <%= f.label :cnpj, "#{t(:cnpj)}" %>
-        </div>
-        <div>
-          <%= f.text_field :cnpj, class: "form-control", placeholder: "#{t(:enter_cnpj)}" %>
-        </div>
-      </div>
-
-      <div class="form-group">
-        <div class="control-label">
-          <%= f.label :inscricao_estadual, "#{t(:inscricao_estadual)}" %>
-        </div>
-        <div>
-          <%= f.text_field :inscricao_estadual, class: "form-control", placeholder: "#{t(:enter_inscricao_estadual)}" %>
-        </div>
-      </div>
-
-      <div class="form-group">
-        <div>
-          <%= f.submit(@person.new_record? ? "#{t(:add_a_person)}" : "#{t(:update_person_register)}",
-                            class: "btn btn-primary") %>
-        </div>
-      </div>
-    <% end %>
-    <br />
-    <%= link_to t(:back), :back %>
-  </div>
+   </div>
+ </div>
 </div>

@@ -1,19 +1,15 @@
-<div class="row">
-   <div class="col-md-4">
-      <div class="tabbable-line boxless tabbable-reversed">
-         <div class="tab-content">
-            <div class="tab-pane active" id="tab_6">
-              <div class="row">
-              </div>
-               <div class="portlet box blue ">
-                  <div class="portlet-title">
-                     <div class="caption">
-                        <i class="fa fa-circle-o"></i>Formulário de cadastro
-                     </div>
-                  </div>
-                  <div class="portlet-body form">
+<div style="margin-top: 0;padding-left: 17%;background-color: #fff;">
+    <div class="row">
+        <div class="col-md-12">
+            <!-- BEGIN VALIDATION STATES-->
+            <div class="portlet light portlet-fit portlet-form bordered">
+
+                <div class="portlet-body">
                      <!-- BEGIN FORM-->
                      <%= form_for(@person, html: { class: "form-horizontal", role: "form" }) do |f| %>
+                     <div class="type-person-no-display" hidden>
+                       <%= f.select :type, ['Individual'] if @person.new_record? %>
+                     </div>
                      <div class="form-body">
                         <div class="form-group">
                            <label class="control-label col-md-3">Nome</label>
@@ -73,4 +69,4 @@
          </div>
       </div>
     </div>
-    </div>
+  </div>
