@@ -2,6 +2,10 @@
 
 class AddressesController < ApplicationController
   before_action :authenticate_user!
+  def new
+    @address = Address.new
+  end
+
   def create
     @address = @addressable.addresses.new(address_params)
     if @address.save

@@ -6,7 +6,7 @@
 <div style="margin-top: 0;padding-left: 2%;background-color: #fff;">
 <div class="portlet light portlet-fit portlet-form bordered">
    <div class="portlet-body">
-      <%= semantic_form_for [phonable, Phone.new] do |ff| %>
+      <%= semantic_form_for [@phonable, @phone] do |ff| %>
       <div class="form-body">
          <div class="form-group">
             <%= ff.label :number, "#{t(:phone_number)}: #{t(:example_number_format_letter)}" %>
