@@ -1,13 +1,17 @@
-<p><%= address.street_address %> - <%= address.zip_code %></p>
-<p><%= address.city.name %> - <%= address.city.state.name %> - <%= address.city.state.country.name %></p>
-<p><%= address.kind %> </p>
-<% if addressable == @person %>
-  <%= link_to "#{t(:edit)}", edit_person_address_path(addressable, address), class: 'btn btn-info' %>
-<% else %>
-  <%= link_to "#{t(:edit)}", edit_place_address_path(addressable, address), class: 'btn btn-info' %>
-<% end %>
-<% if current_user.has_role? :admin  %>
-  <%= link_to "#{t(:delete)}", person_address_path(addressable, address), method: :delete,
-  data: { confirm: "#{t(:delete_address?)}" }, class: 'btn btn-danger' %>
-<% end %>
-<hr />
+
+  <tr>
+     <td> <%= address.street_address %> </td>
+     <td><%= address.zip_code %></td>
+     <td ><%= address.kind %></td>
+     <td><%= address.city.name %> - <%= address.city.state.name %> - <%= address.city.state.country.name %></td>
+     <td ><% if addressable == @person %>
+       <%= link_to "#{t(:edit)}", edit_person_address_path(addressable, address), class: 'btn btn-info' %>
+     <% else %>
+       <%= link_to "#{t(:edit)}", edit_place_address_path(addressable, address), class: 'btn btn-info' %>
+     <% end %>
+     <% if current_user.has_role? :admin  %>
+       <%= link_to "#{t(:delete)}", person_address_path(addressable, address), method: :delete,
+       data: { confirm: "#{t(:delete_address?)}" }, class: 'btn btn-danger' %>
+     <% end %></td>
+
+  </tr>
