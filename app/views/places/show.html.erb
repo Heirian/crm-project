@@ -39,7 +39,7 @@
                 <div class="caption">
                   <%= t(:emails) %>
                 </div>
-                <%= link_to t(:add_new_email), new_place_email_path(@place), class: 'btn btn-primary btn-lg pull-right' %>
+                <%= link_to t(:add_new_email), new_place_email_path(@place), data: { turbolinks: false }, class: 'btn btn-primary btn-lg pull-right' %>
               </div>
             </div>
             <div class="portlet-body flip-scroll">
