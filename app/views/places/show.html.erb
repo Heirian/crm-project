@@ -1,52 +1,139 @@
 <br>
-<div class="container">
-  <div class="col-12">
-    <div align="center">
-      <div>
-        <h1>
-          <%= link_to @place.name, place_path(@place) %>
-        </h1>
-        <%= link_to t(:delete), place_path(@place), method: :delete,
-        data: {confirm: t(:delete_place?)}, class: 'btn btn-danger' %>
-      </div>
-      <br>
-      <div>
-        <%= t(:place_manager) %>
-        <%= link_to @place.person.name, person_path(@place.person) %>
-      </div>
+<div style="margin-top: 0;padding-left: 17%;background-color: #fff;">
+  <div class="row">
+    <div class="col-md-12">
+      <!-- BEGIN VALIDATION STATES-->
+      <div class="portlet-form bordered">
+        <div class="container-fluid">
+          <div class="portlet-body">
 
-    </div>
-    <hr />
-      <div class="col-12">
-        <div class="row">
-          <div class="col-6">
-            <h4>
-              <%= t(:emails) %>
-            </h4>
-            <%= render @place.emails, emailable: @place %>
-            <%= render 'emails/form', emailable: @place %>
-          </div>
+            <div class="col-lg-offset-1 col-lg-11">
+              <h2><%= @place.id %> - <%= @place.name %></h2>
+              <%= link_to t(:edit), edit_place_path(@place), class: 'btn btn-warning center' %>
+              <% if current_user.has_role? :admin  %>
+              <%= link_to t(:delete), place_path(@place), method: :delete,
+              data: {confirm: "#{t(:delete_place?)}"}, class: 'btn btn-danger' %>
+              <% end %>
+            </div>
 
-          <div class="col-6">
-            <h4>
-              <%= t(:phones) %>
-            </h4>
-            <%= render @place.phones, phonable: @place %>
-            <%= render 'phones/form', phonable: @place %>
+            <div class="form-body">
+              <div class="col-lg-offset-1 col-lg-6 col-md-6">
+                <div class="form-group"><br><br>
+                  <label class="control-label col-3"><%= t(:manager) %></label>
+                  <input class="form-control" value="<%= @place.person.name %>" disabled />
+                </div>
+
+              </div>
+            </div>
           </div>
         </div>
       </div>
       <hr />
-      <div class="col-6">
+      <div class="row">
+        <div class="container-fluid">
+          <div class="col-lg-offset-1 col-lg-6">
 
-        <div>
-          <h4>
-            <%= t(:addresses) %>
-          </h4>
-          <%= render @place.addresses, addressable: @place %>
-          <%= render 'addresses/form', addressable: @place %>
+            <!-- BEGIN SAMPLE TABLE PORTLET-->
+            <div class="portlet box green">
+              <div class="portlet-title">
+                <div class="caption">
+                  <%= t(:emails) %>
+                </div>
+                <%= link_to t(:add_new_email), new_place_email_path(@place), class: 'btn btn-primary btn-lg pull-right' %>
+              </div>
+            </div>
+            <div class="portlet-body flip-scroll">
+              <table class="table table-bordered table-striped table-condensed flip-content">
+                <thead class="flip-content">
+                  <tr>
+                    <th width="20%"> Importância</th>
+                    <th> Nome </th>
+                    <th class="numeric"><%= t(:kind) %></th>
+                    <th class="numeric"> Ações </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <%= render @place.emails, emailable: @place %>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <!-- END SAMPLE TABLE PORTLET-->
+          <!-- BEGIN SAMPLE TABLE PORTLET-->
         </div>
       </div>
-    </ul>
+    </div>
+    <hr />
+    <div class="row">
+      <div class="container-fluid">
+        <div class="col-lg-offset-1 col-lg-6">
+
+          <!-- BEGIN SAMPLE TABLE PORTLET-->
+          <div class="portlet box green">
+            <div class="portlet-title">
+              <div class="caption">
+                <%= t(:phones) %>
+              </div>
+              <%= link_to t(:add_new_phone), new_place_phone_path(@place), class: 'btn btn-primary btn-lg pull-right' %>
+            </div>
+            <div class="portlet-body flip-scroll">
+              <table class="table table-bordered table-striped table-condensed flip-content">
+                <thead class="flip-content">
+                  <tr>
+                    <th width="15%"> Importância</th>
+                    <th width="20%"><%= t(:phone_number) %> </th>
+                    <th width="15%" class="numeric"><%= t(:kind) %></th>
+                    <th width="20%" class="numeric"> <%= t(:instant_message) %> </th>
+                    <th class="numeric"> Ações </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <%= render @place.phones, phonable: @place %>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <!-- END SAMPLE TABLE PORTLET-->
+          <!-- BEGIN SAMPLE TABLE PORTLET-->
+        </div>
+      </div>
+    </div>
+    <hr />
+    <div class="row">
+      <div class="container-fluid">
+        <div class="col-lg-offset-1 col-lg-6">
+
+          <!-- BEGIN SAMPLE TABLE PORTLET-->
+          <div class="portlet box green">
+            <div class="portlet-title">
+              <div class="caption">
+                <%= t(:addresses) %>
+              </div>
+              <%= link_to t(:add_new_address), new_place_address_path(@place), class: 'btn btn-primary btn-lg pull-right' %>
+            </div>
+            <div class="portlet-body flip-scroll">
+              <table class="table table-bordered table-striped table-condensed flip-content">
+                <thead class="flip-content">
+                  <tr>
+                    <th width="15%"> Endereço</th>
+                    <th width="20%"> Cep </th>
+                    <th width="15%" class="numeric"><%= t(:kind) %></th>
+                    <th width="20%" class="numeric"> Cidade/Estado/País </th>
+                    <th class="numeric"> Ações </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <%= render @place.addresses, addressable: @place %>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <!-- END SAMPLE TABLE PORTLET-->
+          <!-- BEGIN SAMPLE TABLE PORTLET-->
+        </div>
+      </div>
+    </div>
+
   </div>
+</div>
 </div>
