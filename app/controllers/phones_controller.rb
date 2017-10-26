@@ -2,6 +2,10 @@
 
 class PhonesController < ApplicationController
   before_action :authenticate_user!
+  def new
+    @phone = Phone.new
+  end
+
   def create
     @phone = @phonable.phones.new(phone_params)
     if @phone.save

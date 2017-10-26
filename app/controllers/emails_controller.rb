@@ -2,6 +2,10 @@
 
 class EmailsController < ApplicationController
   before_action :authenticate_user!
+  def new
+    @email = Email.new
+  end
+
   def create
     @email = @emailable.emails.new(email_params)
     if @email.save

@@ -74,7 +74,9 @@
             <div class="portlet box green">
               <div class="portlet-title">
                 <div class="caption">
-                </i><%= t(:emails) %>
+                  <%= t(:emails) %>
+                </div>
+                <%= link_to t(:add_new_email), new_person_email_path(@person), class: 'btn btn-primary btn-lg pull-right' %>
               </div>
             </div>
             <div class="portlet-body flip-scroll">
@@ -109,6 +111,7 @@
               <div class="caption">
                 <%= t(:phones) %>
               </div>
+              <%= link_to t(:add_new_phone), new_person_phone_path(@person), class: 'btn btn-primary btn-lg pull-right' %>
             </div>
             <div class="portlet-body flip-scroll">
               <table class="table table-bordered table-striped table-condensed flip-content">
@@ -143,6 +146,7 @@
               <div class="caption">
                 <%= t(:addresses) %>
               </div>
+              <%= link_to t(:add_new_address), new_person_address_path(@person), class: 'btn btn-primary btn-lg pull-right' %>
             </div>
             <div class="portlet-body flip-scroll">
               <table class="table table-bordered table-striped table-condensed flip-content">
@@ -178,6 +182,7 @@
               <div class="caption">
                 <%= t(:bank_accounts) %>
               </div>
+                <%= link_to t(:add_new_bank_account), new_person_bank_account_path(@person), class: 'btn btn-primary btn-lg pull-right' %>
             </div>
             <div class="portlet-body flip-scroll">
               <table class="table table-bordered table-striped table-condensed flip-content">
