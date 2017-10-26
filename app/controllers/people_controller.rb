@@ -31,7 +31,7 @@ class PeopleController < ApplicationController
       return render 'new_company' if @person.type.equal? 'Company'
       return render 'new_individual'
     end
-    flash[:success] = I18n.t(:person_register_add_success)
+    flash[:success] = I18n.t(:register_add_success)
     redirect_to people_path
   end
 
@@ -42,13 +42,13 @@ class PeopleController < ApplicationController
       flash[:danger] = @person.errors.full_messages
       return render 'edit'
     end
-    flash[:success] = I18n.t(:person_updated_successfully)
+    flash[:success] = I18n.t(:updated_successfully)
     redirect_to people_path
   end
 
   def destroy
     @person.destroy
-    flash[:danger] = I18n.t(:person_deleted_successfully)
+    flash[:danger] = I18n.t(:deleted_successfully)
     redirect_to people_path
   end
 

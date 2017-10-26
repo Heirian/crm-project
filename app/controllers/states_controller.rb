@@ -18,7 +18,7 @@ class StatesController < ApplicationController
       flash[:danger] = @state.errors.full_messages
       return render 'new'
     end
-    flash[:success] = I18n.t(:state_add_success)
+    flash[:success] = I18n.t(:register_add_success)
     redirect_to states_path
   end
 
@@ -29,13 +29,13 @@ class StatesController < ApplicationController
       flash[:danger] = @state.errors.full_messages
       return render 'edit'
     end
-    flash[:success] = I18n.t(:state_update_successfully)
+    flash[:success] = I18n.t(:updated_successfully)
     redirect_to states_path
   end
 
   def destroy
     @state.destroy
-    flash[:danger] = I18n.t(:state_deleted_successfully)
+    flash[:danger] = I18n.t(:deleted_successfully)
     redirect_to states_path
   end
 
