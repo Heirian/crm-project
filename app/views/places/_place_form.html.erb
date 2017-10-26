@@ -1,44 +1,53 @@
 <script type="text/javascript">
-  $(document).ready(function () {
-    // Set up the Select2 control
-    $('#select2-person').select2();
-    theme : "bootstrap"
-  });
+   $(document).ready(function () {
+     // Set up the Select2 control
+     $('#select2-person').select2();
+     theme : "bootstrap"
+   });
 </script>
 <br>
-<div class="container">
-  <div align="center">
-    <div class="col-6">
-        <%= form_for(@place, html: { class: "form-horizontal", role: "form" }) do |f| %>
-          <div class="form-group">
-            <div class="control-label">
-              <%= f.label :name, "#{t(:place)}" %>
+<div style="margin-top: 0;padding-left: 17%;background-color: #fff;">
+   <div class="row">
+      <div class="col-md-12">
+         <!-- BEGIN VALIDATION STATES-->
+         <div class="portlet-form bordered">
+            <div class="container-fluid">
+               <div class="portlet-body">
+                  <div class="col-lg-offset-1 col-lg-11">
+                     <%= form_for(@place, html: { class: "form-horizontal", role: "form" }) do |f| %>
+                     <div class="form-body">
+                        <div class="col-lg-offset-1 col-lg-6 col-md-6">
+                           <div class="form-group">
+                              <label class="control-label col-md-3"><%= "#{t(:place)}" %></label>
+                              <div class="col-md-9">
+                                 <%= f.text_field :name, class: "form-control col-6", placeholder: "#{t(:enter_person_name)}" %>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="col-lg-offset-1 col-lg-6 col-md-6">
+                           <div class="form-group">
+                              <label class="control-label col-md-3"><%= "#{t(:place_manager)}" %></label>
+                              <div class="col-md-9">
+                                 <%= f.collection_select :person_id, Person.order(:name), :id, :name, {include_blank: false, value: :person_id}, { multiple: false, class: 'form-control', id: 'select2-person'} %>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col-lg-offset-3 col-lg-6 col-md-6">
+                        <div class="form-group">
+                           <div class="col-md-9">
+                              <%= f.submit(@place.new_record? ? "#{t(:add_a_place)}" : "#{t(:update_place)}",
+                                 class: "btn btn-primary") %>
+                              <%= link_to t(:back), :back,class: "btn btn-default" %>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <% end %>
+               <hr />
             </div>
-            <div>
-              <%= f.text_field :name, class: "form-control", placeholder: t(:enter_place_name) %>
-            </div>
-          </div>
-
-          <div class="form-group">
-            <div class="control-label">
-              <%= f.label :person_id, t(:place_manager) %>
-            </div>
-              <div>
-                <%= f.collection_select :person_id, Person.order(:name), :id, :name, {include_blank: false, value: :person_id}, { multiple: false, class: 'form-control', id: 'select2-person'} %>
-              </div>
-
-          </div>
-
-          <div class="form-group">
-            <div>
-              <%= f.submit(@place.new_record? ? "#{t(:add_a_place)}" : "#{t(:update_place)}",
-                                class: "btn btn-primary") %>
-              <br>
-            </div>
-          </div>
-        <% end %>
-        <hr />
-        <%= link_to t(:back), :back %>
-    </div>
-  </div>
+         </div>
+      </div>
+   </div>
 </div>
