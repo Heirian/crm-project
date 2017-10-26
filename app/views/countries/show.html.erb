@@ -6,8 +6,8 @@
         <h1>
           <%= link_to @country.name, country_path(@country) %>
         </h1>
-        <%= link_to "#{t(:delete)}", country_path(@country), method: :delete,
-        data: {confirm: "#{t(:delete_country?)}"}, class: 'btn btn-danger' %>
+        <%= link_to t(:delete), country_path(@country), method: :delete,
+        data: {confirm: t(:delete_country?)}, class: 'btn btn-danger' %>
       </div>
     </ul>
   </div>

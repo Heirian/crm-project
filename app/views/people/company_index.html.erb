@@ -10,8 +10,8 @@
           <p>
             <%= person.type %>
           </p>
-          <%= link_to "#{t(:delete)}", person_path(person), method: :delete,
-          data: {confirm: "#{t(:delete_person?)}"}, class: 'btn btn-danger' %>
+          <%= link_to t(:delete), person_path(person), method: :delete,
+          data: {confirm: t(:delete_person?)}, class: 'btn btn-danger' %>
         </div>
       </ul>
       <br>

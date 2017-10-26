@@ -5,16 +5,16 @@
       <%= form_for(@country, html: { class: "form-horizontal", role: "form" }) do |f| %>
         <div class="form-group">
           <div class="control-label">
-            <%= f.label :name, "#{t(:country)}" %>
+            <%= f.label :name, t(:country) %>
           </div>
           <div>
-            <%= f.text_field :name, class: "form-control", placeholder: "#{t(:enter_country_name)}" %>
+            <%= f.text_field :name, class: "form-control", placeholder: t(:enter_country_name) %>
           </div>
         </div>
 
         <div class="form-group">
           <div>
-            <%= f.submit(@country.new_record? ? "#{t(:add_a_country)}" : "#{t(:update_country)}",
+            <%= f.submit(@country.new_record? ? t(:add_a_country) : t(:update_country),
                               class: "btn btn-primary") %>
           </div>
         </div>

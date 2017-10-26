@@ -7,13 +7,14 @@
      <%= phone.instant_message_to_array %>
    <% end %></td>
    <td ><% if phonable == @person %>
-     <%= link_to "#{t(:edit)}", edit_person_phone_path(phonable, phone), class: 'btn btn-info' %>
+     <%= link_to t(:edit), edit_person_phone_path(phonable, phone), class: 'btn btn-info' %>
+     <%= link_to t(:delete), person_phone_path(phonable, phone), method: :delete,
+     data: { confirm: t(:delete_phone?) }, class: 'btn btn-danger' if current_user.has_role? :admin %>
    <% else %>
-     <%= link_to "#{t(:edit)}", edit_place_phone_path(phonable, phone), class: 'btn btn-info' %>
+     <%= link_to t(:edit), edit_place_phone_path(phonable, phone), class: 'btn btn-info' %>
+     <%= link_to t(:delete), place_phone_path(phonable, phone), method: :delete,
+     data: { confirm: t(:delete_phone?) }, class: 'btn btn-danger' if current_user.has_role? :admin %>
    <% end %>
-   <% if current_user.has_role? :admin  %>
-     <%= link_to "#{t(:delete)}", person_phone_path(phonable, phone), method: :delete,
-     data: { confirm: "#{t(:delete_phone?)}" }, class: 'btn btn-danger' %>
-   <% end %></td>
+  </td>
 
 </tr>

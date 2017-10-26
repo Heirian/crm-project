@@ -11,10 +11,10 @@
     <%= form_for(@city, html: { class: "form-horizontal", role: "form" }) do |f| %>
       <div class="form-group">
         <div class="control-label">
-          <%= f.label :name, "#{t(:city)}" %>
+          <%= f.label :name, t(:city) %>
         </div>
         <div>
-          <%= f.text_field :name, class: "form-control", placeholder: "#{t(:enter_city_name)}" %>
+          <%= f.text_field :name, class: "form-control", placeholder: t(:enter_city_name) %>
         </div>
       </div>
 
@@ -36,7 +36,7 @@
 
       <div class="form-group">
         <div>
-          <%= f.submit(@city.new_record? ? "#{t(:add_a_city)}" : "#{t(:update_city)}",
+          <%= f.submit(@city.new_record? ? t(:add_a_city) : t(:update_city),
                             class: "btn btn-primary") %>
         </div>
       </div>

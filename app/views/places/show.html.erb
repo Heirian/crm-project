@@ -41,29 +41,31 @@
                 </div>
               <%= link_to t(:add_new_email), new_place_email_path(@place), class: 'btn btn-primary btn-lg pull-right' %>
               </div>
+              <% unless @place.emails.count.zero? %>
               <div class="portlet-body flip-scroll">
                 <table class="table table-bordered table-striped table-condensed flip-content">
                   <thead class="flip-content">
                     <tr>
                    <th width="20%"> Importância</th>
-                   <th> Nome </th>
-                   <th class="numeric">Tipo</th>
+                   <th width="35%"> Endereço de email </th>
+                   <th width="20%" class="numeric">Tipo</th>
                    <th class="numeric"> Ações </th>
                  </tr>
 
                   </thead>
                   <tbody>
-                    <%= render @place.phones, phonable: @place %>
+                    <%= render @place.emails, emailable: @place %>
                   </tbody>
                 </table>
               </div>
+              <% end %>
             </div>
             <!-- END SAMPLE TABLE PORTLET-->
             <!-- BEGIN SAMPLE TABLE PORTLET-->
           </div>
         </div>
       </div>
-    <hr />
+
     <div class="row">
       <div class="container-fluid">
         <div class="col-lg-offset-1 col-lg-6">
@@ -76,12 +78,13 @@
               </div>
               <%= link_to t(:add_new_phone), new_place_phone_path(@place), class: 'btn btn-primary btn-lg pull-right' %>
             </div>
+            <% unless @place.phones.count.zero? %>
             <div class="portlet-body flip-scroll">
               <table class="table table-bordered table-striped table-condensed flip-content">
                 <thead class="flip-content">
                   <tr>
                     <th width="15%"> Importância</th>
-                    <th width="20%"><%= t(:phone_number) %> </th>
+                    <th width="25%"><%= t(:phone_number) %> </th>
                     <th width="15%" class="numeric"><%= t(:kind) %></th>
                     <th width="20%" class="numeric"> <%= t(:instant_message) %> </th>
                     <th class="numeric"> Ações </th>
@@ -92,13 +95,14 @@
                 </tbody>
               </table>
             </div>
+            <% end %>
           </div>
           <!-- END SAMPLE TABLE PORTLET-->
           <!-- BEGIN SAMPLE TABLE PORTLET-->
         </div>
       </div>
     </div>
-    <hr />
+
     <div class="row">
       <div class="container-fluid">
         <div class="col-lg-offset-1 col-lg-6">
@@ -111,6 +115,7 @@
               </div>
               <%= link_to t(:create_address), new_place_address_path(@place), class: 'btn btn-primary btn-lg pull-right' %>
             </div>
+            <% unless @place.addresses.count.zero? %>
             <div class="portlet-body flip-scroll">
               <table class="table table-bordered table-striped table-condensed flip-content">
                 <thead class="flip-content">
@@ -127,6 +132,7 @@
                 </tbody>
               </table>
             </div>
+            <% end %>
           </div>
           <!-- END SAMPLE TABLE PORTLET-->
           <!-- BEGIN SAMPLE TABLE PORTLET-->
