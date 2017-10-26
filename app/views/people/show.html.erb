@@ -3,59 +3,54 @@
    <div id="page-inner">
       <div class="container">
          <div class="col-12">
-            <div align="center">
-               <div>
-                  <div class="row">
-                     <div class="col-md-12">
-                        <h2><%= @person.id %> - <%= @person.name %></h2>
-                     </div>
-                  </div>
 
-                     <div class="col-lg-6 col-md-6">
-                        <div class="form-group">
-                           <label class="control-label col-md-3">Tipo</label>
-                           <input class="form-control" value="<%= @person.type %>" disabled />
-                        </div>
-                        <% if @person.type == 'Individual' %>
-                        <div class="form-group" >
-                           <label class="control-label col-md-3"><%= t(:birthday) %></label>
-                           <input class="form-control" value="<%= @person.birthday %>" disabled />
-                        </div>
-                        <div class="form-group">
-                           <label class="control-label col-md-3"><%= t(:gender) %></label>
-                           <input class="form-control" value="<%= @person.gender %>" disabled />
-                        </div>
-                     </div>
+            <h2><%= @person.id %> - <%= @person.name %></h2>
 
-                     <div class="col-lg-6 col-md-6">
-                        <div class="form-group">
-                           <label class="control-label col-md-3"><%= t(:marital_status) %></label>
-                           <input class="form-control" value="<%= @person.marital_status %>" disabled />
-                        </div>
-                        <div class="form-group">
-                           <label class="control-label col-md-3"><%= t(:cpf) %></label>
-                           <input class="form-control" value="<%= @person.cpf %>" disabled />
-                        </div>
-                        <div class="form-group">
-                           <label class="control-label col-md-3"><%= t(:rg) %></label>
-                           <input class="form-control" value="<%= @person.rg %>" disabled />
-                        </div>
-                        <% else %>
-                        <div class="form-group">
-                           <label class="control-label col-md-3"><%= t(:company_name) %></label>
-                           <input class="form-control" value="<%= @person.company_name %>" disabled />
-                        </div>
-                        <div class="form-group">
-                           <label class="control-label col-md-3"><%= t(:cnpj) %></label>
-                           <input class="form-control" value="<%= @person.cnpj %>" disabled />
-                        </div>
-                        <div class="form-group">
-                           <label><%= t(:inscricao_estadual) %></label>
-                           <input class="form-control" value="<%= @person.inscricao_estadual %>" disabled />
-                        </div>
-                        <% end %>
-                     </div>
-                  </div>
+             <div class="col-lg-6 col-md-6">
+                <div class="form-group">
+                   <label class="control-label col-md-3"><% t(:type) %></label>
+                   <input class="form-control" value="<%= @person.type %>" disabled />
+                </div>
+                <% if @person.type.equal? 'Individual' %>
+                <div class="form-group" >
+                   <label class="control-label col-md-3"><%= t(:birthday) %></label>
+                   <input class="form-control" value="<%= @person.birthday %>" disabled />
+                </div>
+                <div class="form-group">
+                   <label class="control-label col-md-3"><%= t(:gender) %></label>
+                   <input class="form-control" value="<%= @person.gender %>" disabled />
+                </div>
+             </div>
+
+             <div class="col-lg-6 col-md-6">
+                <div class="form-group">
+                   <label class="control-label col-md-3"><%= t(:marital_status) %></label>
+                   <input class="form-control" value="<%= @person.marital_status %>" disabled />
+                </div>
+                <div class="form-group">
+                   <label class="control-label col-md-3"><%= t(:cpf) %></label>
+                   <input class="form-control" value="<%= @person.cpf %>" disabled />
+                </div>
+                <div class="form-group">
+                   <label class="control-label col-md-3"><%= t(:rg) %></label>
+                   <input class="form-control" value="<%= @person.rg %>" disabled />
+                </div>
+                <% else %>
+                <div class="form-group">
+                   <label class="control-label col-md-3"><%= t(:company_name) %></label>
+                   <input class="form-control" value="<%= @person.company_name %>" disabled />
+                </div>
+                <div class="form-group">
+                   <label class="control-label col-md-3"><%= t(:cnpj) %></label>
+                   <input class="form-control" value="<%= @person.cnpj %>" disabled />
+                </div>
+                <div class="form-group">
+                   <label><%= t(:inscricao_estadual) %></label>
+                   <input class="form-control" value="<%= @person.inscricao_estadual %>" disabled />
+                </div>
+                <% end %>
+             </div>
+
                   <% if current_user.has_role? :admin  %>
                   <%= link_to t(:edit), edit_person_path(@person), class: 'btn btn-warning' %>
                   <%= link_to "#{t(:delete)}", person_path(@person), method: :delete,
