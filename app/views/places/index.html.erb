@@ -1,18 +1,55 @@
-<br>
-<div class="container">
-  <div align="center">
-    <% @places.each do |place| %>
-      <div class="col-md-4">
-        <h3>
-          <%= link_to place.name, place_path(place) %>
-        </h3>
-        <p>
-          <%= link_to place.person.name, person_path(place.person) %>
-        </p>
-        <%= link_to "#{t(:delete)}", place_path(place), method: :delete,
-        data: {confirm: "#{t(:delete_place?)}"}, class: 'btn btn-danger' %>
+
+<div class="page-content-wrapper">
+   <!-- BEGIN CONTENT BODY -->
+   <div class="page-content">
+      <!-- END PAGE BAR -->
+      <!-- BEGIN PAGE TITLE-->
+      <h1 class="page-title"> Locais </h1>
+      <!-- END PAGE TITLE-->
+      <!-- END PAGE HEADER-->
+      <div class="row">
+         <div class="col-md-12">
+
+            <!-- BEGIN SAMPLE TABLE PORTLET-->
+            <div class="portlet box green">
+               <div class="portlet-title">
+                  <div class="caption">
+                     <i class="fa fa-cogs"></i>Lista de Locais
+                  </div>
+               </div>
+               <div class="portlet-body flip-scroll">
+                  <table class="table table-bordered table-striped table-condensed flip-content">
+                     <thead class="flip-content">
+                        <tr>
+                           <th width="10%"> Code </th>
+                           <th> Nome </th>
+                           <th class="numeric"> Responsável </th>
+                           <th class="numeric"> Ações </th>
+
+                        </tr>
+                     </thead>
+                     <tbody>
+                      <% @places.each do |place| %>
+                        <tr>
+                           <td> <%= place.id %> </td>
+                           <td> <%= place.name %></td>
+                           <td > <%= place.person.name %> </td>
+                           <td >
+                             <%= link_to t(:view), place_path(place), class: 'btn btn-primary' %>
+                             <%= link_to t(:edit), edit_place_path(place), class: 'btn btn-warning' %>
+                             <%= link_to t(:delete), place_path(place), method: :delete,
+                                  data: {confirm: t(:delete_person?)}, class: 'btn btn-danger' %> </td>
+
+                        </tr>
+                      <% end %>
+                     </tbody>
+                  </table>
+               </div>
+            </div>
+            <!-- END SAMPLE TABLE PORTLET-->
+            <!-- BEGIN SAMPLE TABLE PORTLET-->
+         </div>
       </div>
-      <br>
-    <% end %>
-  </div>
+   </div>
+</div>
 </div>

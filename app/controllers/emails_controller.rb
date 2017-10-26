@@ -10,10 +10,11 @@ class EmailsController < ApplicationController
     @email = @emailable.emails.new(email_params)
     if @email.save
       flash[:success] = I18n.t(:email_add_success)
+      redirect_to @emailable
     else
       flash[:danger] = @email.errors.full_messages
+      render 'new'
     end
-    redirect_to @emailable
   end
 
   def edit
@@ -24,10 +25,11 @@ class EmailsController < ApplicationController
     @email = @emailable.emails.find(params[:id])
     if @email.update(email_params)
       flash[:success] = I18n.t(:email_add_success)
+      redirect_to @emailable
     else
       flash[:danger] = @email.errors.full_messages
+      render 'edit'
     end
-    redirect_to @emailable
   end
 
   def destroy

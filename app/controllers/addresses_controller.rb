@@ -10,10 +10,11 @@ class AddressesController < ApplicationController
     @address = @addressable.addresses.new(address_params)
     if @address.save
       flash[:success] = I18n.t(:address_add_success)
+      redirect_to @addressable
     else
       flash[:danger] = @address.errors.full_messages
+      render 'new'
     end
-    redirect_to @addressable
   end
 
   def edit
@@ -24,10 +25,11 @@ class AddressesController < ApplicationController
     @address = @addressable.addresses.find(params[:id])
     if @address.update(address_params)
       flash[:success] = I18n.t(:address_add_success)
+      redirect_to @addressable
     else
       flash[:danger] = @address.errors.full_messages
+      render 'edit'
     end
-    redirect_to @addressable
   end
 
   def destroy

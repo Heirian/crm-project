@@ -24,10 +24,11 @@ class BankAccountsController < ApplicationController
   def update
     if @bank_account.update(bank_account_params)
       flash[:success] = I18n.t(:bank_account_update_success)
+      redirect_to @person
     else
       flash[:danger] = @bank_account.errors.full_messages
+      render 'edit'
     end
-    redirect_to @person
   end
 
   def destroy
