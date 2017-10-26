@@ -65,7 +65,9 @@
           </div>
         </div>
       </div>
-      <hr />
+  </div>
+
+  <hr />
       <div class="row">
         <div class="container-fluid">
           <div class="col-lg-offset-1 col-lg-6">
@@ -113,28 +115,29 @@
                 <%= link_to t(:add_new_email), new_person_email_path(@person), class: 'btn btn-primary btn-lg pull-right' %>
               </div>
             </div>
-            <div class="portlet-body flip-scroll">
-              <table class="table table-bordered table-striped table-condensed flip-content">
-                <thead class="flip-content">
-                  <tr>
-                    <th width="20%"> Importância</th>
-                    <th> Nome </th>
-                    <th class="numeric"><%= t(:kind) %></th>
-                    <th class="numeric"> Ações </th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <%= render @person.emails, emailable: @person %>
-                </tbody>
-              </table>
-            </div>
+            <% unless @person.emails.count.zero? %>
+              <div class="portlet-body flip-scroll">
+                <table class="table table-bordered table-striped table-condensed flip-content">
+                  <thead class="flip-content">
+                    <tr>
+                      <th width="20%"> Importância</th>
+                      <th> Nome </th>
+                      <th class="numeric"><%= t(:kind) %></th>
+                      <th class="numeric"> Ações </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <%= render @person.emails, emailable: @person %>
+                  </tbody>
+                </table>
+              </div>
+            <% end %>
           </div>
           <!-- END SAMPLE TABLE PORTLET-->
           <!-- BEGIN SAMPLE TABLE PORTLET-->
         </div>
       </div>
-    </div>
-    <hr />
+
     <div class="row">
       <div class="container-fluid">
         <div class="col-lg-offset-1 col-lg-6">
@@ -147,29 +150,30 @@
               </div>
               <%= link_to t(:add_new_phone), new_person_phone_path(@person), class: 'btn btn-primary btn-lg pull-right' %>
             </div>
-            <div class="portlet-body flip-scroll">
-              <table class="table table-bordered table-striped table-condensed flip-content">
-                <thead class="flip-content">
-                  <tr>
-                    <th width="15%"> Importância</th>
-                    <th width="20%"><%= t(:phone_number) %> </th>
-                    <th width="15%" class="numeric"><%= t(:kind) %></th>
-                    <th width="20%" class="numeric"> <%= t(:instant_message) %> </th>
-                    <th class="numeric"> Ações </th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <%= render @person.phones, phonable: @person %>
-                </tbody>
-              </table>
-            </div>
+            <% unless @person.phones.count.zero? %>
+              <div class="portlet-body flip-scroll">
+                <table class="table table-bordered table-striped table-condensed flip-content">
+                  <thead class="flip-content">
+                    <tr>
+                      <th width="15%"> Importância</th>
+                      <th width="20%"><%= t(:phone_number) %> </th>
+                      <th width="15%" class="numeric"><%= t(:kind) %></th>
+                      <th width="20%" class="numeric"> <%= t(:instant_message) %> </th>
+                      <th class="numeric"> Ações </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <%= render @person.phones, phonable: @person %>
+                  </tbody>
+                </table>
+              </div>
+            <% end %>
           </div>
           <!-- END SAMPLE TABLE PORTLET-->
           <!-- BEGIN SAMPLE TABLE PORTLET-->
         </div>
       </div>
     </div>
-    <hr />
     <div class="row">
       <div class="container-fluid">
         <div class="col-lg-offset-1 col-lg-6">
@@ -180,24 +184,26 @@
               <div class="caption">
                 <%= t(:addresses) %>
               </div>
-              <%= link_to t(:add_new_address), new_person_address_path(@person), class: 'btn btn-primary btn-lg pull-right' %>
+              <%= link_to t(:add_new_address), new_person_address_path(@person), data: { turbolinks: false }, class: 'btn btn-primary btn-lg pull-right' %>
             </div>
-            <div class="portlet-body flip-scroll">
-              <table class="table table-bordered table-striped table-condensed flip-content">
-                <thead class="flip-content">
-                  <tr>
-                    <th width="15%"> Endereço</th>
-                    <th width="20%"> Cep </th>
-                    <th width="15%" class="numeric"><%= t(:kind) %></th>
-                    <th width="20%" class="numeric"> Cidade/Estado/País </th>
-                    <th class="numeric"> Ações </th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <%= render @person.addresses, addressable: @person %>
-                </tbody>
-              </table>
-            </div>
+            <% unless @person.addresses.count.zero? %>
+              <div class="portlet-body flip-scroll">
+                <table class="table table-bordered table-striped table-condensed flip-content">
+                  <thead class="flip-content">
+                    <tr>
+                      <th width="15%"> Endereço</th>
+                      <th width="20%"> Cep </th>
+                      <th width="15%" class="numeric"><%= t(:kind) %></th>
+                      <th width="20%" class="numeric"> Cidade/Estado/País </th>
+                      <th class="numeric"> Ações </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <%= render @person.addresses, addressable: @person %>
+                  </tbody>
+                </table>
+              </div>
+              <% end %>
           </div>
           <!-- END SAMPLE TABLE PORTLET-->
           <!-- BEGIN SAMPLE TABLE PORTLET-->
@@ -205,7 +211,6 @@
       </div>
     </div>
 
-    <hr />
     <div class="row">
       <div class="container-fluid">
         <div class="col-lg-offset-1 col-lg-6">
@@ -218,21 +223,23 @@
               </div>
                 <%= link_to t(:add_new_bank_account), new_person_bank_account_path(@person), class: 'btn btn-primary btn-lg pull-right' %>
             </div>
-            <div class="portlet-body flip-scroll">
-              <table class="table table-bordered table-striped table-condensed flip-content">
-                <thead class="flip-content">
-                  <tr>
-                    <th width="25%">Banco</th>
-                    <th width="25%"> Agência Bancária </th>
-                    <th width="25%" class="numeric">Número da conta</th>
-                    <th class="numeric"> Ações </th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <%= render @person.bank_accounts %>
-                </tbody>
-              </table>
-            </div>
+            <% unless @person.bank_accounts.count.zero? %>
+              <div class="portlet-body flip-scroll">
+                <table class="table table-bordered table-striped table-condensed flip-content">
+                  <thead class="flip-content">
+                    <tr>
+                      <th width="25%">Banco</th>
+                      <th width="25%"> Agência Bancária </th>
+                      <th width="25%" class="numeric">Número da conta</th>
+                      <th class="numeric"> Ações </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <%= render @person.bank_accounts %>
+                  </tbody>
+                </table>
+              </div>
+            <% end %>
           </div>
           <!-- END SAMPLE TABLE PORTLET-->
           <!-- BEGIN SAMPLE TABLE PORTLET-->
@@ -240,7 +247,6 @@
       </div>
     </div>
 
-    <hr />
     <div class="row">
       <div class="container-fluid">
         <div class="col-lg-offset-1 col-lg-6">
@@ -253,19 +259,22 @@
               </div>
               <%= link_to t(:add_new_place), new_place_path(person_id: @person.id), class: 'btn btn-primary btn-lg pull-right' %>
             </div>
-            <div class="portlet-body flip-scroll">
-              <table class="table table-bordered table-striped table-condensed flip-content">
-                <thead class="flip-content">
-                  <tr>
-                    <th width="75%">Nome</th>
-                    <th class="numeric"> Ações </th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <%= render @person.places %>
-                </tbody>
-              </table>
-            </div>
+
+            <% unless @person.places.count.zero? %>
+              <div class="portlet-body flip-scroll">
+                <table class="table table-bordered table-striped table-condensed flip-content">
+                  <thead class="flip-content">
+                    <tr>
+                      <th width="75%">Nome</th>
+                      <th class="numeric"> Ações </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <%= render @person.places %>
+                  </tbody>
+                </table>
+              </div>
+          <% end %>
           </div>
           <!-- END SAMPLE TABLE PORTLET-->
           <!-- BEGIN SAMPLE TABLE PORTLET-->
@@ -274,5 +283,4 @@
     </div>
 
   </div>
-</div>
 </div>
