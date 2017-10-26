@@ -66,42 +66,9 @@
         </div>
       </div>
   </div>
+</div>
+<hr/>
 
-  <hr />
-      <div class="row">
-        <div class="container-fluid">
-          <div class="col-lg-offset-1 col-lg-6">
-
-            <!-- BEGIN SAMPLE TABLE PORTLET-->
-            <div class="portlet box green">
-              <div class="portlet-title">
-                <div class="caption">
-                  <%= t(:phones) %>
-                </div>
-                <%= link_to t(:add_new_phone), new_person_phone_path(@person), class: 'btn btn-primary btn-lg pull-right' %>
-              </div>
-              <div class="portlet-body flip-scroll">
-                <table class="table table-bordered table-striped table-condensed flip-content">
-                  <thead class="flip-content">
-                    <tr>
-                      <th width="15%"> Importância</th>
-                      <th width="20%"><%= t(:phone_number) %> </th>
-                      <th width="15%" class="numeric"><%= t(:kind) %></th>
-                      <th width="20%" class="numeric"> <%= t(:instant_message) %> </th>
-                      <th class="numeric"> Ações </th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <%= render @person.phones, phonable: @person %>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-            <!-- END SAMPLE TABLE PORTLET-->
-            <!-- BEGIN SAMPLE TABLE PORTLET-->
-          </div>
-        </div>
-      </div>
       <div class="row">
         <div class="container-fluid">
           <div class="col-lg-offset-1 col-lg-6">

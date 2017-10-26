@@ -1,5 +1,25 @@
+<script type="text/javascript">
+   $(document).ready(function() {
+   window.setTimeout("fadeMyAlert();", 1000); //call fade in 3 seconds
+     }
+    )
+
+    function fadeMyAlert() {
+       $(".alert").fadeOut(5000);
+    }
+</script>
+<br>
+<div class="container">
+
   <% flash.each do |name, message| %>
-    <script>
-      alert("<%= message %>");
-    </script>
+
+        <div class="col-md-6 col-md-offset-3">
+          <div class="alert alert-<%= name %>" role="alert">
+            <a href="#" class="close" data-dismiss="alert">&#215</a>
+            <%= message %>
+          </div>
+        </div>
+
   <% end %>
+
+</div>

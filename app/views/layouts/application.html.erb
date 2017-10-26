@@ -102,8 +102,8 @@
             <%= render 'layouts/nav_bar' %>
           </div>
         <div class="page-container">
+          <%= render 'layouts/flash_messages' %>
             <%= render 'layouts/menu-sidebar' if user_signed_in? %>
-            <%= render 'layouts/flash_messages' %>
             <%= yield %>
         </div>
       <%= render 'layouts/footer' %>
