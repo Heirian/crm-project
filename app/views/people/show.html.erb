@@ -1,151 +1,239 @@
 <br>
 <div style="margin-top: 0;padding-left: 17%;background-color: #fff;">
-    <div class="row">
-        <div class="col-md-12">
-            <!-- BEGIN VALIDATION STATES-->
-            <div class="portlet-form bordered">
+  <div class="row">
+    <div class="col-md-12">
+      <!-- BEGIN VALIDATION STATES-->
+      <div class="portlet-form bordered">
+        <div class="container-fluid">
+          <div class="portlet-body">
 
-                <div class="portlet-body">
-                  <div class="row">
-                     <div class="col-md-12">
-                        <h2><%= @person.id %> - <%= @person.name %></h2>
-                     </div>
-                  </div>
-                  <div class="form-body">
-                     <div class="col-lg-12 col-md-6">
-                        <div class="form-group"><br><br>
-                           <label class="control-label col-md-3">Tipo</label>
-                           <input class="form-control" value="<%= @person.type %>" disabled />
-                        </div>
-                        <% if @person.type == 'Individual' %>
-                        <div class="form-group" >
-                           <label class="control-label col-md-3"><%= t(:birthday) %></label>
-                           <input class="form-control" value="<%= @person.birthday %>" disabled />
-                        </div>
-                        <div class="form-group">
-                           <label class="control-label col-md-3"><%= t(:gender) %></label>
-                           <input class="form-control" value="<%= @person.gender %>" disabled />
-                        </div>
-                     </div>
-
-                     <div class="col-lg-12 col-md-6">
-                        <div class="form-group">
-                           <label class="control-label col-md-3"><%= t(:marital_status) %></label>
-                           <input class="form-control" value="<%= @person.marital_status %>" disabled />
-                        </div>
-                        <div class="form-group">
-                           <label class="control-label col-md-3"><%= t(:cpf) %></label>
-                           <input class="form-control" value="<%= @person.cpf %>" disabled />
-                        </div>
-                        <div class="form-group">
-                           <label class="control-label col-md-3"><%= t(:rg) %></label>
-                           <input class="form-control" value="<%= @person.rg %>" disabled />
-                        </div>
-                        <% else %>
-                        <div class="form-group">
-                           <label class="control-label col-md-3"><%= t(:company_name) %></label>
-                           <input class="form-control" value="<%= @person.company_name %>" disabled />
-                        </div>
-                        <div class="form-group">
-                           <label class="control-label col-md-3"><%= t(:cnpj) %></label>
-                           <input class="form-control" value="<%= @person.cnpj %>" disabled />
-                        </div>
-                        <div class="form-group">
-                           <label><%= t(:inscricao_estadual) %></label>
-                           <input class="form-control" value="<%= @person.inscricao_estadual %>" disabled />
-                        </div>
-                        <% end %>
-                     </div>
-                   </div>
-                  </div>
-                  <%# if current_user.has_role? :admin  %>
-                  <%#= link_to t(:edit), edit_person_path(@person), class: 'btn btn-warning' %>
-                  <%#= link_to "#{t(:delete)}", person_path(@person), method: :delete,
-                     data: {confirm: "#{t(:delete_person?)}"}, class: 'btn btn-danger' %>
-                  <%# end %>
-               </div>
-
-                  <div class="col-12">
-                    <div class="row">
-                      <div class="col-6">
-
-                        <%= render @person.emails, emailable: @person %>
-                        <%= render 'emails/form', emailable: @person %>
-                      </div>
-
-                      <div class="col-6">
-                        <h4 style="margin-left: 45px;">
-                          <%= t(:phones) %>
-                        </h4>
-                        <%= render @person.phones, phonable: @person %>
-                        <%= render 'phones/form', phonable: @person %>
-                    </div>
-                  </div>
-                  </div>
-               <!--<hr />
-                  <div class="col-12">
-                    <div class="row">
-                      <div class="col-6">
-                        <h4>
-                          <%= t(:addresses) %>
-                        </h4>
-                        <%= render @person.addresses, addressable: @person %>
-                        <%= render 'addresses/form', addressable: @person %>
-                      </div>
-
-                      <div class="col-6">
-                        <h4>
-                          <%= t(:bank_accounts) %>
-                        </h4>
-                        <%= render @person.bank_accounts %>
-                        <%= render 'bank_accounts/form' %>
-                      </div>
-                    </div>
-                  </div>-->
+            <div class="col-lg-offset-1 col-lg-11">
+              <h2><%= @person.id %> - <%= @person.name %></h2>
+              <%= link_to t(:edit), edit_person_path(@person), class: 'btn btn-warning center' %>
+              <% if current_user.has_role? :admin  %>
+              <%= link_to t(:delete), person_path(@person), method: :delete,
+              data: {confirm: "#{t(:delete_person?)}"}, class: 'btn btn-danger' %>
+              <% end %>
             </div>
 
-            <!--<div class="col-6">
-              <h4>
-                <%= t(:phones) %>
-              </h4>
-              <%= render @person.phones, phonable: @person %>
-              <%= render 'phones/form', phonable: @person %>
-          </div>-->
+            <div class="form-body">
+              <div class="col-lg-offset-1 col-lg-6 col-md-6">
+                <div class="form-group"><br><br>
+                  <label class="control-label col-3"><%= t(:type) %></label>
+                  <input class="form-control col-6" value="<%= @person.type %>" disabled />
+                </div>
+                <% if @person.type == 'Individual' %>
+                <div class="form-group" >
+                  <label class="control-label col-3"><%= t(:birthday) %></label>
+                  <input class="form-control" value="<%= @person.birthday %>" disabled />
+                </div>
+                <div class="form-group">
+                  <label class="control-label col-3"><%= t(:gender) %></label>
+                  <input class="form-control" value="<%= @person.gender %>" disabled />
+                </div>
+              </div>
+
+              <div class="col-lg-offset-1 col-lg-6 col-md-6">
+                <div class="form-group">
+                  <label class="control-label col-3"><%= t(:marital_status) %></label>
+                  <input class="form-control" value="<%= @person.marital_status %>" disabled />
+                </div>
+                <div class="form-group">
+                  <label class="control-label col-3"><%= t(:cpf) %></label>
+                  <input class="form-control" value="<%= @person.cpf %>" disabled />
+                </div>
+                <div class="form-group">
+                  <label class="control-label col-3"><%= t(:rg) %></label>
+                  <input class="form-control" value="<%= @person.rg %>" disabled />
+                </div>
+                <% else %>
+                <div class="form-group">
+                  <label class="control-label col-3"><%= t(:company_name) %></label>
+                  <input class="form-control" value="<%= @person.company_name %>" disabled />
+                </div>
+                <div class="form-group">
+                  <label class="control-label col-3"><%= t(:cnpj) %></label>
+                  <input class="form-control" value="<%= @person.cnpj %>" disabled />
+                </div>
+                <div class="form-group">
+                  <label><%= t(:inscricao_estadual) %></label>
+                  <input class="form-control" value="<%= @person.inscricao_estadual %>" disabled />
+                </div>
+                <% end %>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-
       <hr />
-      <div class="col-12">
-        <div class="row">
-          <div class="col-6">
-            <h4 style="margin-left: 45px;">
-              <%= t(:address) %>
-            </h4>
-            <%= render @person.addresses, addressable: @person %>
-            <%= render 'addresses/form', addressable: @person %>
-          </div>
+      <div class="row">
+        <div class="container-fluid">
+          <div class="col-lg-offset-1 col-lg-6">
 
-          <div class="col-6">
-            <h4 style="margin-left: 45px;">
-              <%= t(:bank_accounts) %>
-            </h4>
-            <%= render @person.bank_accounts %>
-            <%= render 'bank_accounts/form' %>
+            <!-- BEGIN SAMPLE TABLE PORTLET-->
+            <div class="portlet box green">
+              <div class="portlet-title">
+                <div class="caption">
+                </i><%= t(:emails) %>
+              </div>
+            </div>
+            <div class="portlet-body flip-scroll">
+              <table class="table table-bordered table-striped table-condensed flip-content">
+                <thead class="flip-content">
+                  <tr>
+                    <th width="20%"> Importância</th>
+                    <th> Nome </th>
+                    <th class="numeric"><%= t(:kind) %></th>
+                    <th class="numeric"> Ações </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <%= render @person.emails, emailable: @person %>
+                </tbody>
+              </table>
+            </div>
           </div>
+          <!-- END SAMPLE TABLE PORTLET-->
+          <!-- BEGIN SAMPLE TABLE PORTLET-->
         </div>
       </div>
     </div>
-      <hr />
+    <hr />
+    <div class="row">
+      <div class="container-fluid">
+        <div class="col-lg-offset-1 col-lg-6">
 
-      <div>
-        <h4 style="margin-left: 45px;">
-          <%= t(:places) %>
-        </h4>
-        <br>
-        <%= link_to t(:add_new_place), new_place_path(person_id: @person.id), class: 'btn btn-primary' %>
-        <%= render @person.places %>
-
-        <br>
+          <!-- BEGIN SAMPLE TABLE PORTLET-->
+          <div class="portlet box green">
+            <div class="portlet-title">
+              <div class="caption">
+                <%= t(:phones) %>
+              </div>
+            </div>
+            <div class="portlet-body flip-scroll">
+              <table class="table table-bordered table-striped table-condensed flip-content">
+                <thead class="flip-content">
+                  <tr>
+                    <th width="15%"> Importância</th>
+                    <th width="20%"><%= t(:phone_number) %> </th>
+                    <th width="15%" class="numeric"><%= t(:kind) %></th>
+                    <th width="20%" class="numeric"> <%= t(:instant_message) %> </th>
+                    <th class="numeric"> Ações </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <%= render @person.phones, phonable: @person %>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <!-- END SAMPLE TABLE PORTLET-->
+          <!-- BEGIN SAMPLE TABLE PORTLET-->
+        </div>
       </div>
-   </div>
+    </div>
+    <hr />
+    <div class="row">
+      <div class="container-fluid">
+        <div class="col-lg-offset-1 col-lg-6">
+
+          <!-- BEGIN SAMPLE TABLE PORTLET-->
+          <div class="portlet box green">
+            <div class="portlet-title">
+              <div class="caption">
+                <%= t(:addresses) %>
+              </div>
+            </div>
+            <div class="portlet-body flip-scroll">
+              <table class="table table-bordered table-striped table-condensed flip-content">
+                <thead class="flip-content">
+                  <tr>
+                    <th width="15%"> Endereço</th>
+                    <th width="20%"> Cep </th>
+                    <th width="15%" class="numeric"><%= t(:kind) %></th>
+                    <th width="20%" class="numeric"> Cidade/Estado/País </th>
+                    <th class="numeric"> Ações </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <%= render @person.addresses, addressable: @person %>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <!-- END SAMPLE TABLE PORTLET-->
+          <!-- BEGIN SAMPLE TABLE PORTLET-->
+        </div>
+      </div>
+    </div>
+
+    <hr />
+    <div class="row">
+      <div class="container-fluid">
+        <div class="col-lg-offset-1 col-lg-6">
+
+          <!-- BEGIN SAMPLE TABLE PORTLET-->
+          <div class="portlet box green">
+            <div class="portlet-title">
+              <div class="caption">
+                <%= t(:bank_accounts) %>
+              </div>
+            </div>
+            <div class="portlet-body flip-scroll">
+              <table class="table table-bordered table-striped table-condensed flip-content">
+                <thead class="flip-content">
+                  <tr>
+                    <th width="25%">Banco</th>
+                    <th width="25%"> Agência Bancária </th>
+                    <th width="25%" class="numeric">Número da conta</th>
+                    <th class="numeric"> Ações </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <%= render @person.bank_accounts %>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <!-- END SAMPLE TABLE PORTLET-->
+          <!-- BEGIN SAMPLE TABLE PORTLET-->
+        </div>
+      </div>
+    </div>
+
+    <hr />
+    <div class="row">
+      <div class="container-fluid">
+        <div class="col-lg-offset-1 col-lg-6">
+
+          <!-- BEGIN SAMPLE TABLE PORTLET-->
+          <div class="portlet box green">
+            <div class="portlet-title">
+              <div class="caption">
+                <%= t(:places) %>
+              </div>
+              <%= link_to t(:add_new_place), new_place_path(person_id: @person.id), class: 'btn btn-primary btn-lg pull-right' %>
+            </div>
+            <div class="portlet-body flip-scroll">
+              <table class="table table-bordered table-striped table-condensed flip-content">
+                <thead class="flip-content">
+                  <tr>
+                    <th width="75%">Nome</th>
+                    <th class="numeric"> Ações </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <%= render @person.places %>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <!-- END SAMPLE TABLE PORTLET-->
+          <!-- BEGIN SAMPLE TABLE PORTLET-->
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
 </div>

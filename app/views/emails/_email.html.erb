@@ -1,13 +1,16 @@
-<p><%= email.body %></p>
-<p><%= email.kind %></p>
-<p><%= t(:main) if email.main.equal? true %></p>
-<% if emailable == @person %>
-  <%= link_to "#{t(:edit)}", edit_person_email_path(emailable, email), class: 'btn btn-info' %>
-<% else %>
-  <%= link_to "#{t(:edit)}", edit_place_email_path(emailable, email), class: 'btn btn-info' %>
-<% end %>
-<% if current_user.has_role? :admin  %>
-  <%= link_to "#{t(:delete)}", person_email_path(emailable, email), method: :delete,
-  data: { confirm: "#{t(:delete_email?)}" }, class: 'btn btn-danger' %>
-<% end %>
-<hr />
+
+  <tr>
+     <td> <%= t(:main) if email.main %> </td>
+     <td><%= email.body %></td>
+     <td ><%= email.kind %></td>
+     <td ><% if emailable == @person %>
+          <%= link_to "#{t(:edit)}", edit_person_email_path(emailable, email), class: 'btn btn-info' %>
+         <% else %>
+           <%= link_to "#{t(:edit)}", edit_place_email_path(emailable, email), class: 'btn btn-info' %>
+         <% end %>
+         <% if current_user.has_role? :admin  %>
+           <%= link_to "#{t(:delete)}", person_email_path(emailable, email), method: :delete,
+           data: { confirm: "#{t(:delete_email?)}" }, class: 'btn btn-danger' %>
+         <% end %></td>
+
+  </tr>
