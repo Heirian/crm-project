@@ -39,30 +39,30 @@
                 <div class="caption">
                   <%= t(:emails) %>
                 </div>
-                <%= link_to t(:add_new_email), new_place_email_path(@place), data: { turbolinks: false }, class: 'btn btn-primary btn-lg pull-right' %>
+              <%= link_to t(:add_new_email), new_place_email_path(@place), class: 'btn btn-primary btn-lg pull-right' %>
+              </div>
+              <div class="portlet-body flip-scroll">
+                <table class="table table-bordered table-striped table-condensed flip-content">
+                  <thead class="flip-content">
+                    <tr>
+                   <th width="20%"> Importância</th>
+                   <th> Nome </th>
+                   <th class="numeric">Tipo</th>
+                   <th class="numeric"> Ações </th>
+                 </tr>
+
+                  </thead>
+                  <tbody>
+                    <%= render @place.phones, phonable: @place %>
+                  </tbody>
+                </table>
               </div>
             </div>
-            <div class="portlet-body flip-scroll">
-              <table class="table table-bordered table-striped table-condensed flip-content">
-                <thead class="flip-content">
-                  <tr>
-                    <th width="20%"> Importância</th>
-                    <th> Nome </th>
-                    <th class="numeric"><%= t(:kind) %></th>
-                    <th class="numeric"> Ações </th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <%= render @place.emails, emailable: @place %>
-                </tbody>
-              </table>
-            </div>
+            <!-- END SAMPLE TABLE PORTLET-->
+            <!-- BEGIN SAMPLE TABLE PORTLET-->
           </div>
-          <!-- END SAMPLE TABLE PORTLET-->
-          <!-- BEGIN SAMPLE TABLE PORTLET-->
         </div>
       </div>
-    </div>
     <hr />
     <div class="row">
       <div class="container-fluid">

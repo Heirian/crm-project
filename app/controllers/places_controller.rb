@@ -19,7 +19,7 @@ class PlacesController < ApplicationController
       flash[:danger] = @place.errors.full_messages
       return render 'new'
     end
-    flash[:success] = I18n.t(:place_created_successfully)
+    flash[:success] = I18n.t(:register_add_success)
     redirect_to @place
   end
 
@@ -27,7 +27,7 @@ class PlacesController < ApplicationController
 
   def update
     if @place.update(place_params)
-      flash[:success] = I18n.t(:place_update_successfully)
+      flash[:success] = I18n.t(:updated_successfully)
       redirect_to @place
     else
       flash[:danger] = @place.errors.full_messages
@@ -37,7 +37,7 @@ class PlacesController < ApplicationController
 
   def destroy
     @place.destroy
-    flash[:danger] = I18n.t(:place_deleted_successfully)
+    flash[:danger] = I18n.t(:deleted_successfully)
     redirect_back fallback_location: places_path
   end
 

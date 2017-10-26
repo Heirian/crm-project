@@ -9,7 +9,7 @@ class EmailsController < ApplicationController
   def create
     @email = @emailable.emails.new(email_params)
     if @email.save
-      flash[:success] = I18n.t(:email_add_success)
+      flash[:success] = I18n.t(:register_add_success)
       redirect_to @emailable
     else
       flash[:danger] = @email.errors.full_messages
@@ -24,7 +24,7 @@ class EmailsController < ApplicationController
   def update
     @email = @emailable.emails.find(params[:id])
     if @email.update(email_params)
-      flash[:success] = I18n.t(:email_add_success)
+      flash[:success] = I18n.t(:updated_successfully)
       redirect_to @emailable
     else
       flash[:danger] = @email.errors.full_messages
@@ -35,7 +35,7 @@ class EmailsController < ApplicationController
   def destroy
     @email = @emailable.emails.find(params[:id])
     @email.destroy
-    flash[:danger] = I18n.t(:email_deleted_successfully)
+    flash[:danger] = I18n.t(:deleted_successfully)
     redirect_to @emailable
   end
 

@@ -11,7 +11,7 @@ class BankAccountsController < ApplicationController
   def create
     @bank_account = @person.bank_accounts.new(bank_account_params)
     if @bank_account.save
-      flash[:success] = I18n.t(:bank_account_add_success)
+      flash[:success] = I18n.t(:register_add_success)
       redirect_to @person
     else
       flash[:danger] = @bank_account.errors.full_messages
@@ -23,7 +23,7 @@ class BankAccountsController < ApplicationController
 
   def update
     if @bank_account.update(bank_account_params)
-      flash[:success] = I18n.t(:bank_account_update_success)
+      flash[:success] = I18n.t(:updated_successfully)
       redirect_to @person
     else
       flash[:danger] = @bank_account.errors.full_messages
@@ -33,7 +33,7 @@ class BankAccountsController < ApplicationController
 
   def destroy
     @bank_account.destroy
-    flash[:danger] = I18n.t(:bank_account_deleted_successfully)
+    flash[:danger] = I18n.t(:deleted_successfully)
     redirect_to @person
   end
 

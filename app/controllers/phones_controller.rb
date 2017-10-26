@@ -24,7 +24,7 @@ class PhonesController < ApplicationController
   def update
     @phone = @phonable.phones.find(params[:id])
     if @phone.update(phone_params)
-      flash[:success] = I18n.t(:email_add_success)
+      flash[:success] = I18n.t(:register_add_success)
       redirect_to @phonable
     else
       flash[:danger] = @phone.errors.full_messages
@@ -35,7 +35,7 @@ class PhonesController < ApplicationController
   def destroy
     @phone = @phonable.phones.find(params[:id])
     @phone.destroy
-    flash[:danger] = I18n.t(:phone_deleted_successfully)
+    flash[:danger] = I18n.t(:deleted_successfully)
     redirect_to @phonable
   end
 

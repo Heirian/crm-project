@@ -373,6 +373,9 @@ pt-BR:
   create_email: "Adicionar email"
   update_email: "Atualizar email"
   #person
+  register_add_success: "Registro cadastrado com sucesso"
+  updated_successfully: "Registro atualizado com sucesso"
+  deleted_successfully: "Registro excluído com sucesso"
   person_record: "Registro pessoa"
   new_individual: "Nova pessoa física"
   all_individual_record: "Pessoas físicas"
