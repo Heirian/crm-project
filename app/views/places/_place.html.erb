@@ -2,10 +2,12 @@
   <tr>
      <td><%= link_to place.name, place_path(place) %></td>
      <td >
-          <%= link_to t(:edit), edit_place_path(place), class: 'btn btn-info' %>
-         <% if current_user.has_role? :admin  %>
-           <%= link_to t(:delete), place_path(place), method: :delete,
+          <%= link_to(edit_place_path(place), class: "btn btn-icon-only green pull-right") do %>
+            <i class="fa fa-edit" aria-hidden="true" title="Editar"></i>
+          <% end %>
+         <%# if current_user.has_role? :admin  %>
+           <%#= link_to t(:delete), place_path(place), method: :delete,
            data: { confirm: "#{t(:delete_place?)}" }, class: 'btn btn-danger' %>
-         <% end %></td>
+         <%# end %></td>
 
   </tr>

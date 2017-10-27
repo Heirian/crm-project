@@ -3,7 +3,7 @@
 class Phone < ApplicationRecord
   INSTANT_MESSAGES_OPTIONS = {
     '0' => 'Whatsapp',
-    '1' => 'Messager',
+    '1' => 'Messenger',
     '2' => 'Skype',
     '3' => 'Telegram'
   }.freeze
