@@ -35,10 +35,10 @@
                            <td> <%= place.name %></td>
                            <td > <%= place.person.name %> </td>
                            <td >
-                             <%= link_to(place_path(place), class: "btn btn-icon-only blue") do %>
-                               <i class="fa fa-user" aria-hidden="true"></i>
+                             <%= link_to(place_path(place), class: "btn btn-circle btn-icon-only blue") do %>
+                               <i class="fa fa-eye" aria-hidden="true"></i>
                              <% end %>
-                             <%= link_to(edit_place_path(place), class: "btn btn-icon-only green") do %>
+                             <%= link_to(edit_place_path(place), class: "btn btn-circle btn-icon-only green") do %>
                                <i class="fa fa-edit" aria-hidden="true"></i>
                              <% end %>
                              <%#= link_to t(:delete), place_path(place), method: :delete,

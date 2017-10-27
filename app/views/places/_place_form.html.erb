@@ -2,6 +2,7 @@
    $(document).ready(function () {
      // Set up the Select2 control
      $('#select2-person').select2();
+     placeholder: "Please select a country"
      theme : "bootstrap"
    });
 </script>
@@ -10,44 +11,45 @@
    <div class="row">
       <div class="col-md-12">
          <!-- BEGIN VALIDATION STATES-->
-         <div class="portlet-form bordered">
-            <div class="container-fluid">
+        <div class="portlet light portlet-fit portlet-form bordered">
                <div class="portlet-body">
-                  <div class="col-lg-offset-1 col-lg-11">
+
+
                      <%= form_for(@place, html: { class: "form-horizontal", role: "form" }) do |f| %>
                      <div class="form-body">
-                        <div class="col-lg-offset-1 col-lg-6 col-md-6">
+
                            <div class="form-group">
                               <label class="control-label col-md-3"><%= t(:place) %></label>
-                              <div class="col-md-9">
-                                 <%= f.text_field :name, class: "form-control col-6", placeholder: "#{t(:enter_person_name)}" %>
+                              <div class="col-md-4">
+                                 <%= f.text_field :name, class: "form-control", placeholder: t(:enter_place_name) %>
                               </div>
                            </div>
-                        </div>
-                        <div class="col-lg-offset-1 col-lg-6 col-md-6">
+
+
                            <div class="form-group">
-                              <label class="control-label col-md-3"><%= "#{t(:manager)}" %></label>
-                              <div class="col-md-9">
-                                 <%= f.collection_select :person_id, Person.order(:name), :id, :name, {include_blank: false, value: :person_id}, { multiple: false, class: 'form-control', id: 'select2-person'} %>
+                              <label class="control-label col-md-3"><%= t(:manager) %></label>
+                              <div class="col-md-4">
+                                 <%= f.collection_select :person_id, Person.order(:name), :id, :name, {prompt: t(:select_manager), include_blank: true, value: :person_id}, {multiple: false, class: 'form-control', id: 'select2-person', style:"width:100%"} %>
                               </div>
                            </div>
-                        </div>
-                     </div>
-                     <div class="col-lg-offset-3 col-lg-6 col-md-6">
-                        <div class="form-group">
-                           <div class="col-md-9">
-                              <%= f.submit(@place.new_record? ? "Adicionar" : "Atualizar",
-                                 class: "btn btn-primary") %>
-                              <%= link_to t(:back), :back,class: "btn btn-default" %>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
+                         </div>
+                           <div class="form-actions">
+                               <div class="row">
+                             <div class="col-md-offset-3 col-md-9">
+                               <%= f.submit(@place.new_record? ? "Adicionar" : "Atualizar",
+                                 class: "btn btn-primary btn-circle") %>
+                                 <%= link_to t(:back), :back,class: "btn btn-default btn-circle" %>
+                               </div>
+                             </div>
+                             </div
+
+
+
+
                </div>
                <% end %>
                <hr />
             </div>
-         </div>
       </div>
    </div>
 </div>

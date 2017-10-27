@@ -292,12 +292,15 @@ pt-BR:
         deleted_at: "Apagado em"
         created_at: "Criado em"
         updated_at: "Atualizado em"
+        main: 'Principal'
+        kind: 'Tipo'
       phone:
         number: "Número"
         phonable: "Pertencente"
         deleted_at: "Apagado em"
         created_at: "Criado em"
         updated_at: "Atualizado em"
+        main: 'Principal'
       user:
         email: "Email"
         name: "Nome"
@@ -388,6 +391,7 @@ pt-BR:
   add_new_email: "Adicionar um email"
   create_email: "Adicionar email"
   update_email: "Atualizar email"
+  emails: "Emails"
   #person
   register_add_success: "Registro cadastrado com sucesso"
   updated_successfully: "Registro atualizado com sucesso"
@@ -413,7 +417,7 @@ pt-BR:
   cnpj: "CNPJ"
   enter_cnpj: "Coloque o CNPJ"
   inscricao_estadual: "Inscrição Estadual"
-  enter_inscricao_estadual: "Coloque a inscrição Estadual"
+  enter_inscricao_estadual: "Coloque a Inscrição estadual"
   person_birthday: "Data de nascimento"
   female: "Feminino"
   male: "Masculino"
@@ -423,6 +427,7 @@ pt-BR:
   select_person_type: "Selecione o tipo de cadastro"
   individual: "Pessoa física"
   company: "Pessoa jurídica"
+  select_manager: "Selecione o responsável"
   #phones
   phones: 'Telefones'
   add_phone_number: "Adicionar número de telefone"
@@ -431,7 +436,9 @@ pt-BR:
   example_number_format: "99 0 99 9999-9999"
   create_phone: "Adicionar telefone"
   edit_phone: "Atualizar tefelone"
+  new_phone: "Adicionar telefone"
   #addresses
+  address: "Endereço"
   addresses: "Endereços"
   street_address: "Endereço"
   add_street_address: "Adicionar endereço"
@@ -457,6 +464,7 @@ pt-BR:
   enter_place_name: "Coloque o nome do local"
   add_a_place: "Adicionar um local"
   place_manager: "Responsável"
+  edit_place: "Atualizar local"
   #users
   change_your_password: "Trocar senha"
   logged_in_as: "Conectado como"
@@ -482,5 +490,6 @@ pt-BR:
   message: "Mensagem"
   main: "Principal"
   kind: "Tipo"
-
+  id: "Id"
+  action: "Ações"
   instant_message: "Mensagem"

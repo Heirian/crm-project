@@ -20,10 +20,10 @@
                   <table class="table table-bordered table-striped table-condensed flip-content">
                      <thead class="flip-content">
                         <tr>
-                           <th width="20%"> Code </th>
-                           <th> Nome </th>
-                           <th class="numeric"> Tipo </th>
-                           <th class="numeric"> Ações </th>
+                           <th width="20%"><%= t(:id) %> </th>
+                           <th> <%t(:name) %> </th>
+                           <th class="numeric"> <%= t(:type) %> </th>
+                           <th class="numeric"> <%= t(:action) %> </th>
 
                         </tr>
                      </thead>
@@ -38,10 +38,10 @@
                               <td > <%= t(:company) %> </td>
                            <% end %>
                            <td >
-                             <%= link_to(person_path(person), class: "btn btn-icon-only blue") do %>
-                               <i class="fa fa-user" aria-hidden="true"></i>
+                             <%= link_to(person_path(person), class: "btn btn-circle btn-icon-only blue") do %>
+                               <i class="fa fa-eye" aria-hidden="true"></i>
                              <% end %>
-                             <%= link_to(edit_person_path(person), class: "btn btn-icon-only green") do %>
+                             <%= link_to(edit_person_path(person), class: "btn btn-circle btn-icon-only green") do %>
                                <i class="fa fa-edit" aria-hidden="true"></i>
                              <% end %>
                              <%#= link_to t(:delete), person_path(person), method: :delete,

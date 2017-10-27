@@ -11,44 +11,49 @@
                      <div class="type-person-no-display" hidden>
                        <%= f.select :type, ['Individual'] if @person.new_record? %>
                      </div>
-                     <div class="form-body">
+                     <div class="form-body"><br />
                         <div class="form-group">
                            <label class="control-label col-md-3">Nome</label>
-                           <div class="col-md-9">
+                           <div class="col-md-4">
                               <%= f.text_field :name, class: "form-control", placeholder: t(:enter_person_name) %>
                            </div>
                         </div>
                         <div class="form-group">
-                           <%= f.label :gender,class:"control-label col-md-3" %>
-                           <div class="col-md-9">
-                              <%= f.radio_button :gender, :female %>
-                              <%= label :gender, t(:female) %>
-                              <%= f.radio_button :gender, :male, checked: true %>
-                              <%= label :gender, t(:male) %>
+                          <label class="right col-md-3"><%= t(:gender) %></label>
+                           <div class="col-md-4 text-center">
+                             <div class="col-md-6">
+                               <%= f.radio_button :gender, :female, class: "radio-inline" %>
+                               <%= label :gender, t(:female) %>
+                             </div>
+                             <div class="col-md-6">
+                               <%= f.radio_button :gender, :male, checked: true, class: "radio-inline" %>
+                               <%= label :gender, t(:male) %>
+
+                             </div>
                            </div>
                         </div>
                         <div class="form-group">
                            <%= f.label :birthday, class:"control-label col-md-3" %>
-                           <div class="col-md-9">
+                           <div class="col-md-4">
                               <%= date_select :person, :birthday, { start_year: 2017, end_year: 1905, order: [:day, :month, :year]}, class: "form-control select-date"  %>
                            </div>
                         </div>
                         <div class="form-group">
                            <label class="control-label col-md-3"><%= t(:cpf) %></label>
-                           <div class="col-md-9">
+                           <div class="col-md-2">
                               <%= f.text_field :cpf, class: "form-control" %>
                            </div>
                         </div>
                         <div class="form-group">
                            <label class="control-label col-md-3"><%= t(:rg) %></label>
-                           <div class="col-md-9">
+                           <div class="col-md-2">
                               <%= f.text_field :rg, class: "form-control" %>
                            </div>
                         </div>
                         <div>
                            <div class="form-group">
                               <label class="control-label col-md-3"><%= t(:marital_status) %></label>
-                              <div class="col-md-9">
+                              <div class="col-md-2">
                                  <%= f.select :marital_status, options_for_enum(@person, :marital_status), {}, { class: 'form-control' } %>
                               </div>
                            </div>
@@ -58,14 +63,14 @@
                         <div class="row">
                            <div class="col-md-offset-3 col-md-9">
                               <%= f.submit(@person.new_record? ? t(:add_a_person) : t(:update_person),
-                                 class: "btn btn-primary") %>
+                                 class: "btn btn-primary btn-circle") %>
+                                 <%= link_to t(:back), :back,class: "btn btn-default btn-circle" %>
                            </div>
                         </div>
                      </div>
                      <% end %>
                      <!-- END FORM-->
                   </div>
-                    <%= render 'shared/errors', object: @person %>
                </div>
             </div>
          </div>
