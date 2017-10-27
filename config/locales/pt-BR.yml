@@ -317,6 +317,18 @@ pt-BR:
     enums:
       phone:
         kind:
+          personal: 'Pessoal'
+          work: "Trabalho"
+          message: "Recado"
+      email:
+        kind:
+          personal: 'Pessoal'
+          work: "Trabalho"
+          message: "Recado"
+      address:
+        kind:
+          personal: 'Pessoal'
+          work: "Trabalho"
           message: "Recado"
       person:
         marital_status:
