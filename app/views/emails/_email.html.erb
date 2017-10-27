@@ -4,12 +4,16 @@
      <td><%= email.body %></td>
      <td ><%= email.kind %></td>
      <td ><% if emailable == @person %>
-          <%= link_to "#{t(:edit)}", edit_person_email_path(emailable, email), class: 'btn btn-info' %>
-          <%= link_to "#{t(:delete)}", person_email_path(emailable, email), method: :delete,
+          <%= link_to(edit_person_email_path(emailable, email), class: "btn btn-icon-only green pull-right") do %>
+            <i class="fa fa-edit" aria-hidden="true" title="Editar"></i>
+          <% end %>
+          <%#= link_to "#{t(:delete)}", person_email_path(emailable, email), method: :delete,
           data: { confirm: "#{t(:delete_email?)}" }, class: 'btn btn-danger' if current_user.has_role? :admin %>
          <% else %>
-           <%= link_to "#{t(:edit)}", edit_place_email_path(emailable, email), class: 'btn btn-info' %>
-           <%= link_to "#{t(:delete)}", place_email_path(emailable, email), method: :delete,
+           <%= link_to(edit_place_email_path(emailable, email), class: "btn btn-icon-only green pull-right") do %>
+             <i class="fa fa-edit" aria-hidden="true" title="Editar"></i>
+           <% end %>
+           <%#= link_to "#{t(:delete)}", place_email_path(emailable, email), method: :delete,
            data: { confirm: "#{t(:delete_email?)}" }, class: 'btn btn-danger' if current_user.has_role? :admin %>
          <% end %>
 
