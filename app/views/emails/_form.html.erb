@@ -24,10 +24,12 @@
                                  <%= ef.select :kind, options_for_enum(Email.new, :kind), {}, { class: 'form-control' } %>
                               </div>
                            </div>
+
                            <div class="form-group">
                               <label for="email_body">Principal</label>
                               <%= ef.check_box :main, {}, true, false %>
                            </div>
+                  
                         </div>
                      </div>
                      <div class="form-actions">

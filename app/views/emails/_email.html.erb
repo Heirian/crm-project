@@ -1,6 +1,9 @@
 
   <tr>
-     <td> <%= t(:main) if email.main %> </td>
+     <td>     <% if email.main %>
+            <i class="fa fa-certificate" aria-hidden="true"></i>
+            <% end %>
+     </td>
      <td><%= email.body %></td>
      <td ><%= email.kind %></td>
      <td ><% if emailable == @person %>

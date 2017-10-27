@@ -315,6 +315,9 @@ pt-BR:
         created_at: "Criado em"
         updated_at: "Atualizado em"
     enums:
+      phone:
+        kind:
+          message: "Recado"
       person:
         marital_status:
           single: "Solteiro(a)"
@@ -467,5 +470,5 @@ pt-BR:
   message: "Mensagem"
   main: "Principal"
   kind: "Tipo"
-  
+
   instant_message: "Mensagem"

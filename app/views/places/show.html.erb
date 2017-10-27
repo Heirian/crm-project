@@ -1,13 +1,13 @@
 <br>
 <div style="margin-top: 0;padding-left: 17%;background-color: #fff;">
   <div class="row">
-    <div class="col-md-12">
+
       <!-- BEGIN VALIDATION STATES-->
       <div class="portlet-form bordered">
         <div class="container-fluid">
-          <div class="portlet-body">
 
-            <div class="col-lg-offset-1 col-lg-11">
+
+            <div class="col-lg-12">
               <h2><%= @place.id %> - <%= @place.name %></h2>
               <%= link_to t(:edit), edit_place_path(@place), class: 'btn btn-warning center' %>
               <%# if current_user.has_role? :admin  %>
@@ -16,22 +16,22 @@
               <%# end %>
             </div>
 
-            <div class="form-body">
-              <div class="col-lg-offset-1 col-lg-6 col-md-6">
+
+              <div class="col-lg-6 col-md-6">
                 <div class="form-group"><br><br>
                   <label class="control-label col-3"><%= t(:manager) %></label>
                   <input class="form-control" value="<%= @place.person.name %>" disabled />
                 </div>
 
               </div>
-            </div>
-          </div>
+
+
         </div>
       </div>
       <hr />
       <div class="row">
         <div class="container-fluid">
-          <div class="col-lg-offset-1 col-lg-6">
+          <div class="col-lg-6">
 
             <!-- BEGIN SAMPLE TABLE PORTLET-->
             <div class="portlet box green">
@@ -65,51 +65,46 @@
             <!-- END SAMPLE TABLE PORTLET-->
             <!-- BEGIN SAMPLE TABLE PORTLET-->
           </div>
-        </div>
-      </div>
+          <div class="col-lg-6">
 
-    <div class="row">
-      <div class="container-fluid">
-        <div class="col-lg-offset-1 col-lg-6">
-
-          <!-- BEGIN SAMPLE TABLE PORTLET-->
-          <div class="portlet box green">
-            <div class="portlet-title">
-              <div class="caption">
-                <%= t(:phones) %>
+            <!-- BEGIN SAMPLE TABLE PORTLET-->
+            <div class="portlet box green">
+              <div class="portlet-title">
+                <div class="caption">
+                  <%= t(:phones) %>
+                </div>
+                <%= link_to(new_place_phone_path(@place), class: "btn blue btn-lg pull-right") do %>
+                  <i class="fa fa-plus" aria-hidden="true" title="Adicionar email"></i>
+                <% end %>
               </div>
-              <%= link_to(new_place_phone_path(@place), class: "btn blue btn-lg pull-right") do %>
-                <i class="fa fa-plus" aria-hidden="true" title="Adicionar email"></i>
+              <% unless @place.phones.count.zero? %>
+              <div class="portlet-body flip-scroll">
+                <table class="table table-bordered table-striped table-condensed flip-content">
+                  <thead class="flip-content">
+                    <tr>
+                      <th width="15%"> Importância</th>
+                      <th width="25%"><%= t(:phone_number) %> </th>
+                      <th width="15%" class="numeric"><%= t(:kind) %></th>
+                      <th width="20%" class="numeric"> <%= t(:instant_message) %> </th>
+                      <th width="5%" class="numeric"> <%= t(:edit) %> </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <%= render @place.phones, phonable: @place %>
+                  </tbody>
+                </table>
+              </div>
               <% end %>
             </div>
-            <% unless @place.phones.count.zero? %>
-            <div class="portlet-body flip-scroll">
-              <table class="table table-bordered table-striped table-condensed flip-content">
-                <thead class="flip-content">
-                  <tr>
-                    <th width="15%"> Importância</th>
-                    <th width="25%"><%= t(:phone_number) %> </th>
-                    <th width="15%" class="numeric"><%= t(:kind) %></th>
-                    <th width="20%" class="numeric"> <%= t(:instant_message) %> </th>
-                    <th width="5%" class="numeric"> <%= t(:edit) %> </th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <%= render @place.phones, phonable: @place %>
-                </tbody>
-              </table>
-            </div>
-            <% end %>
+            <!-- END SAMPLE TABLE PORTLET-->
+            <!-- BEGIN SAMPLE TABLE PORTLET-->
           </div>
-          <!-- END SAMPLE TABLE PORTLET-->
-          <!-- BEGIN SAMPLE TABLE PORTLET-->
         </div>
       </div>
-    </div>
 
     <div class="row">
       <div class="container-fluid">
-        <div class="col-lg-offset-1 col-lg-6">
+        <div class="col-lg-6">
 
           <!-- BEGIN SAMPLE TABLE PORTLET-->
           <div class="portlet box green">
@@ -146,6 +141,5 @@
       </div>
     </div>
 
-  </div>
 </div>
 </div>
