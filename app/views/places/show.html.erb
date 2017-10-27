@@ -8,8 +8,13 @@
 
 
             <div class="col-lg-12">
-              <h2><%= @place.id %> - <%= @place.name %></h2>
-              <%= link_to t(:edit), edit_place_path(@place), class: 'btn btn-warning center' %>
+              <div>
+                <%= link_to(edit_place_path(@place), class: "btn btn-icon-only red pull-right") do %>
+                  <i class="fa fa-edit" aria-hidden="true"></i>
+                <% end %>
+                <h2><%= @place.id %> - <%= @place.name %></h2>
+              </div>
+
               <%# if current_user.has_role? :admin  %>
               <%#= link_to t(:delete), place_path(@place), method: :delete,
               data: {confirm: "#{t(:delete_place?)}"}, class: 'btn btn-danger' %>
@@ -20,7 +25,11 @@
               <div class="col-lg-6 col-md-6">
                 <div class="form-group"><br><br>
                   <label class="control-label col-3"><%= t(:manager) %></label>
+
                   <input class="form-control" value="<%= @place.person.name %>" disabled />
+                  <%= link_to(person_path(@place.person), class: "btn btn-icon-only blue") do %>
+                    <i class="fa fa-user" aria-hidden="true"></i>
+                  <% end %>
                 </div>
 
               </div>
@@ -28,43 +37,10 @@
 
         </div>
       </div>
+    </div>
       <hr />
       <div class="row">
         <div class="container-fluid">
-          <div class="col-lg-6">
-
-            <!-- BEGIN SAMPLE TABLE PORTLET-->
-            <div class="portlet box green">
-              <div class="portlet-title">
-                <div class="caption">
-                  <%= t(:emails) %>
-                </div>
-              <%= link_to(new_place_email_path(@place), class: "btn blue btn-lg pull-right") do %>
-                <i class="fa fa-plus" aria-hidden="true" title="Adicionar email"></i>
-              <% end %>
-              </div>
-              <% unless @place.emails.count.zero? %>
-              <div class="portlet-body flip-scroll">
-                <table class="table table-bordered table-striped table-condensed flip-content">
-                  <thead class="flip-content">
-                    <tr>
-                   <th width="20%"> Importância</th>
-                   <th width="35%"> Endereço de email </th>
-                   <th width="20%" class="numeric">Tipo</th>
-                   <th width="5%" class="numeric"> <%= t(:edit) %> </th>
-                 </tr>
-
-                  </thead>
-                  <tbody>
-                    <%= render @place.emails, emailable: @place %>
-                  </tbody>
-                </table>
-              </div>
-              <% end %>
-            </div>
-            <!-- END SAMPLE TABLE PORTLET-->
-            <!-- BEGIN SAMPLE TABLE PORTLET-->
-          </div>
           <div class="col-lg-6">
 
             <!-- BEGIN SAMPLE TABLE PORTLET-->
@@ -82,7 +58,7 @@
                 <table class="table table-bordered table-striped table-condensed flip-content">
                   <thead class="flip-content">
                     <tr>
-                      <th width="15%"> Importância</th>
+                      <th width="2%"></th>
                       <th width="25%"><%= t(:phone_number) %> </th>
                       <th width="15%" class="numeric"><%= t(:kind) %></th>
                       <th width="20%" class="numeric"> <%= t(:instant_message) %> </th>
@@ -91,6 +67,40 @@
                   </thead>
                   <tbody>
                     <%= render @place.phones, phonable: @place %>
+                  </tbody>
+                </table>
+              </div>
+              <% end %>
+            </div>
+            <!-- END SAMPLE TABLE PORTLET-->
+            <!-- BEGIN SAMPLE TABLE PORTLET-->
+          </div>
+          <div class="col-lg-6">
+
+            <!-- BEGIN SAMPLE TABLE PORTLET-->
+            <div class="portlet box green">
+              <div class="portlet-title">
+                <div class="caption">
+                  <%= t(:emails) %>
+                </div>
+              <%= link_to(new_place_email_path(@place), class: "btn blue btn-lg pull-right") do %>
+                <i class="fa fa-plus" aria-hidden="true" title="Adicionar email"></i>
+              <% end %>
+              </div>
+              <% unless @place.emails.count.zero? %>
+              <div class="portlet-body flip-scroll">
+                <table class="table table-bordered table-striped table-condensed flip-content">
+                  <thead class="flip-content">
+                    <tr>
+                   <th width="2%"></th>
+                   <th width="35%"> Endereço de email </th>
+                   <th width="20%" class="numeric">Tipo</th>
+                   <th width="5%" class="numeric"> <%= t(:edit) %> </th>
+                 </tr>
+
+                  </thead>
+                  <tbody>
+                    <%= render @place.emails, emailable: @place %>
                   </tbody>
                 </table>
               </div>
@@ -141,5 +151,4 @@
       </div>
     </div>
 
-</div>
 </div>
