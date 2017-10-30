@@ -3,8 +3,8 @@
      <td><%= bank_account.bank_branch_number %></td>
      <td><%= bank_account.account_number %></td>
      <td >
-       <%= link_to(edit_person_bank_account_path(@person, bank_account), class: "btn btn-icon-only green pull-right") do %>
-         <i class="fa fa-edit" aria-hidden="true" title="Editar"></i>
+       <%= link_to(edit_person_bank_account_path(@person, bank_account), class: "btn btn-circle btn-icon-only green pull-right") do %>
+         <i class="fa fa-edit" aria-hidden="true" title="<%= t(:edit) %>"></i>
        <% end %>
      <%# if current_user.has_role? :admin  %>
        <%#= link_to t(:delete), person_bank_account_path(@person, bank_account), method: :delete,

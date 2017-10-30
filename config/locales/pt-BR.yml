@@ -359,6 +359,9 @@ pt-BR:
   home: "Página inicial"
   admin_area: "Área administrativa"
   add_new_phone: "Adicionar novo telefone"
+  people: "Pessoas"
+  people_list: "Lista de pessoas"
+  places_list: "Lista de locais"
   #locations
   locations: "Localização"
   all_countries: "Países"
@@ -447,6 +450,7 @@ pt-BR:
   create_address: "Adicionar endereço"
   update_address: "Atualizar endereço"
   edit_address: "Editar endereço"
+  add_new_address: "Adicionar novo endereço"
   #bankaccount
   bank_accounts: "Contas bancárias"
   bank_name: "Nome do banco"
@@ -454,8 +458,9 @@ pt-BR:
   bank_branch_number: "Agência bancária"
   add_bank_branch_number: "Adicionar agência bancária"
   account_number: "Número da conta"
-  add_account_number: "Adicionar conta bancária"
+  add_account_number: "Adicionar número da conta"
   update_bank_account: "Atualizar conta bancária"
+  add_new_bank_account: "Adicionar conta bancária"
   #places
   places: "Locais"
   add_new_place: "Adicionar um novo local"
@@ -465,6 +470,7 @@ pt-BR:
   add_a_place: "Adicionar um local"
   place_manager: "Responsável"
   edit_place: "Atualizar local"
+  add_new_place: "Adicionar novo local"
   #users
   change_your_password: "Trocar senha"
   logged_in_as: "Conectado como"
@@ -486,6 +492,7 @@ pt-BR:
   gender: "Gênero"
   manager: "Responsável"
   personal: "Pessoal"
+  edit_person: "Editar pessoa"
   work: "Profissional"
   message: "Mensagem"
   main: "Principal"

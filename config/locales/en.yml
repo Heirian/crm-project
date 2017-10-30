@@ -57,6 +57,9 @@ en:
   hello: "Hello world"
   home: "Home"
   delete: "Delete"
+  back: "Back"
+  username: "Username"
+  rights_reserved: "All rights reserved"
   #country
   add_a_country: "Add the country"
   update_country: "Update country"
@@ -96,6 +99,10 @@ en:
   enter_cnpj: "Enter CNPJ"
   inscricao_estadual: "Inscrição Estadual"
   enter_inscricao_estadual: "Enter Inscrição Estadual"
+  new_company: "New company"
+  new_individual: "New individual"
+  gender: "Gender"
+  marital_status: "Marital status"
   #phones
   add_phone_number: "Add phone number"
   phone_number: "Phone number"

@@ -4,7 +4,7 @@
    <div class="page-content">
       <!-- END PAGE BAR -->
       <!-- BEGIN PAGE TITLE-->
-      <h1 class="page-title"> Locais </h1>
+      <h1 class="page-title"> <%= t(:places) %></h1>
       <!-- END PAGE TITLE-->
       <!-- END PAGE HEADER-->
       <div class="row">
@@ -14,27 +14,31 @@
             <div class="portlet box green">
                <div class="portlet-title">
                   <div class="caption">
-                     <i class="fa fa-cogs"></i>Lista de Locais
+                     <i class="fa fa-cogs"></i><%= t(:places_list) %>
                   </div>
                </div>
                <div class="portlet-body flip-scroll">
                   <table class="table table-bordered table-striped table-condensed flip-content">
                      <thead class="flip-content">
                         <tr>
-                           <th width="10%"> Code </th>
-                           <th> Nome </th>
-                           <th class="numeric"> Responsável </th>
-                           <th class="numeric"> Ações </th>
+                          <% if current_user.has_role? :admin %>
+                            <th width="10%"> <%= t(:id) %> </th>
+                          <% end %>
+                          <th> <%= t(:name) %> </th>
+                          <th class="numeric"> <%= t(:manager) %> </th>
+                          <th class="numeric"> <%= t(:action) %> </th>
 
                         </tr>
                      </thead>
                      <tbody>
                       <% @places.each do |place| %>
                         <tr>
-                           <td> <%= place.id %> </td>
-                           <td> <%= place.name %></td>
-                           <td > <%= place.person.name %> </td>
-                           <td >
+                          <% if current_user.has_role? :admin %>
+                            <td> <%= place.id %> </td>
+                          <% end %>
+                          <td> <%= place.name %></td>
+                          <td > <%= place.person.name %> </td>
+                          <td >
                              <%= link_to(place_path(place), class: "btn btn-circle btn-icon-only blue") do %>
                                <i class="fa fa-eye" aria-hidden="true"></i>
                              <% end %>

@@ -9,7 +9,7 @@
 
             <div class="col-lg-12">
               <div>
-                <%= link_to(edit_person_path(@person), class: "btn btn-icon-only red pull-right") do %>
+                <%= link_to(edit_person_path(@person), class: "btn btn-circle btn-lg green pull-right") do %>
                   <i class="fa fa-edit" aria-hidden="true"></i>
                 <% end %>
                 <h2><%= @person.id %> - <%= @person.name %></h2>
@@ -28,7 +28,7 @@
                   <% if @person.type == 'Individual' %>
                     <div class="form-group"><br>
                   <label class="control-label col-3"><%= t(:type) %></label>
-                    <input class="form-control col-6" value="Pessoa Física" disabled />
+                    <input class="form-control col-6" value="<%= t(:individual) %>" disabled />
                     </div>
                     <div class="form-group" >
                       <label class="control-label col-3"><%= t(:birthday) %></label>
@@ -45,7 +45,7 @@
                   <% else %>
                     <div class="form-group"><br>
                   <label class="control-label col-3"><%= t(:type) %></label>
-                  <input class="form-control" value="Pessoa Juridica" disabled />
+                  <input class="form-control" value="<%= t(:company) %>" disabled />
                   </div>
                   <div class="form-group">
                     <label class="control-label col-3"><%= t(:company_name) %></label>
@@ -93,10 +93,10 @@
           <div class="col-lg-6">
 
             <!-- BEGIN SAMPLE TABLE PORTLET-->
-            <div class="portlet box green">
+            <div class="portlet box dark">
               <div class="portlet-title">
-                <%= link_to(new_person_phone_path(@person), class: "btn blue btn-lg pull-right") do %>
-                  <i class="fa fa-plus" aria-hidden="true" title="Adicionar telefone"></i>
+                <%= link_to(new_person_phone_path(@person), class: "btn btn-circle grey-gallery btn-lg pull-right") do %>
+                  <i class="fa fa-plus" aria-hidden="true" title="<%= t(:add_new_phone) %>"></i>
                 <% end %>
                 <div class="caption">
                   <%= t(:phones) %>
@@ -127,10 +127,10 @@
           <div class="col-lg-6">
 
             <!-- BEGIN SAMPLE TABLE PORTLET-->
-            <div class="portlet box green">
+            <div class="portlet box dark">
               <div class="portlet-title">
-                <%= link_to(new_person_email_path(@person), class: "btn blue btn-lg pull-right") do %>
-                  <i class="fa fa-plus" aria-hidden="true" title="Adicionar email"></i>
+                <%= link_to(new_person_email_path(@person), class: "btn btn-circle grey-gallery btn-lg pull-right") do %>
+                  <i class="fa fa-plus" aria-hidden="true" title="<%= t(:add_new_email) %>"></i>
                 <% end %>
                 <div class="caption">
                   <%= t(:emails) %>
@@ -164,10 +164,10 @@
       <div class="container-fluid">
         <div class="col-lg-6">
           <!-- BEGIN SAMPLE TABLE PORTLET-->
-          <div class="portlet box green">
+          <div class="portlet box dark">
             <div class="portlet-title">
-              <%= link_to(new_person_address_path(@person), data: { turbolinks: false }, class: "btn blue btn-lg pull-right") do %>
-                <i class="fa fa-plus" aria-hidden="true" title="Adicionar endereço"></i>
+              <%= link_to(new_person_address_path(@person), data: { turbolinks: false }, class: "btn btn-circle grey-gallery btn-lg pull-right") do %>
+                <i class="fa fa-plus" aria-hidden="true" title="<%= t(:add_new_address) %>"></i>
               <% end %>
               <div class="caption">
                 <%= t(:addresses) %>
@@ -198,10 +198,10 @@
         <div class="col-lg-6">
 
           <!-- BEGIN SAMPLE TABLE PORTLET-->
-          <div class="portlet box green">
+          <div class="portlet box dark">
             <div class="portlet-title">
-              <%= link_to(new_person_bank_account_path(@person), class: "btn blue btn-lg pull-right") do %>
-                <i class="fa fa-plus" title="Adicionar conta bancária" aria-hidden="true" ></i>
+              <%= link_to(new_person_bank_account_path(@person), class: "btn btn-circle grey-gallery btn-lg pull-right") do %>
+                <i class="fa fa-plus" title="<%= t(:add_new_bank_account) %>" aria-hidden="true"></i>
               <% end %>
               <div class="caption">
                 <%= t(:bank_accounts) %>
@@ -236,10 +236,10 @@
         <div class="col-lg-6">
 
           <!-- BEGIN SAMPLE TABLE PORTLET-->
-          <div class="portlet box green">
+          <div class="portlet box dark">
             <div class="portlet-title">
-              <%= link_to(new_place_path(person_id: @person.id), data: { turbolinks: false }, class: "btn blue btn-lg pull-right") do %>
-                <i class="fa fa-plus" aria-hidden="true" title="Adicionar novo local"></i>
+              <%= link_to(new_place_path(person_id: @person.id), data: { turbolinks: false }, class: "btn btn-circle grey-gallery btn-lg pull-right") do %>
+                <i class="fa fa-plus" aria-hidden="true" title="<%= t(:add_new_place) %>"></i>
               <% end %>
               <div class="caption">
                 <%= t(:places) %>

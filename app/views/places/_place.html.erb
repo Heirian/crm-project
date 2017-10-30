@@ -2,8 +2,8 @@
   <tr>
      <td><%= link_to place.name, place_path(place) %></td>
      <td >
-          <%= link_to(edit_place_path(place), class: "btn btn-icon-only green pull-right") do %>
-            <i class="fa fa-edit" aria-hidden="true" title="Editar"></i>
+          <%= link_to(edit_place_path(place), class: "btn btn-circle btn-icon-only green pull-right") do %>
+            <i class="fa fa-edit" aria-hidden="true" title="<%= t(:edit) %>"></i>
           <% end %>
          <%# if current_user.has_role? :admin  %>
            <%#= link_to t(:delete), place_path(place), method: :delete,

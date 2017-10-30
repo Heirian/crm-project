@@ -16,8 +16,6 @@ class ApplicationController < ActionController::Base
     { locale: I18n.locale }.merge options
   end
 
-  protected
-
   def layout_by_resource
     if devise_controller?
       'devise'
