@@ -493,6 +493,8 @@ pt-BR:
   manager: "Responsável"
   personal: "Pessoal"
   edit_person: "Editar pessoa"
+  select_instant_message: "Selecione aplicativos de mensagem"
+  new_bank_account: "Adicionar conta bancária"
   work: "Profissional"
   message: "Mensagem"
   main: "Principal"
@@ -500,3 +502,4 @@ pt-BR:
   id: "Id"
   action: "Ações"
   instant_message: "Mensagem"
+  view_profile: "Ver cadastro"

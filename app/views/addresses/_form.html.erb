@@ -11,57 +11,65 @@
    <div class="col-md-12">
       <!-- BEGIN VALIDATION STATES-->
       <div class="portlet-form bordered">
-         <div class="container-fluid">
+
             <div class="portlet-body">
-               <div class="col-lg-offset-1 col-lg-11">
-                  <%= form_for [@addressable, @address] do |af| %>
+
+                  <%= form_for([@addressable, @address], html: { class: "form-horizontal", role: "form" }) do |af| %>
                   <div class="form-body">
                      <div class="form-group">
-                        <div class="form-group">
+                        <div class="control-label col-md-3">
                            <%= af.label :street_address, t(:street_address) %>
                         </div>
-                        <div>
+                        <div class="col-md-4">
                            <%= af.text_field :street_address, class: "form-control", placeholder: I18n.t(:add_street_address) %>
                         </div>
                      </div>
                      <div class="form-group">
-                        <div class="control-label">
+                        <div class="control-label col-md-3">
                            <%= af.label :zip_code, t(:zip_code) %>
                         </div>
-                        <div>
+                        <div class="col-md-4">
                            <%= af.text_field :zip_code, class: "form-control", placeholder: I18n.t(:add_zip_code) %>
                         </div>
                      </div>
                      <div class="form-group">
-                        <div>
-                           <%= af.collection_select :country_id, Country.order(:name), :id, :name, { include_blank: false }, { multiple: false, class: 'form-control', id: 'select2-country' } %>
-                        </div>
-                     </div>
-                     <div class="form-group">
-                        <div>
-                           <%= af.grouped_collection_select :state_id, Country.includes(:states).order(:name), :states, :name, :id, :name, { include_blank: false }, { multiple: false, class: 'form-control', id: 'select2-state' } %>
-                        </div>
-                     </div>
-                     <div class="form-group">
-                        <div>
-                           <%= af.grouped_collection_select :city_id, State.includes(:cities).order(:name), :cities, :name, :id, :name, { include_blank: false }, { multiple: false, class: 'form-control', id: 'select2-city' } %>
-                        </div>
-                     </div>
-                     <div class="form-group">
-                        <div class="control-label">
+                        <div class="control-label col-md-3">
                            <%= af.label t(:kind) %>
                         </div>
-                        <div>
-                           <%= af.select :kind, options_for_enum(Address.new, :kind), {}, { class: 'form-control' } %>
+                        <div class="col-md-4">
+                           <%= af.select :kind, options_for_enum(@address, :kind), {}, { class: 'form-control' } %>
                         </div>
                      </div>
-                     <%= af.submit t(:create_address), class: 'btn btn-primary' %>
+                     <div class="form-group">
+                        <div class="col-md-offset-3 col-md-4">
+                           <%= af.collection_select :country_id, Country.order(:name), :id, :name, { include_blank: false }, { multiple: false, class: 'form-control', id: 'select2-country', style:'width:100%' } %>
+                        </div>
+                     </div>
+                     <div class="form-group">
+                        <div class="col-md-offset-3 col-md-4">
+                           <%= af.grouped_collection_select :state_id, Country.includes(:states).order(:name), :states, :name, :id, :name, { include_blank: false }, { multiple: false, class: 'form-control', id: 'select2-state', style:'width:100%' } %>
+                        </div>
+                     </div>
+                     <div class="form-group">
+                        <div class="col-md-offset-3 col-md-4">
+                           <%= af.grouped_collection_select :city_id, State.includes(:cities).order(:name), :cities, :name, :id, :name, { include_blank: false }, { multiple: false, class: 'form-control', id: 'select2-city', style:'width:100%' } %>
+                        </div>
+                     </div>
+
+                  </div>
+                  <div class="form-actions">
+                    <div class="row">
+                      <div class="col-md-offset-3 col-md-4">
+                        <%= af.submit t(:create_address), class: 'btn btn-circle btn-primary' %>
+                        <%= link_to t(:back), :back,class: "btn btn-default btn-circle" %>
+                      </div>
+                    </div>
                   </div>
                   <% end %>
-                  <hr/>
+
                </div>
-            </div>
-         </div>
+
       </div>
    </div>
+</div>
 </div>

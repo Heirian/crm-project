@@ -2,59 +2,53 @@
    <div class="row">
       <div class="col-md-12">
          <!-- BEGIN VALIDATION STATES-->
-         <div class="portlet-form bordered">
-            <div class="container-fluid">
+         <div class="portlet light portlet-fit portlet-form bordered">
+
                <div class="portlet-body">
-                  <div class="col-lg-offset-1 col-lg-11">
-                     <%= form_for [@emailable, @email] do |ef| %>
-                     <div class="form-body">
+                     <%= form_for([@emailable, @email], html: { class: "form-horizontal", role: "form" }) do |ef| %>
+                     <div class="form-body"><br />
                         <div class="form-group">
-                           <div class="col-lg-offset-2 col-lg-6">
-                           <div class="control-label">
-                              <%= ef.label :body, t(:new_email) %>
-                           </div>
-                           <div>
+                           <label class="control-label col-md-3"><%= t(:new_email) %></label>
+                           <div class="col-md-4">
                               <%= ef.text_field :body, class: "form-control", placeholder: I18n.t(:add_new_email) %>
                            </div>
                          </div>
-                       </div>
+
                        <br>
-                           <div class="form-group">
-                             <div class="col-lg-offset-2 col-lg-3">
+                          <div class="form-group">
+                            <div class="col-md-3 control-label">
+                              <label for="email_body"><%= t(:type) %></label>
+                            </div>
+                            <div class="col-md-3">
+                              <%= ef.select :kind, options_for_enum(@email, :kind), {}, { class: 'form-control' } %>
+                            </div>
+                          </div>
 
-                              <div class="control-label">
-                                <label for="email_body">Tipo</label>
-                                 <%#= ef.label (:kind) %>
-                              </div>
-
-                                 <%= ef.select :kind, options_for_enum(Email.new, :kind), {}, { class: 'form-control' } %>
-                               </div>
-
-                           </div>
 
                            <div class="form-group">
-                             <div class="col-lg-offset-2 col-lg-10">
+                             <div class="col-md-offset-3 col-md-4">
 
                               <%= ef.check_box :main, {}, true, false %>
-                              <label for="email_body">Principal</label>
+                              <label for="email_body"><%= t(:main) %></label>
                             </div>
 
                            </div>
-
-                        </div>
+</div>
 
                         <div class="form-actions">
-
-                          <div class="col-lg-offset-2 col-lg-12">
-                            <%= ef.submit t(:create_email), class: 'btn btn-primary' %>
+                          <div class="row">
+                            <div class="col-md-offset-3 col-md-4">
+                              <%= ef.submit t(:create_email), class: 'btn btn-circle btn-primary' %>
+                              <%= link_to t(:back), :back,class: "btn btn-default btn-circle" %>
+                            </div>
                           </div>
-
                         </div>
+
+
                      </div>
                      <% end %>
                   </div>
-               </div>
-            </div>
+
          </div>
       </div>
    </div>
