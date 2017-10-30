@@ -39,7 +39,7 @@ class PeopleController < ApplicationController
 
   def update
     unless @person.update(person_params)
-      flash.now[:danger] = @person.errors.full_messages
+      respond_modal_with @person.errors.full_messages
       return render 'edit'
     end
     flash.now[:success] = I18n.t(:updated_successfully)
