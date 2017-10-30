@@ -24,8 +24,9 @@ select.select-date {
 }
 
 .message-positon {
-  position: fixed;
-  padding-left: 14%
+  position: absolute !important;
+  top: 40px;
+  right: 150px;
 }
 .listing {
   list-style: none;

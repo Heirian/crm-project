@@ -8,15 +8,19 @@
        $(".alert").fadeOut(10000);
     }
 </script>
-<br>
-<div class="container message-positon">
+<br />
+<div class="message-positon">
 
   <% flash.each do |name, message| %>
 
-        <div class="col-md-6">
+        <div class="col-md-12">
           <div class="alert alert-<%= name %> pull-right" role="alert">
             <a href="#" class="close" data-dismiss="alert">&#215</a>
-            <%= message %>
+            <% if message.class.equal? Array %>
+              <%= simple_format(message.join("<br>")) %>
+            <% else %>
+              <%= message %>
+            <% end %>
           </div>
         </div>
 

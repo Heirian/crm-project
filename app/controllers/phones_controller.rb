@@ -9,10 +9,10 @@ class PhonesController < ApplicationController
   def create
     @phone = @phonable.phones.new(phone_params)
     if @phone.save
-      flash[:success] = I18n.t(:phone_add_success)
+      flash.now[:success] = I18n.t(:phone_add_success)
       redirect_to @phonable
     else
-      flash[:danger] = @phone.errors.full_messages
+      flash.now[:danger] = @phone.errors.full_messages
       render 'new'
     end
   end
@@ -24,10 +24,10 @@ class PhonesController < ApplicationController
   def update
     @phone = @phonable.phones.find(params[:id])
     if @phone.update(phone_params)
-      flash[:success] = I18n.t(:register_add_success)
+      flash.now[:success] = I18n.t(:register_add_success)
       redirect_to @phonable
     else
-      flash[:danger] = @phone.errors.full_messages
+      flash.now[:danger] = @phone.errors.full_messages
       render 'edit'
     end
   end
@@ -35,7 +35,7 @@ class PhonesController < ApplicationController
   def destroy
     @phone = @phonable.phones.find(params[:id])
     @phone.destroy
-    flash[:danger] = I18n.t(:deleted_successfully)
+    flash.now[:danger] = I18n.t(:deleted_successfully)
     redirect_to @phonable
   end
 

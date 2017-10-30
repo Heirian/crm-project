@@ -185,6 +185,10 @@ pt-BR:
   activerecord:
     errors:
       models:
+        email:
+          attributes:
+            body:
+              invalid_email: "inválido"
         person:
           attributes:
             cnpj:
