@@ -1,7 +1,6 @@
 <!DOCTYPE html>
-
 <html lang="pt-BR">
-    <head>
+   <head>
       <title><%= full_title(yield(:title)) %></title>
       <%= csrf_meta_tags %>
       <meta charset="utf-8" />
@@ -9,25 +8,15 @@
       <meta content="width=device-width, initial-scale=1" name="viewport" />
       <meta content="" name="author" />
       <!-- BEGIN GLOBAL MANDATORY STYLES -->
-
-      <%= stylesheet_link_tag    'application', '/assets/pages/css/login.min.css', '/assets/global/css/plugins.min.css',
-      '/assets/global/css/components.min.css', '/assets/global/plugins/select2/css/select2-bootstrap.min.css',
-      '/assets/global/plugins/select2/css/select2.min.css', '/assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css',
-      '/assets/global/plugins/bootstrap/css/bootstrap.min.css', '/assets/global/plugins/simple-line-icons/simple-line-icons.min.css',
-      '/assets/global/plugins/font-awesome/css/font-awesome.min.css', 'http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all',
-      media: 'all', 'data-turbolinks-track': 'reload' %>
-
+      <%= render 'layouts/layout_css' %>
+      <%= render 'layouts/layout_js' %>
       <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-
-    </head>
-
-
-        <div class="clearfix"> </div>
-        <div class="page-container">
-            <%= render 'layouts/menu-sidebar' if user_signed_in? %>
-            <%= render 'layouts/flash_messages' %>
-            <%= yield %>
-        </div>
-      <%= render 'layouts/footer' %>
-
-  </html>
+   </head>
+   <div class="clearfix"> </div>
+   <div class="page-container">
+      <%= render 'layouts/menu-sidebar' if user_signed_in? %>
+      <%= render 'layouts/flash_messages' %>
+      <%= yield %>
+   </div>
+   <%= render 'layouts/footer' %>
+</html>
