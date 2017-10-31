@@ -8,6 +8,7 @@ class CreateProducts < ActiveRecord::Migration[5.1]
       t.decimal :baseValue
       t.string :category, index:true
 
+      t.datetime :deleted_at, index: true
       t.timestamps
     end
   end
