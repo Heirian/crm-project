@@ -33,7 +33,7 @@ class ProductsController < ApplicationController
   def create
     @product = Product.new(product_params)
     unless @produt.save
-      flash[:danger] = @product.errors.full_messages
+      flash.now[:danger] = @product.errors.full_messages
       return render 'new_good' if @produt.type.eql? 'Good'
       return render  'new_service'
     end
@@ -47,7 +47,7 @@ class ProductsController < ApplicationController
       flash.now[:danger] = @product.errors.full_messages
       return render 'edit'
     end
-    flash.now[:sucess] = I18n.t(:updated_successfully)
+    flash[:sucess] = I18n.t(:updated_successfully)
     redirect_to product_path
   end
 
@@ -55,7 +55,7 @@ class ProductsController < ApplicationController
   # DELETE /products/1.json
   def destroy
     @product.destroy
-    flash.now[:danger] = I18n.t(:deleted_successfully)
+    flash[:danger] = I18n.t(:deleted_successfully)
     redirect_to people_path
   end
 

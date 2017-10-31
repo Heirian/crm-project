@@ -1,6 +1,7 @@
-<h1>Editing Product</h1>
+<%= render 'form_page_title', title: t(:edit_product) %>
 
-<%= render 'form', product: @product %>
-
-<%= link_to 'Show', @product %> |
-<%= link_to 'Back', products_path %>
+<% if @product.type == 'Good' %>
+  <%= render 'good_form' %>
+<% else %>
+  <%= render 'service_form' %>
+<% end %>
