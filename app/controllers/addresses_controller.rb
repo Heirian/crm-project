@@ -3,6 +3,8 @@
 class AddressesController < ApplicationController
   before_action :authenticate_user!
   include AddressHelper
+  # @address instance variable for edit, update and destroy is defined by
+  # set_address method on AddressHelper and call on addressable module
 
   def new
     @address = Address.new
