@@ -15,7 +15,7 @@ class StatesController < ApplicationController
   def create
     @state = State.new(state_params)
     unless @state.save
-      flash[:danger] = @state.errors.full_messages
+      flash.now[:danger] = @state.errors.full_messages
       return render 'new'
     end
     flash[:success] = I18n.t(:register_add_success)
@@ -26,7 +26,7 @@ class StatesController < ApplicationController
 
   def update
     unless @state.update(state_params)
-      flash[:danger] = @state.errors.full_messages
+      flash.now[:danger] = @state.errors.full_messages
       return render 'edit'
     end
     flash[:success] = I18n.t(:updated_successfully)

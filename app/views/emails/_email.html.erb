@@ -5,7 +5,7 @@
             <% end %>
      </td>
      <td><%= email.body %></td>
-     <td ><%= email.kind %></td>
+     <td ><%= I18n.t(email.kind) %></td>
      <td ><% if emailable == @person %>
           <%= link_to(edit_person_email_path(emailable, email), class: "btn btn-circle btn-icon-only green pull-right") do %>
             <i class="fa fa-edit" aria-hidden="true" title="<%= t(:edit) %>"></i>

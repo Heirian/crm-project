@@ -2,40 +2,38 @@
 
 class EmailsController < ApplicationController
   before_action :authenticate_user!
+  include EmailHelper
+  # @email instance variable for edit, update and destroy is defined by
+  # set_email method on EmailHelper and call on emailable module
+
   def new
     @email = Email.new
   end
 
   def create
     @email = @emailable.emails.new(email_params)
-    if @email.save
-      flash.now[:success] = I18n.t(:register_add_success)
-      redirect_to @emailable
-    else
+    unless @email.save
       flash.now[:danger] = @email.errors.full_messages
-      render 'new'
+      return render 'new'
     end
+    flash[:success] = I18n.t(:register_add_success)
+    redirect_to @emailable
   end
 
-  def edit
-    @email = @emailable.emails.find(params[:id])
-  end
+  def edit; end
 
   def update
-    @email = @emailable.emails.find(params[:id])
-    if @email.update(email_params)
-      flash.now[:success] = I18n.t(:updated_successfully)
-      redirect_to @emailable
-    else
+    unless @email.update(email_params)
       flash.now[:danger] = @email.errors.full_messages
-      render 'edit'
+      return render 'edit'
     end
+    flash[:success] = I18n.t(:updated_successfully)
+    redirect_to @emailable
   end
 
   def destroy
-    @email = @emailable.emails.find(params[:id])
     @email.destroy
-    flash.now[:danger] = I18n.t(:deleted_successfully)
+    flash[:danger] = I18n.t(:deleted_successfully)
     redirect_to @emailable
   end
 
