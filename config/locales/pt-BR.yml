@@ -517,6 +517,10 @@ pt-BR:
   separated: "Separado(a)"
   widowed: "Viúvo(a)"
   common_law_marriage: "Relação estável"
+  product: "Produto"
+  product_list: "Lista de produto"
+  category: "Categoria"
+  baseValue: "Valor Base"
   will_paginate:
     previous_label: "Anterior"
     next_label: "Próximo"
