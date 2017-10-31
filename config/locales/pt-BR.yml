@@ -521,6 +521,9 @@ pt-BR:
   product_list: "Lista de produto"
   category: "Categoria"
   base_value: "Valor Base"
+  service: "Serviço"
+  edit_product: "Edição produto"
+  good: "Item"
   will_paginate:
     previous_label: "Anterior"
     next_label: "Próximo"

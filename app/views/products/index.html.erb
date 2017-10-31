@@ -32,7 +32,7 @@
                         </tr>
                      </thead>
                      <tbody>
-                      <% @product.each do |product| %>
+                      <% @products.each do |product| %>
                         <tr>
                           <% if current_user.has_role? :admin %>
                             <td>
@@ -46,7 +46,7 @@
                               <td > <%= t(:service) %> </td>
                            <% end %>
                            <td> <%= product.category %></td>
-                           td> <%= product.base_value %></td>
+                           <td> <%= product.base_value %></td>
                            <td >
                              <%= link_to(product_path(product), class: "btn btn-circle btn-icon-only blue") do %>
                                <i class="fa fa-eye" aria-hidden="true"></i>
