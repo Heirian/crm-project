@@ -510,3 +510,7 @@ pt-BR:
   action: "Ações"
   instant_message: "Mensagem"
   view_profile: "Ver cadastro"
+  delete_person?: "Excluir pessoa?"
+  will_paginate:
+    previous_label: "Anterior"
+    next_label: "Próximo"

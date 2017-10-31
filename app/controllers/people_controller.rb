@@ -5,15 +5,15 @@ class PeopleController < ApplicationController
   before_action :new_person, only: %I[new_company new_individual]
   before_action :authenticate_user!
   def index
-    @people = Person.all
+    @people = Person.paginate(page: params[:page], per_page: 10)
   end
 
   def company_index
-    @people = Company.all
+    @people = Company.paginate(page: params[:page], per_page: 10)
   end
 
   def individual_index
-    @people = Individual.all
+    @people = Individual.paginate(page: params[:page], per_page: 10)
   end
 
   def show; end
