@@ -10,25 +10,23 @@ class BankAccountsController < ApplicationController
 
   def create
     @bank_account = @person.bank_accounts.new(bank_account_params)
-    if @bank_account.save
-      flash[:success] = I18n.t(:register_add_success)
-      redirect_to @person
-    else
-      flash[:danger] = @bank_account.errors.full_messages
-      render 'new'
+    unless @bank_account.save
+      flash.now[:danger] = @bank_account.errors.full_messages
+      return render 'new'
     end
+    flash[:success] = I18n.t(:register_add_success)
+    redirect_to @person
   end
 
   def edit; end
 
   def update
-    if @bank_account.update(bank_account_params)
-      flash[:success] = I18n.t(:updated_successfully)
-      redirect_to @person
-    else
-      flash[:danger] = @bank_account.errors.full_messages
-      render 'edit'
+    unless @bank_account.update(bank_account_params)
+      flash.now[:danger] = @bank_account.errors.full_messages
+      return render 'edit'
     end
+    flash[:success] = I18n.t(:updated_successfully)
+    redirect_to @person
   end
 
   def destroy

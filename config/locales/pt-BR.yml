@@ -392,8 +392,10 @@ pt-BR:
   enter_city_name: "Coloque o nome da cidade"
   add_a_city: "Adicionar cidade"
   update_city: "Atualizar cidade"
+  edit_city: 'Editar nome da cidade'
   new_city: "Nova cidade"
   all_places: "Todos os lugares"
+  delete_city?: "Excluir cidade?"
   #emails
   new_email: "Novo email"
   add_new_email: "Adicionar um email"
