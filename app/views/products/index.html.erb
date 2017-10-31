@@ -26,13 +26,13 @@
                           <th><%= t(:name) %></th>
                           <th> <%= t(:type) %> </th>
                           <th> <%= t(:category) %> </th>
-                          <th class="numeric"> <%= t(:baseValue) %> </th>
+                          <th class="numeric"> <%= t(:base_value) %> </th>
                           <th class="numeric"> <%= t(:action) %> </th>
 
                         </tr>
                      </thead>
                      <tbody>
-                      <% @product.each do |product| %>
+                      <% @products.each do |product| %>
                         <tr>
                           <% if current_user.has_role? :admin %>
                             <td>
@@ -46,7 +46,7 @@
                               <td > <%= t(:service) %> </td>
                            <% end %>
                            <td> <%= product.category %></td>
-                           td> <%= product.baseValue %></td>
+                           <td> <%= product.base_value %></td>
                            <td >
                              <%= link_to(product_path(product), class: "btn btn-circle btn-icon-only blue") do %>
                                <i class="fa fa-eye" aria-hidden="true"></i>
