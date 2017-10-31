@@ -520,7 +520,7 @@ pt-BR:
   product: "Produto"
   product_list: "Lista de produto"
   category: "Categoria"
-  baseValue: "Valor Base"
+  base_value: "Valor Base"
   will_paginate:
     previous_label: "Anterior"
     next_label: "Próximo"
