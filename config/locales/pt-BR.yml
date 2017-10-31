@@ -325,17 +325,17 @@ pt-BR:
       phone:
         kind:
           personal: 'Pessoal'
-          work: "Trabalho"
+          work: "Profissional"
           message: "Recado"
       email:
         kind:
           personal: 'Pessoal'
-          work: "Trabalho"
+          work: "Profissional"
           message: "Recado"
       address:
         kind:
           personal: 'Pessoal'
-          work: "Trabalho"
+          work: "Profissional"
           message: "Recado"
       person:
         marital_status:
@@ -503,7 +503,7 @@ pt-BR:
   select_instant_message: "Selecione aplicativos de mensagem"
   new_bank_account: "Adicionar conta bancária"
   work: "Profissional"
-  message: "Mensagem"
+  message: "Recado"
   main: "Principal"
   kind: "Tipo"
   id: "Id"
@@ -511,6 +511,12 @@ pt-BR:
   instant_message: "Mensagem"
   view_profile: "Ver cadastro"
   delete_person?: "Excluir pessoa?"
+  single: "Solteiro(a)"
+  married: "Casado(a)"
+  divorced: "Divorciado(a)"
+  separated: "Separado(a)"
+  widowed: "Viúvo(a)"
+  common_law_marriage: "Relação estável"
   will_paginate:
     previous_label: "Anterior"
     next_label: "Próximo"

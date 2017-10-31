@@ -5,7 +5,8 @@ class Phone < ApplicationRecord
     '0' => 'Whatsapp',
     '1' => 'Messenger',
     '2' => 'Skype',
-    '3' => 'Telegram'
+    '3' => 'Telegram',
+    '4' => 'Android Mensagens'
   }.freeze
 
   before_save :clean_phone_number
