@@ -6,39 +6,39 @@
             <div class="portlet-body">
                <%= form_for(@person, html: { class: "form-horizontal", role: "form" }) do |f| %>
                <div class="type-person-no-display" hidden>
-                  <%= f.select :type, ['Company'] if @person.new_record? %>
+                  <%= f.select :type, ['Service'] if @product.new_record? %>
                </div>
                <div class="form-body">
                   <br />
                   <div class="form-group">
-                     <label class="control-label col-md-3"><%= t(:trading_name) %></label>
+                     <label class="control-label col-md-3"><%= t(:service_name) %></label>
                      <div class="col-md-4">
-                        <%= f.text_field :name, class: "form-control", placeholder: t(:enter_trading_name) %>
+                        <%= f.text_field :service_name, class: "form-control", placeholder: t(:enter_service_name) %>
                      </div>
                   </div>
                   <div class="form-group">
-                     <label class="control-label col-md-3"><%= t(:company_name) %></label>
+                     <label class="control-label col-md-3"><%= t(:service_description) %></label>
                      <div class="col-md-4">
-                        <%= f.text_field :company_name, class: "form-control", placeholder: t(:enter_company_name) %>
+                        <%= f.text_field :service_description, class: "form-control", placeholder: t(:enter_service_description) %>
                      </div>
                   </div>
                   <div class="form-group">
-                     <label class="control-label col-md-3"><%= t(:cnpj) %></label>
+                     <label class="control-label col-md-3"><%= t(:service_baseValue) %></label>
                      <div class="col-md-4">
-                        <%= f.text_field :cnpj, class: "form-control", placeholder: t(:enter_cnpj) %>
+                        <%= f.text_field :service_baseValue, class: "form-control", placeholder: t(:enter_service_baseValue) %>
                      </div>
                   </div>
                   <div class="form-group">
-                     <label class="control-label col-md-3"><%= t(:inscricao_estadual) %></label>
+                     <label class="control-label col-md-3"><%= t(:service_category) %></label>
                      <div class="col-md-4">
-                        <%= f.text_field :inscricao_estadual, class: "form-control", placeholder: t(:enter_inscricao_estadual) %>
+                        <%= f.text_field :service_category, class: "form-control", placeholder: t(:enter_service_category) %>
                      </div>
                   </div>
                </div>
                <div class="form-actions">
                   <div class="row">
                      <div class="col-md-offset-3 col-md-4">
-                        <%= f.submit(@person.new_record? ? t(:add_a_person) : t(:update_person),
+                        <%= f.submit(@product.new_record? ? t(:add_a_product) : t(:update_product),
                            class: "btn btn-primary btn-circle") %>
                         <%= link_to t(:back), :back,class: "btn btn-default btn-circle" %>
                      </div>

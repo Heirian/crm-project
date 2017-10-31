@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171025152523) do
+ActiveRecord::Schema.define(version: 20171030193820) do
 
   create_table "addresses", force: :cascade do |t|
     t.string "street_address"
@@ -126,6 +126,22 @@ ActiveRecord::Schema.define(version: 20171025152523) do
     t.index ["deleted_at"], name: "index_places_on_deleted_at"
     t.index ["name"], name: "index_places_on_name"
     t.index ["person_id"], name: "index_places_on_person_id"
+  end
+
+  create_table "products", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.string "type"
+    t.integer "stock"
+    t.decimal "base_value"
+    t.string "category"
+    t.datetime "deleted_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category"], name: "index_products_on_category"
+    t.index ["deleted_at"], name: "index_products_on_deleted_at"
+    t.index ["name"], name: "index_products_on_name"
+    t.index ["type"], name: "index_products_on_type"
   end
 
   create_table "roles", force: :cascade do |t|
