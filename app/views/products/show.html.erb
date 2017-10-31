@@ -1,0 +1,56 @@
+<br>
+<div style="margin-top: 0;padding-left: 14%;background-color: #fff;">
+   <div class="row">
+      <!-- BEGIN VALIDATION STATES-->
+      <div class="portlet-form bordered">
+         <div class="container-fluid">
+            <div class="col-lg-12">
+               <div>
+                  <%= link_to(edit_product_path(@product), class: "btn btn-circle btn-lg green pull-right") do %>
+                  <i class="fa fa-edit" aria-hidden="true" title="<%= t(:edit) %>"></i>
+                  <% end %>
+                  <h2><%= @product.id %> - <%= @product.name %></h2>
+               </div>
+               <%# if current_user.has_role? :admin  %>
+               <%#= link_to t(:delete), person_path(@person), method: :delete,
+                  data: {confirm: "#{t(:delete_person?)}"}, class: 'btn btn-danger' %>
+               <%# end %>
+            </div>
+            <div class="col-lg-6 col-md-6">
+               <% if @product.type.eql?('Good') %>
+               <div class="form-group"><br>
+                  <label class="control-label col-3"><%= t(:type) %></label>
+                  <input class="form-control col-6" value="<%= t(:good) %>" disabled />
+               </div>
+               <div class="form-group" >
+                  <label class="control-label col-3"><%= t(:stock) %></label>
+                  <input class="form-control" value="<%= @product.stock %>" disabled />
+               </div>
+               <% else %>
+               <div class="form-group"><br>
+                  <label class="control-label col-3"><%= t(:type) %></label>
+                  <input class="form-control" value="<%= t(:service) %>" disabled />
+               </div>
+               <% end %>
+            </div>
+            <% if @person.type.eql?('Service') %>
+            <div class="col-lg-6 col-md-6">
+               <div class="form-group"><br>
+                  <label class="control-label col-3"><%= t(:product_description) %></label>
+                  <input class="form-control" value="<%= @product.description %>" disabled />
+               </div>
+               <div class="form-group">
+                  <label class="control-label col-3"><%= t(:category) %></label>
+                  <input class="form-control" value="<%= @product.category %>" disabled />
+               </div>
+               <div class="form-group">
+                  <label class="control-label col-3"><%= t(:baseValue) %></label>
+                  <input class="form-control" value="<%= @product.baseValue %>" disabled />
+               </div>
+            </div>
+            <% end %>
+         </div>
+      </div>
+   </div>
+   <hr/>
+</div>

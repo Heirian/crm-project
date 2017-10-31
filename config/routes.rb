@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  resources :products
   scope '(:locale)', locale: /#{I18n.available_locales.join("|")}/ do
     mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
     root 'pages#home'
@@ -13,6 +14,9 @@ Rails.application.routes.draw do
     get '/new_individual', to: 'people#new_individual'
     get '/company_index', to: 'people#company_index'
     get '/individual_index', to: 'people#individual_index'
+
+    resources :products
+
     resources :people do
       scope module: :people do
         resources :emails, :phones, :addresses
