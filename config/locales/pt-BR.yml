@@ -375,6 +375,7 @@ pt-BR:
   #country
   add_a_country: "Adicionar país"
   update_country: "Atualizar país"
+  edit_country: "Editar nome do país"
   new_country: "Novo país"
   country: "País"
   enter_country_name: "Coloque o nome do país"
