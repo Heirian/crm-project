@@ -507,3 +507,7 @@ pt-BR:
   action: "Ações"
   instant_message: "Mensagem"
   view_profile: "Ver cadastro"
+  product: "Produto"
+  product_list: "Lista de produto"
+  category: "Categoria"
+  baseValue: "Valor Base"

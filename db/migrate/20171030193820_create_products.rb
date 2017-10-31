@@ -5,7 +5,7 @@ class CreateProducts < ActiveRecord::Migration[5.1]
       t.text :description
       t.string :type, index:true
       t.integer :stock
-      t.decimal :baseValue
+      t.decimal :base_value
       t.string :category, index:true
 
       t.datetime :deleted_at, index: true
