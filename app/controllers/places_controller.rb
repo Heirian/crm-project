@@ -16,7 +16,7 @@ class PlacesController < ApplicationController
   def create
     @place = Place.new(place_params)
     unless @place.save
-      flash[:danger] = @place.errors.full_messages
+      flash.now[:danger] = @place.errors.full_messages
       return render 'new'
     end
     flash[:success] = I18n.t(:register_add_success)
@@ -26,13 +26,12 @@ class PlacesController < ApplicationController
   def edit; end
 
   def update
-    if @place.update(place_params)
-      flash[:success] = I18n.t(:updated_successfully)
-      redirect_to @place
-    else
-      flash[:danger] = @place.errors.full_messages
-      render 'edit'
+    unless @place.update(place_params)
+      flash.now[:danger] = @place.errors.full_messages
+      return render 'edit'
     end
+    flash[:success] = I18n.t(:updated_successfully)
+    redirect_to @place
   end
 
   def destroy

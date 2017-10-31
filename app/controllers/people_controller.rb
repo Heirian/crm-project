@@ -27,9 +27,8 @@ class PeopleController < ApplicationController
   def create
     @person = Person.new(person_params)
     unless @person.save
-      flash[:danger] = @person.errors.full_messages
-      return render 'new_company' if @person.type.eql? 'Company'
-      return render 'new_individual'
+      flash.now[:danger] = @person.errors.full_messages
+      return render_new_person_page(@person)
     end
     flash[:success] = I18n.t(:register_add_success)
     redirect_to people_path
@@ -39,16 +38,16 @@ class PeopleController < ApplicationController
 
   def update
     unless @person.update(person_params)
-      respond_modal_with @person.errors.full_messages
+      flash.now[:danger] = @person.errors.full_messages
       return render 'edit'
     end
-    flash.now[:success] = I18n.t(:updated_successfully)
+    flash[:success] = I18n.t(:updated_successfully)
     redirect_to people_path
   end
 
   def destroy
     @person.destroy
-    flash.now[:danger] = I18n.t(:deleted_successfully)
+    flash[:danger] = I18n.t(:deleted_successfully)
     redirect_to people_path
   end
 
@@ -65,5 +64,9 @@ class PeopleController < ApplicationController
   def person_params
     params.require(:person).permit(:name, :type, :inscricao_estadual, :company_name, :cnpj,
                                    :cpf, :rg, :birthday, :marital_status, :gender)
+  end
+
+  def render_new_person_page(person)
+    person.type.eql?('Company') ? render('new_company') : render('new_individual')
   end
 end
