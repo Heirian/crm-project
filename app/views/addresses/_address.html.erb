@@ -2,7 +2,7 @@
   <tr>
      <td> <%= address.street_address %> </td>
      <td><%= address.zip_code %></td>
-     <td ><%= address.kind %></td>
+     <td><%= I18n.t(address.kind) %></td>
      <td><%= address.city.name %> - <%= address.city.state.name %> - <%= address.city.state.country.name %></td>
      <td ><% if addressable == @person %>
        <%= link_to(edit_person_address_path(addressable, address), data: { turbolinks: false }, class: "btn btn-circle btn-icon-only green pull-right") do %>

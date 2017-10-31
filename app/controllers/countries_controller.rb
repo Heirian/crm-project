@@ -14,7 +14,10 @@ class CountriesController < ApplicationController
 
   def create
     @country = Country.new(country_params)
-    return render 'new' unless @country.save
+    unless @country.save
+      flash.now[:danger] = @country.errors.full_messages
+      return render 'new'
+    end
     flash[:success] = I18n.t(:country_add_success)
     redirect_to countries_path
   end
@@ -22,12 +25,17 @@ class CountriesController < ApplicationController
   def edit; end
 
   def update
-    return render 'edit' unless @country.update(country_params)
+    unless @country.update(country_params)
+      flash.now[:danger] = @country.errors.full_messages
+      return render 'edit'
+    end
+    flash[:success] = I18n.t(:country_update_success)
     redirect_to countries_path
   end
 
   def destroy
     @country.destroy
+    flash[:danger] = I18n.t(:country_deleted_success)
     redirect_to countries_path
   end
 

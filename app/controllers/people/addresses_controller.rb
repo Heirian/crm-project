@@ -3,6 +3,7 @@
 module People
   class AddressesController < ::AddressesController
     before_action :set_addressable
+    before_action :set_address, only: %I[show edit update destroy]
 
     private
 

@@ -2,38 +2,36 @@
 
 class AddressesController < ApplicationController
   before_action :authenticate_user!
+  include AddressHelper
+  # @address instance variable for edit, update and destroy is defined by
+  # set_address method on AddressHelper and call on addressable module
+
   def new
     @address = Address.new
   end
 
   def create
     @address = @addressable.addresses.new(address_params)
-    if @address.save
-      flash[:success] = I18n.t(:register_add_success)
-      redirect_to @addressable
-    else
-      flash[:danger] = @address.errors.full_messages
-      render 'new'
+    unless @address.save
+      flash.now[:danger] = @address.errors.full_messages
+      return render 'new'
     end
+    flash[:success] = I18n.t(:register_add_success)
+    redirect_to @addressable
   end
 
-  def edit
-    @address = @addressable.addresses.find(params[:id])
-  end
+  def edit; end
 
   def update
-    @address = @addressable.addresses.find(params[:id])
-    if @address.update(address_params)
-      flash[:success] = I18n.t(:updated_successfully)
-      redirect_to @addressable
-    else
-      flash[:danger] = @address.errors.full_messages
-      render 'edit'
+    unless @address.update(address_params)
+      flash.now[:danger] = @address.errors.full_messages
+      return render 'edit'
     end
+    flash[:success] = I18n.t(:updated_successfully)
+    redirect_to @addressable
   end
 
   def destroy
-    @address = @addressable.addresses.find(params[:id])
     @address.destroy
     flash[:danger] = I18n.t(:deleted_successfully)
     redirect_to @addressable

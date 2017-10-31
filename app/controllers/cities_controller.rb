@@ -14,19 +14,28 @@ class CitiesController < ApplicationController
 
   def create
     @city = City.new(city_params)
-    return render 'new' unless @city.save
+    unless @city.save
+      flash.now[:danger] = @city.errors.full_messages
+      return render 'new'
+    end
+    flash[:success] = I18n.t(:city_add_success)
     redirect_to cities_path
   end
 
   def edit; end
 
   def update
-    return render 'edit' unless @city.update(city_params)
+    unless @city.update(city_params)
+      flash.now[:danger] = @city.errors.full_messages
+      return render 'edit'
+    end
+    flash[:success] = I18n.t(:city_updated_success)
     redirect_to cities_path
   end
 
   def destroy
     @city.destroy
+    flash[:danger] = I18n.t(:city_deleted_success)
     redirect_to cities_path
   end
 

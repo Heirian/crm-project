@@ -3,6 +3,7 @@
 module Places
   class PhonesController < ::PhonesController
     before_action :set_phonable
+    before_action :set_phone, only: %I[show edit update destroy]
 
     private
 
