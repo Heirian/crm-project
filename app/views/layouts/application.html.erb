@@ -18,12 +18,14 @@
       </head>
 
       <body class="page-header-fixed page-sidebar-closed-hide-logo">
-      
+
           <div class="page-wrapper">
+            <%= render 'layouts/flash_messages' %>
             <%= render 'layouts/nav_bar' %>
           </div>
+
         <div class="page-container">
-          <%= render 'layouts/flash_messages' %>
+
             <%= render 'layouts/menu-sidebar' if user_signed_in? %>
             <%= yield %>
         </div>
