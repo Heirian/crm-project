@@ -110,7 +110,7 @@
                         <th width="2%"></th>
                         <th width="25%"><%= t(:phone_number) %> </th>
                         <th width="10%" class="numeric"><%= t(:kind) %></th>
-                        <th class="numeric"> <%= t(:instant_message) %> </th>
+                        <th width="20%" class="numeric"> <%= t(:instant_message) %> </th>
                         <th width="5%" class="numeric"> <%= t(:edit) %> </th>
                       </tr>
                     </thead>
@@ -136,7 +136,7 @@
                   <%= t(:emails) %>
                 </div>
               </div>
-            </div>
+
             <% unless @person.emails.count.zero? %>
               <div class="portlet-body flip-scroll">
                 <table class="table table-bordered table-striped table-condensed flip-content">
@@ -154,6 +154,7 @@
                 </table>
               </div>
             <% end %>
+          </div>
           </div>
           <!-- END SAMPLE TABLE PORTLET-->
           <!-- BEGIN SAMPLE TABLE PORTLET-->
