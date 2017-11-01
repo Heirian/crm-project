@@ -81,6 +81,10 @@ gem 'sanitize'
 gem 'cpf_cnpj'
 gem 'validators'
 
+# ClientSideValidations made easy for your Rails 5 applications!
+# https://github.com/DavyJonesLocker/client_side_validations
+gem 'client_side_validations', '~> 10.0', '>= 10.0.1'
+
 # phone validaton - https://github.com/daddyz/phonelib
 gem 'phonelib'
 

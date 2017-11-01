@@ -15,7 +15,7 @@
 
                <div class="portlet-body">
 
-                     <%= semantic_form_for([@phonable, @phone], html: { class: "form-horizontal", role: "form" } ) do |ff| %>
+                     <%= semantic_form_for([@phonable, @phone], validate: true, html: { class: "form-horizontal", role: "form" } ) do |ff| %>
                      <div class="form-body">
                         <div class="form-group">
                            <%= ff.label :number, t(:phone_number), class: "control-label col-md-3" %>

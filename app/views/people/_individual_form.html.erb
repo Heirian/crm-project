@@ -7,7 +7,7 @@
 
                 <div class="portlet-body">
                      <!-- BEGIN FORM-->
-                     <%= form_for(@person, html: { class: "form-horizontal", role: "form" }) do |f| %>
+                     <%= form_for(@person, validate: true, html: { class: "form-horizontal", role: "form" }) do |f| %>
                      <div class="type-person-no-display" hidden>
                        <%= f.select :type, ['Individual'] if @person.new_record? %>
                      </div>

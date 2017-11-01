@@ -6,7 +6,7 @@
 
                <div class="portlet-body">
 
-         <%= form_for([@person, @bank_account], html: { class: "form-horizontal", role: "form" }) do |baf| %>
+         <%= form_for([@person, @bank_account], validate: true, html: { class: "form-horizontal", role: "form" }) do |baf| %>
          <div class="form-body">
             <div class="form-group">
                <div class="control-label col-md-3">
