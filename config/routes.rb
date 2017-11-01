@@ -14,9 +14,11 @@ Rails.application.routes.draw do
     get '/new_individual', to: 'people#new_individual'
     get '/company_index', to: 'people#company_index'
     get '/individual_index', to: 'people#individual_index'
-
+    get '/new_service', to: 'products#new_service'
+    get '/new_good', to: 'products#new_good'
+    get '/service_index', to: 'products#service_index'
+    get '/good_index', to: 'products#good_index'
     resources :products
-
     resources :people do
       scope module: :people do
         resources :emails, :phones, :addresses

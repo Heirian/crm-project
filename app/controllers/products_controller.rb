@@ -2,19 +2,19 @@
 
 class ProductsController < ApplicationController
   before_action :set_product, only: %I[show edit update destroy]
-  before_action :new_produtc, only: %I[new_good new_service]
+  before_action :new_product, only: %I[new_good new_service]
   before_action :authenticate_user!
 
   def index
-    @products = Product.all
+    @products = Product.paginate(page: params[:page], per_page: 10)
   end
 
   def service_index
-    @products = Service.all
+    @products = Service.paginate(page: params[:page], per_page: 10)
   end
 
   def good_index
-    @products = Good.all
+    @products = Good.paginate(page: params[:page], per_page: 10)
   end
 
   def show; end
@@ -28,26 +28,26 @@ class ProductsController < ApplicationController
   def edit; end
 
   def create
-    @product = Product.new(product_params)
-    unless @produt.save
-      flash.now[:danger] = @product.errors.full_messages
-      return render_new_product_page(@product)
+    @products = Product.new(product_params)
+    unless @products.save
+      flash.now[:danger] = @products.errors.full_messages
+      return render_new_product_page(@products)
     end
     flash[:sucess] = I18n.t(:register_add_success)
-    redirect_to product_path(@product)
+    redirect_to products_path
   end
 
   def update
-    unless @product.update(product_params)
-      flash.now[:danger] = @product.errors.full_messages
+    unless @products.update(product_params)
+      flash.now[:danger] = @products.errors.full_messages
       return render 'edit'
     end
     flash[:sucess] = I18n.t(:updated_successfully)
-    redirect_to product_path(@product)
+    redirect_to product_path(@products)
   end
 
   def destroy
-    @product.destroy
+    @products.destroy
     flash[:danger] = I18n.t(:deleted_successfully)
     redirect_to products_path
   end
@@ -56,16 +56,16 @@ class ProductsController < ApplicationController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_product
-    @product = Product.find(params[:id])
+    @products = Product.find(params[:id])
   end
 
   def new_product
-    @product ||= Product.new
+    @products ||= Product.new
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def product_params
-    params.require(:product).permit(:name, :description, :type, :stock, :baseValue, :category)
+    params.require(:product).permit(:name, :description, :type, :stock, :base_value, :category)
   end
 
   def render_new_product_page(product)

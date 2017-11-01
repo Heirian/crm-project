@@ -16,5 +16,6 @@ class Product < ApplicationRecord
   # add any other characters you'd like to disallow inside the [ brackets ]
   # metacharacters [, \, ^, $, ., |, ?, *, +, (, and ) need to be escaped with a \
 
+  enum category: { book: 0, course: 1}
 
 end
