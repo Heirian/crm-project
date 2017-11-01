@@ -352,6 +352,14 @@ pt-BR:
         category:
           book: "Livros"
           course: "Cursos"
+      good:
+        category:
+          book: "Livros"
+          course: "Cursos"
+      service:
+        category:
+          book: "Livros"
+          course: "Cursos"
       individual:
         marital_status:
           single: "Solteiro(a)"
@@ -541,6 +549,10 @@ pt-BR:
   product_description: "Descrição do produto"
   add_register: "Adicionar registro"
   update_register: "Atualizar registro"
+  new_service: "Novo Serviço"
+  description: "Descrição"
+  products: "Produtos"
+  list_products: "Listar Produtos"
   will_paginate:
     previous_label: "Anterior"
     next_label: "Próximo"

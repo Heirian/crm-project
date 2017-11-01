@@ -1,272 +1,247 @@
 <br>
 <div style="margin-top: 0;padding-left: 14%;background-color: #fff;">
-  <div class="row">
-
+   <div class="row">
       <!-- BEGIN VALIDATION STATES-->
       <div class="portlet-form bordered">
-        <div class="container-fluid">
-
-
+         <div class="container-fluid">
             <div class="col-lg-12">
-              <div>
-                <%= link_to(edit_person_path(@person), class: "btn btn-circle btn-lg green pull-right") do %>
+               <div>
+                  <%= link_to(edit_person_path(@person), class: "btn btn-circle btn-lg green pull-right") do %>
                   <i class="fa fa-edit" aria-hidden="true" title="<%= t(:edit) %>"></i>
-                <% end %>
-                <h2><%= @person.id %> - <%= @person.name %></h2>
-
-              </div>
-
-
-              <%# if current_user.has_role? :admin  %>
-              <%#= link_to t(:delete), person_path(@person), method: :delete,
-              data: {confirm: "#{t(:delete_person?)}"}, class: 'btn btn-danger' %>
-              <%# end %>
+                  <% end %>
+                  <h2><%= @person.id %> - <%= @person.name %></h2>
+               </div>
             </div>
-
-
-              <div class="col-lg-6 col-md-6">
-                  <% if @person.type.eql?('Individual') %>
-                    <div class="form-group"><br>
+            <div class="col-lg-6 col-md-6">
+               <% if @person.type.eql?('Individual') %>
+               <div class="form-group"><br>
                   <label class="control-label col-3"><%= t(:type) %></label>
-                    <input class="form-control col-6" value="<%= t(:individual) %>" disabled />
-                    </div>
-                    <div class="form-group" >
-                      <label class="control-label col-3"><%= t(:birthday) %></label>
-                      <input class="form-control" value="<%= @person.birthday %>" disabled />
-                    </div>
-                    <div class="form-group">
-                      <label class="control-label col-3"><%= t(:gender) %></label>
-                      <% if :gender != 'female' %>
-                        <input class="form-control" value="Masculino" disabled />
-                      <% else %>
-                      <input class="form-control" value="Feminino" disabled />
-                      <% end %>
-                    </div>
+                  <input class="form-control col-6" value="<%= t(:individual) %>" disabled />
+               </div>
+               <div class="form-group" >
+                  <label class="control-label col-3"><%= t(:birthday) %></label>
+                  <input class="form-control" value="<%= @person.birthday %>" disabled />
+               </div>
+               <div class="form-group">
+                  <label class="control-label col-3"><%= t(:gender) %></label>
+                  <% if :gender != 'female' %>
+                  <input class="form-control" value="Masculino" disabled />
                   <% else %>
-                    <div class="form-group"><br>
+                  <input class="form-control" value="Feminino" disabled />
+                  <% end %>
+               </div>
+               <% else %>
+               <div class="form-group"><br>
                   <label class="control-label col-3"><%= t(:type) %></label>
                   <input class="form-control" value="<%= t(:company) %>" disabled />
-                  </div>
-                  <div class="form-group">
-                    <label class="control-label col-3"><%= t(:company_name) %></label>
-                    <input class="form-control" value="<%= @person.company_name %>" disabled />
-                  </div>
-                  <% end %>
-              </div>
-                <% if @person.type.eql?('Individual') %>
-
-              <div class="col-lg-6 col-md-6">
-                <div class="form-group"><br>
+               </div>
+               <div class="form-group">
+                  <label class="control-label col-3"><%= t(:company_name) %></label>
+                  <input class="form-control" value="<%= @person.company_name %>" disabled />
+               </div>
+               <% end %>
+            </div>
+            <% if @person.type.eql?('Individual') %>
+            <div class="col-lg-6 col-md-6">
+               <div class="form-group"><br>
                   <label class="control-label col-3"><%= t(:marital_status) %></label>
                   <input class="form-control" value="<%= I18n.t(@person.marital_status) %>" disabled />
-                </div>
-                <div class="form-group">
+               </div>
+               <div class="form-group">
                   <label class="control-label col-3"><%= t(:cpf) %></label>
                   <input class="form-control" value="<%= @person.cpf %>" disabled />
-                </div>
-                <div class="form-group">
+               </div>
+               <div class="form-group">
                   <label class="control-label col-3"><%= t(:rg) %></label>
                   <input class="form-control" value="<%= @person.rg %>" disabled />
-                </div>
-              </div>
-                <% else %>
-              <div class="col-lg-6 col-md-6">
-                <div class="form-group"><br>
+               </div>
+            </div>
+            <% else %>
+            <div class="col-lg-6 col-md-6">
+               <div class="form-group"><br>
                   <label class="control-label col-3"><%= t(:cnpj) %></label>
                   <input class="form-control" value="<%= @person.cnpj %>" disabled />
-                </div>
-                <div class="form-group">
+               </div>
+               <div class="form-group">
                   <label><%= t(:inscricao_estadual) %></label>
                   <input class="form-control" value="<%= @person.inscricao_estadual %>" disabled />
-                </div>
-              </div>
-                <% end %>
-
-
-        </div>
+               </div>
+            </div>
+            <% end %>
+         </div>
       </div>
-</div>
-<hr/>
-
-      <div class="row">
-        <div class="container-fluid">
-          <div class="col-lg-6">
-
+   </div>
+   <hr/>
+   <div class="row">
+      <div class="container-fluid">
+         <div class="col-lg-6">
             <!-- BEGIN SAMPLE TABLE PORTLET-->
             <div class="portlet box dark">
-              <div class="portlet-title">
-                <%= link_to(new_person_phone_path(@person), class: "btn btn-circle grey-gallery btn-lg pull-right") do %>
+               <div class="portlet-title">
+                  <%= link_to(new_person_phone_path(@person), class: "btn btn-circle grey-gallery btn-lg pull-right") do %>
                   <i class="fa fa-plus" aria-hidden="true" title="<%= t(:add_new_phone) %>"></i>
-                <% end %>
-                <div class="caption">
-                  <%= t(:phones) %>
-                </div>
-              </div>
-              <% unless @person.phones.count.zero? %>
-                <div class="portlet-body flip-scroll">
+                  <% end %>
+                  <div class="caption">
+                     <%= t(:phones) %>
+                  </div>
+               </div>
+               <% unless @person.phones.count.zero? %>
+               <div class="portlet-body flip-scroll">
                   <table class="table table-bordered table-striped table-condensed flip-content">
-                    <thead class="flip-content">
-                      <tr>
-                        <th width="1%"></th>
-                        <th width="25%"><%= t(:phone_number) %> </th>
-                        <th width="10%" class="numeric"><%= t(:kind) %></th>
-                        <th width="35%" class="numeric"> <%= t(:instant_message) %> </th>
-                        <th width="1%" class="numeric"> <%= t(:edit) %> </th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <%= render @person.phones, phonable: @person %>
-                    </tbody>
+                     <thead class="flip-content">
+                        <tr>
+                           <th width="1%"></th>
+                           <th width="25%"><%= t(:phone_number) %> </th>
+                           <th width="10%" class="numeric"><%= t(:kind) %></th>
+                           <th width="35%" class="numeric"> <%= t(:instant_message) %> </th>
+                           <th width="1%" class="numeric"> <%= t(:edit) %> </th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <%= render @person.phones, phonable: @person %>
+                     </tbody>
                   </table>
-                </div>
-              <% end %>
+               </div>
+               <% end %>
             </div>
             <!-- END SAMPLE TABLE PORTLET-->
             <!-- BEGIN SAMPLE TABLE PORTLET-->
-          </div>
-          <div class="col-lg-6">
-
+         </div>
+         <div class="col-lg-6">
             <!-- BEGIN SAMPLE TABLE PORTLET-->
             <div class="portlet box dark">
-              <div class="portlet-title">
-                <%= link_to(new_person_email_path(@person), class: "btn btn-circle grey-gallery btn-lg pull-right") do %>
+               <div class="portlet-title">
+                  <%= link_to(new_person_email_path(@person), class: "btn btn-circle grey-gallery btn-lg pull-right") do %>
                   <i class="fa fa-plus" aria-hidden="true" title="<%= t(:add_new_email) %>"></i>
-                <% end %>
-                <div class="caption">
-                  <%= t(:emails) %>
-                </div>
-              </div>
-
-            <% unless @person.emails.count.zero? %>
-              <div class="portlet-body flip-scroll">
-                <table class="table table-bordered table-striped table-condensed flip-content">
-                  <thead class="flip-content">
-                    <tr>
-                      <th width="1%"></th>
-                      <th> <%= t(:email_address) %> </th>
-                      <th class="numeric"><%= t(:kind) %></th>
-                      <th width="1%" class="numeric"> <%= t(:edit) %> </th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <%= render @person.emails, emailable: @person %>
-                  </tbody>
-                </table>
-              </div>
-            <% end %>
-          </div>
-          </div>
-          <!-- END SAMPLE TABLE PORTLET-->
-          <!-- BEGIN SAMPLE TABLE PORTLET-->
-        </div>
+                  <% end %>
+                  <div class="caption">
+                     <%= t(:emails) %>
+                  </div>
+               </div>
+               <% unless @person.emails.count.zero? %>
+               <div class="portlet-body flip-scroll">
+                  <table class="table table-bordered table-striped table-condensed flip-content">
+                     <thead class="flip-content">
+                        <tr>
+                           <th width="1%"></th>
+                           <th> <%= t(:email_address) %> </th>
+                           <th class="numeric"><%= t(:kind) %></th>
+                           <th width="1%" class="numeric"> <%= t(:edit) %> </th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <%= render @person.emails, emailable: @person %>
+                     </tbody>
+                  </table>
+               </div>
+               <% end %>
+            </div>
+         </div>
+         <!-- END SAMPLE TABLE PORTLET-->
+         <!-- BEGIN SAMPLE TABLE PORTLET-->
       </div>
-
-    <div class="row">
+   </div>
+   <div class="row">
       <div class="container-fluid">
-        <div class="col-lg-6">
-          <!-- BEGIN SAMPLE TABLE PORTLET-->
-          <div class="portlet box dark">
-            <div class="portlet-title">
-              <%= link_to(new_person_address_path(@person), data: { turbolinks: false }, class: "btn btn-circle grey-gallery btn-lg pull-right") do %>
-                <i class="fa fa-plus" aria-hidden="true" title="<%= t(:add_new_address) %>"></i>
-              <% end %>
-              <div class="caption">
-                <%= t(:addresses) %>
-              </div>
+         <div class="col-lg-6">
+            <!-- BEGIN SAMPLE TABLE PORTLET-->
+            <div class="portlet box dark">
+               <div class="portlet-title">
+                  <%= link_to(new_person_address_path(@person), data: { turbolinks: false }, class: "btn btn-circle grey-gallery btn-lg pull-right") do %>
+                  <i class="fa fa-plus" aria-hidden="true" title="<%= t(:add_new_address) %>"></i>
+                  <% end %>
+                  <div class="caption">
+                     <%= t(:addresses) %>
+                  </div>
+               </div>
+               <% unless @person.addresses.count.zero? %>
+               <div class="portlet-body flip-scroll">
+                  <table class="table table-bordered table-striped table-condensed flip-content">
+                     <thead class="flip-content">
+                        <tr>
+                           <th width="15%"><%= t(:street_address) %></th>
+                           <th width="20%"> <%= t(:zip_code) %> </th>
+                           <th width="15%" class="numeric"><%= t(:kind) %></th>
+                           <th width="20%" class="numeric"> Cidade/Estado/País </th>
+                           <th width="1%" class="numeric"> <%= t(:edit) %> </th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <%= render @person.addresses, addressable: @person %>
+                     </tbody>
+                  </table>
+               </div>
+               <% end %>
             </div>
-            <% unless @person.addresses.count.zero? %>
-              <div class="portlet-body flip-scroll">
-                <table class="table table-bordered table-striped table-condensed flip-content">
-                  <thead class="flip-content">
-                    <tr>
-                      <th width="15%"><%= t(:street_address) %></th>
-                      <th width="20%"> <%= t(:zip_code) %> </th>
-                      <th width="15%" class="numeric"><%= t(:kind) %></th>
-                      <th width="20%" class="numeric"> Cidade/Estado/País </th>
-                      <th width="1%" class="numeric"> <%= t(:edit) %> </th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <%= render @person.addresses, addressable: @person %>
-                  </tbody>
-                </table>
-              </div>
-              <% end %>
-          </div>
-          <!-- END SAMPLE TABLE PORTLET-->
-          <!-- BEGIN SAMPLE TABLE PORTLET-->
-        </div>
-        <div class="col-lg-6">
-
-          <!-- BEGIN SAMPLE TABLE PORTLET-->
-          <div class="portlet box dark">
-            <div class="portlet-title">
-              <%= link_to(new_person_bank_account_path(@person), class: "btn btn-circle grey-gallery btn-lg pull-right") do %>
-                <i class="fa fa-plus" title="<%= t(:add_new_bank_account) %>" aria-hidden="true"></i>
-              <% end %>
-              <div class="caption">
-                <%= t(:bank_accounts) %>
-              </div>
+            <!-- END SAMPLE TABLE PORTLET-->
+            <!-- BEGIN SAMPLE TABLE PORTLET-->
+         </div>
+         <div class="col-lg-6">
+            <!-- BEGIN SAMPLE TABLE PORTLET-->
+            <div class="portlet box dark">
+               <div class="portlet-title">
+                  <%= link_to(new_person_bank_account_path(@person), class: "btn btn-circle grey-gallery btn-lg pull-right") do %>
+                  <i class="fa fa-plus" title="<%= t(:add_new_bank_account) %>" aria-hidden="true"></i>
+                  <% end %>
+                  <div class="caption">
+                     <%= t(:bank_accounts) %>
+                  </div>
+               </div>
+               <% unless @person.bank_accounts.count.zero? %>
+               <div class="portlet-body flip-scroll">
+                  <table class="table table-bordered table-striped table-condensed flip-content">
+                     <thead class="flip-content">
+                        <tr>
+                           <th width="25%"><%= t(:bank_name) %></th>
+                           <th width="25%"><%= t(:bank_branch_number) %></th>
+                           <th width="25%" class="numeric"><%= t(:account_number) %></th>
+                           <th width="1%" class="numeric"> <%= t(:edit) %> </th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <%= render @person.bank_accounts %>
+                     </tbody>
+                  </table>
+               </div>
+               <% end %>
             </div>
-            <% unless @person.bank_accounts.count.zero? %>
-              <div class="portlet-body flip-scroll">
-                <table class="table table-bordered table-striped table-condensed flip-content">
-                  <thead class="flip-content">
-                    <tr>
-                      <th width="25%"><%= t(:bank_name) %></th>
-                      <th width="25%"><%= t(:bank_branch_number) %></th>
-                      <th width="25%" class="numeric"><%= t(:account_number) %></th>
-                      <th width="1%" class="numeric"> <%= t(:edit) %> </th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <%= render @person.bank_accounts %>
-                  </tbody>
-                </table>
-              </div>
-            <% end %>
-          </div>
-          <!-- END SAMPLE TABLE PORTLET-->
-          <!-- BEGIN SAMPLE TABLE PORTLET-->
-        </div>
+            <!-- END SAMPLE TABLE PORTLET-->
+            <!-- BEGIN SAMPLE TABLE PORTLET-->
+         </div>
       </div>
-    </div>
-
-    <div class="row">
+   </div>
+   <div class="row">
       <div class="container-fluid">
-        <div class="col-lg-6">
-
-          <!-- BEGIN SAMPLE TABLE PORTLET-->
-          <div class="portlet box dark">
-            <div class="portlet-title">
-              <%= link_to(new_place_path(person_id: @person.id), data: { turbolinks: false }, class: "btn btn-circle grey-gallery btn-lg pull-right") do %>
-                <i class="fa fa-plus" aria-hidden="true" title="<%= t(:add_new_place) %>"></i>
-              <% end %>
-              <div class="caption">
-                <%= t(:places) %>
-              </div>
+         <div class="col-lg-6">
+            <!-- BEGIN SAMPLE TABLE PORTLET-->
+            <div class="portlet box dark">
+               <div class="portlet-title">
+                  <%= link_to(new_place_path(person_id: @person.id), data: { turbolinks: false }, class: "btn btn-circle grey-gallery btn-lg pull-right") do %>
+                  <i class="fa fa-plus" aria-hidden="true" title="<%= t(:add_new_place) %>"></i>
+                  <% end %>
+                  <div class="caption">
+                     <%= t(:places) %>
+                  </div>
+               </div>
+               <% unless @person.places.count.zero? %>
+               <div class="portlet-body flip-scroll">
+                  <table class="table table-bordered table-striped table-condensed flip-content">
+                     <thead class="flip-content">
+                        <tr>
+                           <th width="75%"><%= t(:name) %></th>
+                           <th width="1%" class="numeric"><%= t(:edit) %> </th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <%= render @person.places %>
+                     </tbody>
+                  </table>
+               </div>
+               <% end %>
             </div>
-
-            <% unless @person.places.count.zero? %>
-              <div class="portlet-body flip-scroll">
-                <table class="table table-bordered table-striped table-condensed flip-content">
-                  <thead class="flip-content">
-                    <tr>
-                      <th width="75%"><%= t(:name) %></th>
-                      <th width="1%" class="numeric"><%= t(:edit) %> </th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <%= render @person.places %>
-                  </tbody>
-                </table>
-              </div>
-          <% end %>
-          </div>
-          <!-- END SAMPLE TABLE PORTLET-->
-          <!-- BEGIN SAMPLE TABLE PORTLET-->
-        </div>
+            <!-- END SAMPLE TABLE PORTLET-->
+            <!-- BEGIN SAMPLE TABLE PORTLET-->
+         </div>
       </div>
-    </div>
-
-  </div>
+   </div>
+</div>
