@@ -4,7 +4,7 @@ class PlacesController < ApplicationController
   before_action :set_place, only: %I[show edit update destroy]
   before_action :authenticate_user!
   def index
-    @places = Place.paginate(page: params[:page], per_page: 10)
+    @places = Place.paginate(page: params[:page], per_page: 10).includes(:person)
   end
 
   def show; end

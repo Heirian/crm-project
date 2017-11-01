@@ -409,7 +409,7 @@ pt-BR:
   person_record: "Registro pessoa"
   new_individual: "Nova pessoa física"
   all_individual_record: "Pessoas físicas"
-  new_company: "Nova pessoa júridica"
+  new_company: "Nova pessoa jurídica"
   all_company_record: "Pessoas jurídicas"
   all_people_record: "Todas as pessoas"
   name: "Nome"
@@ -438,7 +438,12 @@ pt-BR:
   individual: "Pessoa física"
   company: "Pessoa jurídica"
   select_manager: "Selecione o responsável"
+  dashboard: "Dashboard"
+  menu: "Menu"
+  email_address: "Endereço de email"
+  registered_people: "Pessoas registradas"
   #phones
+  phones_list: "Lista de telefones"
   phones: 'Telefones'
   add_phone_number: "Adicionar número de telefone"
   phone_number: "Número de telefone"

@@ -5,6 +5,9 @@ class PhonesController < ApplicationController
   include PhoneHelper
   # @phone instance variable for edit, update and destroy is defined by
   # set_phone method on PhoneHelper and call on phonable module
+  def index
+    @phones = @phonable.phones
+  end
 
   def new
     @phone = Phone.new
