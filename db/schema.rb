@@ -131,10 +131,10 @@ ActiveRecord::Schema.define(version: 20171030193820) do
   create_table "products", force: :cascade do |t|
     t.string "name"
     t.text "description"
-    t.string "type"
+    t.string "type", null: false
     t.integer "stock"
     t.decimal "base_value"
-    t.string "category"
+    t.integer "category", default: 0
     t.datetime "deleted_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

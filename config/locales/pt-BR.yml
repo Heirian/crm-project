@@ -348,6 +348,10 @@ pt-BR:
         gender:
           female: "Feminino"
           male: "Masculino"
+      product:
+        category:
+          book: "Livros"
+          course: "Cursos"
       individual:
         marital_status:
           single: "Solteiro(a)"
@@ -529,6 +533,13 @@ pt-BR:
   service: "Serviço"
   edit_product: "Edição produto"
   good: "Item"
+  stock: "Estoque"
+  product_base_value: "Valor base"
+  product_category: "Categoria de produto"
+  new_good: "Novo Produto"
+  product_description: "Descrição do produto"
+  add_register: "Adicionar registro"
+  update_register: "Atualizar registro"
   will_paginate:
     previous_label: "Anterior"
     next_label: "Próximo"
