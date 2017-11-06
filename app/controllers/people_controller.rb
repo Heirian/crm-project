@@ -5,7 +5,8 @@ class PeopleController < ApplicationController
   before_action :new_person, only: %I[new_company new_individual]
   before_action :authenticate_user!
   def index
-    @people = Person.paginate(page: params[:page], per_page: 10)
+    @q = Person.ransack(params[:q])
+    @people = @q.result(distinct: true).paginate(page: params[:page], per_page: 10)
   end
 
   def company_index
