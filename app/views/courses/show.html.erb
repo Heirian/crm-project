@@ -1,14 +1,30 @@
-<p id="notice"><%= notice %></p>
+<br>
+<div style="margin-top: 0;padding-left: 14%;background-color: #fff;">
+   <div class="row">
+      <!-- BEGIN VALIDATION STATES-->
+      <div class="portlet-form bordered">
+         <div class="container-fluid">
+            <div class="col-lg-12">
+               <div>
+                  <%= link_to(edit_course_path(@course), class: "btn btn-circle btn-lg green pull-right") do %>
+                  <i class="fa fa-edit" aria-hidden="true"></i>
+                  <% end %>
+                  <h2><%= @course.product.id %> - <%= @course.product.name %></h2>
+               </div>
+               <%# if current_user.has_role? :admin  %>
+               <%#= link_to t(:delete), place_path(@place), method: :delete,
+                  data: {confirm: "#{t(:delete_place?)}"}, class: 'btn btn-danger' %>
+               <%# end %>
+            </div>
+            <div class="col-lg-6 col-md-6">
+               <br><br>
+               <label><%= t(:courseLoad) %></label>
+               <div class="input-group">
+                  <input class="form-control input-lg" value="<%= @course.courseLoad %>" disabled />
 
-<p>
-  <strong>Product:</strong>
-  <%= @course.product %>
-</p>
-
-<p>
-  <strong>Courseload:</strong>
-  <%= @course.courseLoad %>
-</p>
-
-<%= link_to 'Edit', edit_course_path(@course) %> |
-<%= link_to 'Back', courses_path %>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>

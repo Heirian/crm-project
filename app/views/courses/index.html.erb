@@ -1,29 +1,65 @@
-<p id="notice"><%= notice %></p>
 
-<h1>Courses</h1>
+<div class="page-content-wrapper">
+   <!-- BEGIN CONTENT BODY -->
+   <div class="page-content">
+      <!-- END PAGE BAR -->
+      <!-- BEGIN PAGE TITLE-->
+      <h1 class="page-title"> <%= t(:courses) %></h1>
+      <!-- END PAGE TITLE-->
+      <!-- END PAGE HEADER-->
+      <div class="row">
+         <div class="col-md-12">
 
-<table>
-  <thead>
-    <tr>
-      <th>Product</th>
-      <th>Courseload</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+            <!-- BEGIN SAMPLE TABLE PORTLET-->
+            <div class="portlet box green">
+               <div class="portlet-title">
+                  <div class="caption">
+                     <i class="fa fa-cogs"></i><%= t(:courses_list) %>
+                  </div>
+               </div>
+               <div class="portlet-body flip-scroll">
+                  <table class="table table-bordered table-striped table-condensed flip-content">
+                     <thead class="flip-content">
+                        <tr>
+                          <% if current_user.has_role? :admin %>
+                            <th width="10%"> <%= t(:id) %> </th>
+                          <% end %>
+                          <th> <%= t(:product) %> </th>
+                          <th class="numeric"> <%= t(:courseLoad) %> </th>
+                          <th> <%= t(:action) %> </th>
 
-  <tbody>
-    <% @courses.each do |course| %>
-      <tr>
-        <td><%= course.product %></td>
-        <td><%= course.courseLoad %></td>
-        <td><%= link_to 'Show', course %></td>
-        <td><%= link_to 'Edit', edit_course_path(course) %></td>
-        <td><%= link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+                        </tr>
+                     </thead>
+                     <tbody>
+                      <% @courses.each do |course| %>
+                        <tr>
+                          <% if current_user.has_role? :admin %>
+                            <td> <%= course.product.id %> </td>
+                          <% end %>
+                          <td> <%= course.product.name %></td>
+                          <td > <%= course.courseLoad %> <%= t(:hours) %></td>
+                          <td >
+                             <%= link_to(course_path(course), class: "btn btn-circle btn-icon-only blue") do %>
+                               <i class="fa fa-eye" aria-hidden="true"></i>
+                             <% end %>
+                             <%= link_to(edit_course_path(course), class: "btn btn-circle btn-icon-only green") do %>
+                               <i class="fa fa-edit" aria-hidden="true"></i>
+                             <% end %>
+                             <%#= link_to t(:delete), place_path(place), method: :delete,
+                                  data: {confirm: t(:delete_person?)}, class: 'btn btn-danger' %> </td>
 
-<br>
+                        </tr>
+                      <% end %>
+                     </tbody>
+                  </table>
 
-<%= link_to 'New Course', new_course_path %>
+               </div>
+            </div>
+            <!-- END SAMPLE TABLE PORTLET-->
+            <!-- BEGIN SAMPLE TABLE PORTLET-->
+
+         </div>
+      </div>
+   </div>
+</div>
+</div>

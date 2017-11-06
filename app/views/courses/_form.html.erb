@@ -1,27 +1,41 @@
-<%= form_with(model: course, local: true) do |form| %>
-  <% if course.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(course.errors.count, "error") %> prohibited this course from being saved:</h2>
+<br>
+<div style="margin-top: 0;padding-left: 17%;background-color: #fff;">
+   <div class="row">
+      <div class="col-md-12">
+         <!-- BEGIN VALIDATION STATES-->
+         <div class="portlet light portlet-fit portlet-form bordered">
+            <div class="portlet-body">
+               <%= form_for(@course, validate: true, html: { class: "form-horizontal", role: "form" }) do |f| %>
 
-      <ul>
-      <% course.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= form.label :product_id %>
-    <%= form.text_field :product_id, id: :course_product_id %>
-  </div>
-
-  <div class="field">
-    <%= form.label :courseLoad %>
-    <%= form.number_field :courseLoad, id: :course_courseLoad %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+               <div class="form-body">
+                  <div class="form-group">
+                     <label class="control-label col-md-3"><%= t(:course) %></label>
+                     <div class="col-md-4">
+                        <%= f.collection_select :product_id,
+                         Product.where("type = ?", "Service").order(:id), :id, :name, {prompt: t(:select_course), value: :product_id},
+                         {multiple: false, class: 'form-control', style:"width:100%"}
+                        %>
+                     </div>
+                  </div>
+                  <div class="form-group">
+                     <label class="control-label col-md-3"><%= t(:courseLoad) %></label>
+                     <div class="col-md-4">
+                        <%= f.text_field :courseLoad, class: "form-control", placeholder: t(:enter_courseLoad) %>
+                     </div>
+                  </div>
+               </div>
+               <div class="form-actions">
+                  <div class="row">
+                     <div class="col-md-offset-3 col-md-9">
+                        <%= f.submit(@course.new_record? ? "Adicionar" : "Atualizar",
+                           class: "btn btn-primary btn-circle") %>
+                        <%= link_to t(:back), :back,class: "btn btn-default btn-circle" %>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <% end %>
+         </div>
+      </div>
+   </div>
+</div>
