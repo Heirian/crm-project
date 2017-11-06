@@ -2,8 +2,8 @@
 
 one:
   product: one
-  courseLoad: 1
+  course_load: 1
 
 two:
   product: two
-  courseLoad: 1
+  course_load: 1

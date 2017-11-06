@@ -25,7 +25,7 @@
                             <th width="10%"> <%= t(:id) %> </th>
                           <% end %>
                           <th> <%= t(:product) %> </th>
-                          <th class="numeric"> <%= t(:courseLoad) %> </th>
+                          <th class="numeric"> <%= t(:course_load) %> </th>
                           <th> <%= t(:action) %> </th>
 
                         </tr>
@@ -37,7 +37,7 @@
                             <td> <%= course.product.id %> </td>
                           <% end %>
                           <td> <%= course.product.name %></td>
-                          <td > <%= course.courseLoad %> <%= t(:hours) %></td>
+                          <td > <%= course.course_load %> <%= t(:hours) %></td>
                           <td >
                              <%= link_to(course_path(course), class: "btn btn-circle btn-icon-only blue") do %>
                                <i class="fa fa-eye" aria-hidden="true"></i>
