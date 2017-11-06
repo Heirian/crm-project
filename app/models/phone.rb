@@ -17,7 +17,7 @@ class Phone < ApplicationRecord
 
   belongs_to :phonable, polymorphic: true
 
-  enum kind: { personal: 0, work: 1, message: 2 }
+  enum kind: %I[personal work message]
   serialize :instant_messages, Array
 
   def instant_message_to_array

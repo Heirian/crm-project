@@ -7,7 +7,7 @@ class Email < ApplicationRecord
   validates_email_format_of :body, disposable: true
   belongs_to :emailable, polymorphic: true
 
-  enum kind: { personal: 0, work: 1, message: 2 }
+  enum kind: %I[personal work message]
 
   private
 
