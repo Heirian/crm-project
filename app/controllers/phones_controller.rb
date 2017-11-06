@@ -15,10 +15,7 @@ class PhonesController < ApplicationController
 
   def create
     @phone = @phonable.phones.new(phone_params)
-    unless @phone.save
-      flash.now[:danger] = @phone.errors.full_messages
-      return render 'new'
-    end
+    return render 'new' unless @phone.save
     flash[:success] = I18n.t(:phone_add_success)
     redirect_to @phonable
   end
@@ -26,10 +23,7 @@ class PhonesController < ApplicationController
   def edit; end
 
   def update
-    unless @phone.update(phone_params)
-      flash.now[:danger] = @phone.errors.full_messages
-      return render 'edit'
-    end
+    return render 'edit' unless @phone.update(phone_params)
     flash[:success] = I18n.t(:register_add_success)
     redirect_to @phonable
   end

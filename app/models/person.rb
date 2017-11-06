@@ -15,6 +15,6 @@ class Person < ApplicationRecord
   has_many :places, dependent: :destroy
   has_many :bank_accounts, dependent: :destroy
 
-  enum gender: { male: 0, female: 1 }
-  enum marital_status: { single: 0, married: 1, divorced: 2, separated: 3, widowed: 4, common_law_marriage: 5 }
+  enum gender: %I[male female]
+  enum marital_status: %I[single married divorced separated widowed common_law_marriage]
 end

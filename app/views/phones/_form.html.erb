@@ -15,11 +15,10 @@
 
                <div class="portlet-body">
 
-                     <%= semantic_form_for([@phonable, @phone], validate: true, html: { class: "form-horizontal", role: "form" } ) do |ff| %>
+                     <%= form_for([@phonable, @phone], validate: true, html: { class: "form-horizontal", role: "form" } ) do |ff| %>
                      <div class="form-body">
                         <div class="form-group">
-                           <%= ff.label :number, t(:phone_number), class: "control-label col-md-3" %>
-
+                          <label class="control-label col-md-3"><%= t(:phone_number) %></label>
                           <div class="col-md-4">
                              <%= ff.text_field :number, class: "form-control", placeholder: "#{I18n.t(:add_phone_number)}: #{t(:example_number_format)}" %>
                           </div>
@@ -35,8 +34,7 @@
                         <div class="form-group">
 
                           <div class="col-md-4 col-md-offset-3 listing">
-                            <%= ff.input :instant_message, as: :select, input_html: { class:'form-control', id: 'select2-instant-message',
-                              multiple:'multiple' }, collection: Phone::INSTANT_MESSAGES_OPTIONS.invert, include_blank: true %>
+                            <%= ff.select :instant_message, Phone::INSTANT_MESSAGES_OPTIONS.invert, { include_blank: true }, { class:'form-control', id: 'select2-instant-message', multiple: 'multiple' } %>
                           </div>
                         </div>
                         <div class="form-group">
@@ -49,7 +47,7 @@
                         <div class="row">
                            <div class="col-md-offset-3 col-md-4">
                               <%= ff.submit t(:create_phone), class: 'btn btn-circle btn-primary' %>
-                              <%= link_to t(:back), :back,class: "btn btn-default btn-circle" %>
+                              <%= link_to t(:back), @phonable, class: "btn btn-default btn-circle" %>
                            </div>
                         </div>
                      </div>

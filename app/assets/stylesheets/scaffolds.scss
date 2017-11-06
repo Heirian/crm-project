@@ -52,7 +52,13 @@ div {
 
 .field_with_errors {
   padding: 2px;
-  background-color: red;
+  background-color: #d9534f;
+  color: #fff;
+  text-transform: uppercase;
+  label {
+    padding-top: 5px;
+    text-align: center;
+  }
 }
 
 #error_explanation {
@@ -80,4 +86,8 @@ div {
 
 label {
   display: block;
+}
+
+.form-control {
+  height: 35px;
 }
