@@ -29,6 +29,7 @@ class ProductsController < ApplicationController
 
   def create
     @products = Product.new(product_params)
+
     unless @products.save
       flash.now[:danger] = @products.errors.full_messages
       return render_new_product_page(@products)

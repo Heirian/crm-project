@@ -553,6 +553,8 @@ pt-BR:
   description: "Descrição"
   products: "Produtos"
   list_products: "Listar Produtos"
+  enter_product_name: "Insira nome do produto"
+  enter_service_name: "Insira o nome do serviço"
   will_paginate:
     previous_label: "Anterior"
     next_label: "Próximo"
