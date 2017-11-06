@@ -12,10 +12,10 @@ class Product < ApplicationRecord
   validates :name, :description, :category, format: /\A[^`!@#\$%\^&*+_=]+\z/
   validates_with ProductValidator, fields: [:type]
   validates_uniqueness_of :name
-  
+
   # add any other characters you'd like to disallow inside the [ brackets ]
   # metacharacters [, \, ^, $, ., |, ?, *, +, (, and ) need to be escaped with a \
 
-    enum category: { book: 0, course: 1}
+  enum category: { book: 0, course: 1}
 
 end
