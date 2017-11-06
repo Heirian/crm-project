@@ -6,15 +6,14 @@
          <div class="portlet light portlet-fit portlet-form bordered">
             <div class="portlet-body">
                <%= form_for(@course, validate: true, html: { class: "form-horizontal", role: "form" }) do |f| %>
-
                <div class="form-body">
                   <div class="form-group">
                      <label class="control-label col-md-3"><%= t(:course) %></label>
                      <div class="col-md-4">
                         <%= f.collection_select :product_id,
-                         Product.where("type = ?", "Service").order(:id), :id, :name, {prompt: t(:select_course), value: :product_id},
-                         {multiple: false, class: 'form-control', style:"width:100%"}
-                        %>
+                           Product.where("type = ?", "Service").order(:id), :id, :name, {prompt: t(:select_course), value: :product_id},
+                           {multiple: false, class: 'form-control', style:"width:100%"}
+                           %>
                      </div>
                   </div>
                   <div class="form-group">

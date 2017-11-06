@@ -563,6 +563,7 @@ pt-BR:
   courses: "Cursos"
   courses_list: "Lista de cursos"
   select_course: "Selecione curso"
+  edit_course: "Editar curso"
   hours: "Horas"
   will_paginate:
     previous_label: "Anterior"
