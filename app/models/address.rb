@@ -6,5 +6,5 @@ class Address < ApplicationRecord
   belongs_to :addressable, polymorphic: true
   belongs_to :city
 
-  enum kind: { personal: 0, work: 1, message: 2 }
+  enum kind: %I[personal work message]
 end

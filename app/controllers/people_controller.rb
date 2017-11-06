@@ -26,23 +26,17 @@ class PeopleController < ApplicationController
 
   def create
     @person = Person.new(person_params)
-    unless @person.save
-      flash.now[:danger] = @person.errors.full_messages
-      return render_new_person_page(@person)
-    end
+    return render_new_person_page(@person) unless @person.save
     flash[:success] = I18n.t(:register_add_success)
-    redirect_to people_path
+    redirect_to @person
   end
 
   def edit; end
 
   def update
-    unless @person.update(person_params)
-      flash.now[:danger] = @person.errors.full_messages
-      return render 'edit'
-    end
+    return render 'edit' unless @person.update(person_params)
     flash[:success] = I18n.t(:updated_successfully)
-    redirect_to people_path
+    redirect_to @person
   end
 
   def destroy
@@ -67,6 +61,6 @@ class PeopleController < ApplicationController
   end
 
   def render_new_person_page(person)
-    person.type.eql?('Company') ? render('new_company') : render('new_individual')
+    render("new_#{person.type.downcase}")
   end
 end

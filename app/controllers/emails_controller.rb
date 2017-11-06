@@ -12,10 +12,7 @@ class EmailsController < ApplicationController
 
   def create
     @email = @emailable.emails.new(email_params)
-    unless @email.save
-      flash.now[:danger] = @email.errors.full_messages
-      return render 'new'
-    end
+    return render 'new' unless @email.save
     flash[:success] = I18n.t(:register_add_success)
     redirect_to @emailable
   end
@@ -23,10 +20,7 @@ class EmailsController < ApplicationController
   def edit; end
 
   def update
-    unless @email.update(email_params)
-      flash.now[:danger] = @email.errors.full_messages
-      return render 'edit'
-    end
+    return render 'edit' unless @email.update(email_params)
     flash[:success] = I18n.t(:updated_successfully)
     redirect_to @emailable
   end

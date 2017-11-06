@@ -28,26 +28,26 @@ class ProductsController < ApplicationController
   def edit; end
 
   def create
-    @products = Product.new(product_params)
-    unless @products.save
-      flash.now[:danger] = @products.errors.full_messages
-      return render_new_product_page(@products)
+    @product = Product.new(product_params)
+    unless @product.save
+      flash.now[:danger] = @product.errors.full_messages
+      return render_new_product_page(@product)
     end
     flash[:sucess] = I18n.t(:register_add_success)
-    redirect_to products_path
+    redirect_to @product
   end
 
   def update
-    unless @products.update(product_params)
-      flash.now[:danger] = @products.errors.full_messages
+    unless @product.update(product_params)
+      flash.now[:danger] = @product.errors.full_messages
       return render 'edit'
     end
     flash[:sucess] = I18n.t(:updated_successfully)
-    redirect_to product_path(@products)
+    redirect_to @product
   end
 
   def destroy
-    @products.destroy
+    @product.destroy
     flash[:danger] = I18n.t(:deleted_successfully)
     redirect_to products_path
   end
@@ -56,11 +56,11 @@ class ProductsController < ApplicationController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_product
-    @products = Product.find(params[:id])
+    @product = Product.find(params[:id])
   end
 
   def new_product
-    @products ||= Product.new
+    @product ||= Product.new
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.
