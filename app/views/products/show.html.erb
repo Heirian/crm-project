@@ -26,6 +26,10 @@
                   <label class="control-label col-3"><%= t(:base_value) %></label>
                   <input class="form-control" value="<%= @product.base_value %>" disabled />
                </div>
+               <div class="form-group">
+                  <label class="control-label col-3"><%= t(:category) %></label>
+                  <input class="form-control col-6" value="<%= @products.category %>" disabled />
+               </div>
 
                <% else %>
                <div class="form-group"><br>
@@ -41,7 +45,7 @@
                   <input class="form-control col-6" value="<%= @product.category %>" disabled />
                </div>
                <% end %>
-            </div>
+            </div></br></br></br></br></br>
             <div class="col-lg-6 col-md-6">
                <div class="form-group" >
                   <label class="control-label col-3"><%= t(:description) %></label>
