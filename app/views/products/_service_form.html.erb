@@ -14,7 +14,7 @@
                   <div class="form-group">
                      <label class="control-label col-md-3">Nome</label>
                      <div class="col-md-4">
-                        <%= f.text_field :name, class: "form-control", placeholder: t(:enter_person_name) %>
+                        <%= f.text_field :name, class: "form-control", placeholder: t(:enter_service_name) %>
                      </div>
                   </div>
                   <div class="form-group">
@@ -27,16 +27,17 @@
                      <div class="form-group">
                         <label class="control-label col-md-3"><%= t(:category) %></label>
                         <div class="col-md-2">
-                           <%= f.select :category, options_for_enum(@product, :category), {}, { class: 'form-control' } %>
+                           <%= f.select :category, options_for_enum(@product, :category), {}, { class: 'form-control', onchange: 'addCourseLoad(this)' } %>
                         </div>
                      </div>
                   </div>
                   <div class="form-group">
                      <label class="control-label col-md-3"><%= t(:product_description) %></label>
                      <div class="col-md-2">
-                        <%= f.text_field :description, class: "form-control" %>
+                        <%= f.text_area :description, class: "form-control" %>
                      </div>
                   </div>
+
                </div>
                <div class="form-actions">
                   <div class="row">
@@ -53,6 +54,4 @@
          </div>
       </div>
    </div>
-</div>
-</div>
 </div>

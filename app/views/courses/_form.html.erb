@@ -11,7 +11,7 @@
                      <label class="control-label col-md-3"><%= t(:course) %></label>
                      <div class="col-md-4">
                         <%= f.collection_select :product_id,
-                           Product.where("type = ?", "Service").order(:id), :id, :name, {prompt: t(:select_course), value: :product_id},
+                           Product.where(type: "Service", category: "course").order(:id), :id, :name, {prompt: t(:select_course), value: :product_id},
                            {multiple: false, class: 'form-control', style:"width:100%"}
                            %>
                      </div>
