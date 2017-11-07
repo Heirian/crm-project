@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171106192055) do
+ActiveRecord::Schema.define(version: 20171107190539) do
 
   create_table "addresses", force: :cascade do |t|
     t.string "street_address"
@@ -87,6 +87,15 @@ ActiveRecord::Schema.define(version: 20171106192055) do
     t.index ["deleted_at"], name: "index_emails_on_deleted_at"
     t.index ["emailable_type", "emailable_id"], name: "index_emails_on_emailable_type_and_emailable_id"
     t.index ["kind"], name: "index_emails_on_kind"
+  end
+
+  create_table "grades", force: :cascade do |t|
+    t.string "category"
+    t.string "name"
+    t.integer "vacancy"
+    t.integer "course_load"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "people", force: :cascade do |t|

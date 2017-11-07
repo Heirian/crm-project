@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  resources :grades
   scope '(:locale)', locale: /#{I18n.available_locales.join("|")}/ do
     mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
     root 'pages#home'
