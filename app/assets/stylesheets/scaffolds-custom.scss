@@ -52,8 +52,17 @@ div {
 
 .field_with_errors {
   padding: 2px;
-  background-color: red;
-  display: table;
+  background-color: #d9534f;
+  color: #fff;
+  text-transform: uppercase;
+  label {
+    padding-top: 5px;
+    text-align: center;
+  }
+}
+
+.form-control {
+  height: 35px;
 }
 
 #error_explanation {
