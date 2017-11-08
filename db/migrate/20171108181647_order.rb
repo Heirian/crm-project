@@ -8,7 +8,7 @@ class Order < ActiveRecord::Migration[5.1]
       t.integer :total, index: true
       t.integer :user_id, index: true
       t.integer :person_id, index: true
-      t.boolean :kart, index: true
+      t.boolean :cart, index: true
 
       t.datetime :deleted_at, index: true
       t.timestamps

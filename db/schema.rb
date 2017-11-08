@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171108181647) do
+ActiveRecord::Schema.define(version: 20171108184939) do
 
   create_table "addresses", force: :cascade do |t|
     t.string "street_address"
@@ -110,13 +110,13 @@ ActiveRecord::Schema.define(version: 20171108181647) do
     t.integer "total"
     t.integer "user_id"
     t.integer "person_id"
-    t.boolean "kart"
+    t.boolean "cart"
     t.datetime "deleted_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["cart"], name: "index_orders_on_cart"
     t.index ["deleted_at"], name: "index_orders_on_deleted_at"
     t.index ["discount"], name: "index_orders_on_discount"
-    t.index ["kart"], name: "index_orders_on_kart"
     t.index ["person_id"], name: "index_orders_on_person_id"
     t.index ["shipping"], name: "index_orders_on_shipping"
     t.index ["subtotal"], name: "index_orders_on_subtotal"
@@ -182,6 +182,8 @@ ActiveRecord::Schema.define(version: 20171108181647) do
     t.datetime "deleted_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "active"
+    t.index ["active"], name: "index_products_on_active"
     t.index ["category"], name: "index_products_on_category"
     t.index ["deleted_at"], name: "index_products_on_deleted_at"
     t.index ["name"], name: "index_products_on_name"
