@@ -6,7 +6,8 @@ Rails.application.routes.draw do
 
     root 'pages#home'
 
-    # The GeneralRoutes module extends methods which keep the different routes
+    # The GeneralRoutes module extends methods which store the different routes
+    # for better organization and code maintenance
     extend GeneralRoutes
     people_routes
     places_routes
