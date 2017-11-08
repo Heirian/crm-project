@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171107190539) do
+ActiveRecord::Schema.define(version: 20171108104535) do
 
   create_table "addresses", force: :cascade do |t|
     t.string "street_address"
@@ -96,6 +96,10 @@ ActiveRecord::Schema.define(version: 20171107190539) do
     t.integer "course_load"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "product_id"
+    t.index ["category"], name: "index_grades_on_category"
+    t.index ["name"], name: "index_grades_on_name"
+    t.index ["product_id"], name: "index_grades_on_product_id"
   end
 
   create_table "people", force: :cascade do |t|
