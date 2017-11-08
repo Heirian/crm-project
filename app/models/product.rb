@@ -13,6 +13,7 @@ class Product < ApplicationRecord
   validates_with ProductValidator, fields: [:type]
   validates_uniqueness_of :name
 
+
   # add any other characters you'd like to disallow inside the [ brackets ]
   # metacharacters [, \, ^, $, ., |, ?, *, +, (, and ) need to be escaped with a \
 

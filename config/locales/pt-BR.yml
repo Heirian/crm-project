@@ -572,6 +572,7 @@ pt-BR:
   grades: "Turmas"
   grade: "Turma"
   grade_list: "Lista de turmas"
+  select_category: "Selecione categoria"
   will_paginate:
     previous_label: "Anterior"
     next_label: "Próximo"
