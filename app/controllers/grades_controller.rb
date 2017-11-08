@@ -6,7 +6,7 @@ class GradesController < ApplicationController
   # GET /grades
   # GET /grades.json
   def index
-    @grades = Grade.all
+    @grades = Grade.all.includes(:product)
   end
 
   # GET /grades/1
@@ -56,7 +56,6 @@ class GradesController < ApplicationController
 
   private
 
-<<<<<<< HEAD
   # Use callbacks to share common setup or constraints between actions.
   def set_grade
     @grade = Grade.find(params[:id])
@@ -64,12 +63,6 @@ class GradesController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def grade_params
-    params.require(:grade).permit(:category, :name, :vacancy, :course_load)
+    params.require(:grade).permit(:category, :name, :vacancy, :course_load, :product_id)
   end
-=======
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def grade_params
-      params.require(:grade).permit(:category, :name, :vacancy, :course_load, :product_id)
-    end
->>>>>>> 21a709b20d3ef66b7209f3bb5975b077a5b94dfa
 end
