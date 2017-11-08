@@ -40,14 +40,12 @@
                             </td>
                           <% end %>
                            <td> <%= product.name %></td>
-                           <% if product.type == 'Good' %>
-                              <td > <%= t(:good) %> </td>
-                           <% else %>
-                              <td > <%= t(:service) %> </td>
-                           <% end %>
-                           <td> <%= product.category %></td>
+
+                           <td> <%= I18n.t(product.type.downcase) %> </td>
+
+                           <td> <%= I18n.t(product.category) %></td>
                            <td> <%= product.base_value %></td>
-                           <td >
+                           <td>
                              <%= link_to(product_path(product), class: "btn btn-circle btn-icon-only blue") do %>
                                <i class="fa fa-eye" aria-hidden="true"></i>
                              <% end %>

@@ -6,7 +6,15 @@ class Phone < ApplicationRecord
     '1' => 'Messenger',
     '2' => 'Skype',
     '3' => 'Telegram',
-    '4' => 'Android Mensagens'
+    '4' => 'Android Mensagens',
+    '5' => 'Viber',
+    '6' => 'Line',
+    '7' => 'WeChat',
+    '8' => 'KakaoTalk',
+    '9' => 'Kik Messenger',
+    '10' => 'ChatOn',
+    '11' => 'BBM',
+    '12' => 'GroupMe'
   }.freeze
 
   before_save :clean_phone_number
@@ -22,10 +30,10 @@ class Phone < ApplicationRecord
 
   def instant_message_to_array
     instant_message_text = []
-    instant_message.split('').each do |app|
+    instant_message.split('*').each do |app|
       instant_message_text << Phone::INSTANT_MESSAGES_OPTIONS[app]
     end
-    instant_message_text.join(', ')
+    instant_message_text.join(', ').gsub(/[,]/, '')
   end
 
   private
@@ -35,6 +43,6 @@ class Phone < ApplicationRecord
   end
 
   def clean_instant_message_text
-    self.instant_message = instant_message.gsub(/[^0-9]/, '')
+    self.instant_message = instant_message.gsub(/[^0-9]/, '*')
   end
 end

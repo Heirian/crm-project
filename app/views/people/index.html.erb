@@ -60,11 +60,9 @@
                             </td>
                           <% end %>
                            <td> <%= person.name %></td>
-                           <% if person.type == 'Individual' %>
-                              <td > <%= t(:individual) %> </td>
-                           <% else %>
-                              <td > <%= t(:company) %> </td>
-                           <% end %>
+
+                           <td > <%= I18n.t(person.type.downcase) %> </td>
+
                            <td >
                              <%= link_to(person_path(person), class: "btn btn-circle btn-icon-only blue") do %>
                                <i class="fa fa-eye" aria-hidden="true"></i>
