@@ -566,6 +566,12 @@ pt-BR:
   select_course: "Selecione curso"
   edit_course: "Editar curso"
   hours: "Horas"
+  enter_course_name: "Insira nome do curso"
+  vacancy: "Vagas"
+  new_grade: "Nova turma"
+  grades: "Turmas"
+  grade: "Turma"
+  grade_list: "Lista de turmas"
   will_paginate:
     previous_label: "Anterior"
     next_label: "Próximo"
