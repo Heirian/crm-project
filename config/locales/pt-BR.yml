@@ -571,8 +571,10 @@ pt-BR:
   new_grade: "Nova turma"
   grades: "Turmas"
   grade: "Turma"
+  edit_grades: "Editar turmas"
   grade_list: "Lista de turmas"
   select_category: "Selecione categoria"
+  enter_category: "Insira a categoria"
   will_paginate:
     previous_label: "Anterior"
     next_label: "Próximo"
