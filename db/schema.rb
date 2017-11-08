@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171108104535) do
+ActiveRecord::Schema.define(version: 20171108181647) do
 
   create_table "addresses", force: :cascade do |t|
     t.string "street_address"
@@ -100,6 +100,29 @@ ActiveRecord::Schema.define(version: 20171108104535) do
     t.index ["category"], name: "index_grades_on_category"
     t.index ["name"], name: "index_grades_on_name"
     t.index ["product_id"], name: "index_grades_on_product_id"
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.integer "subtotal"
+    t.integer "tax"
+    t.integer "shipping"
+    t.integer "discount"
+    t.integer "total"
+    t.integer "user_id"
+    t.integer "person_id"
+    t.boolean "kart"
+    t.datetime "deleted_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["deleted_at"], name: "index_orders_on_deleted_at"
+    t.index ["discount"], name: "index_orders_on_discount"
+    t.index ["kart"], name: "index_orders_on_kart"
+    t.index ["person_id"], name: "index_orders_on_person_id"
+    t.index ["shipping"], name: "index_orders_on_shipping"
+    t.index ["subtotal"], name: "index_orders_on_subtotal"
+    t.index ["tax"], name: "index_orders_on_tax"
+    t.index ["total"], name: "index_orders_on_total"
+    t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
   create_table "people", force: :cascade do |t|
