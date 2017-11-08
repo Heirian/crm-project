@@ -25,16 +25,9 @@ class GradesController < ApplicationController
   # POST /grades.json
   def create
     @grade = Grade.new(grade_params)
-
-    respond_to do |format|
-      if @grade.save
-        format.html { redirect_to @grade, notice: 'Grade was successfully created.' }
-        format.json { render :show, status: :created, location: @grade }
-      else
-        format.html { render :new }
-        format.json { render json: @grade.errors, status: :unprocessable_entity }
-      end
-    end
+    return render_new_grade_page(@grade) unless @grade.save
+    flash[:success] = I18n.t(:register_add_success)
+    redirect_to :grades
   end
 
   # PATCH/PUT /grades/1
@@ -69,6 +62,6 @@ class GradesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def grade_params
-      params.require(:grade).permit(:category, :name, :vacancy, :course_load)
+      params.require(:grade).permit(:category, :name, :vacancy, :course_load, :product_id)
     end
 end
