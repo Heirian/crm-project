@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171108184939) do
+ActiveRecord::Schema.define(version: 20171108193546) do
 
   create_table "addresses", force: :cascade do |t|
     t.string "street_address"
@@ -100,6 +100,32 @@ ActiveRecord::Schema.define(version: 20171108184939) do
     t.index ["category"], name: "index_grades_on_category"
     t.index ["name"], name: "index_grades_on_name"
     t.index ["product_id"], name: "index_grades_on_product_id"
+  end
+
+  create_table "order_items", force: :cascade do |t|
+    t.integer "product_id"
+    t.integer "order_id"
+    t.integer "quantity"
+    t.integer "total_value"
+    t.integer "unit_price"
+    t.datetime "deleted_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["deleted_at"], name: "index_order_items_on_deleted_at"
+    t.index ["order_id"], name: "index_order_items_on_order_id"
+    t.index ["product_id"], name: "index_order_items_on_product_id"
+    t.index ["quantity"], name: "index_order_items_on_quantity"
+  end
+
+  create_table "order_statuses", force: :cascade do |t|
+    t.integer "category"
+    t.integer "order_id"
+    t.datetime "deleted_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category"], name: "index_order_statuses_on_category"
+    t.index ["deleted_at"], name: "index_order_statuses_on_deleted_at"
+    t.index ["order_id"], name: "index_order_statuses_on_order_id"
   end
 
   create_table "orders", force: :cascade do |t|
