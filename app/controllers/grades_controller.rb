@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class GradesController < ApplicationController
-  before_action :set_grade, only: [:show, :edit, :update, :destroy]
+  before_action :set_grade, only: %i[show edit update destroy]
 
   # GET /grades
   # GET /grades.json
@@ -9,8 +11,7 @@ class GradesController < ApplicationController
 
   # GET /grades/1
   # GET /grades/1.json
-  def show
-  end
+  def show; end
 
   # GET /grades/new
   def new
@@ -18,8 +19,7 @@ class GradesController < ApplicationController
   end
 
   # GET /grades/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /grades
   # POST /grades.json
@@ -62,13 +62,14 @@ class GradesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_grade
-      @grade = Grade.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def grade_params
-      params.require(:grade).permit(:category, :name, :vacancy, :course_load)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_grade
+    @grade = Grade.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def grade_params
+    params.require(:grade).permit(:category, :name, :vacancy, :course_load)
+  end
 end
