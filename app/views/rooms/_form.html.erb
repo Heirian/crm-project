@@ -1,0 +1,29 @@
+<div style="margin-top: 0;padding-left: 17%;background-color: #fff;">
+   <div class="row">
+      <div class="col-md-12">
+         <!-- BEGIN VALIDATION STATES-->
+         <div class="portlet-form bordered">
+            <div class="portlet-body">
+               <%= form_for([@place, @room], validate: true, html: { class: "form-horizontal", role: "form" }) do |r| %>
+               <div class="form-body">
+                  <div class="form-group">
+                     <label class="control-label col-md-3"><%= t(:room_name) %></label>
+                     <div class="col-md-4">
+                        <%= r.text_field :room_name, class: "form-control", placeholder: I18n.t(:add_room_name) %>
+                     </div>
+                  </div>
+               </div>
+               <div class="form-actions">
+                  <div class="row">
+                     <div class="col-md-4 col-md-offset-3">
+                        <%= r.submit class: 'btn btn-circle btn-primary' %>
+                        <%= link_to t(:back), @place, class: "btn btn-default btn-circle" %>
+                     </div>
+                  </div>
+               </div>
+               <% end %>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>

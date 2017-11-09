@@ -575,6 +575,12 @@ pt-BR:
   grade_list: "Lista de turmas"
   select_category: "Selecione categoria"
   enter_category: "Insira a categoria"
+  rooms: "Salas"
+  room: "Sala"
+  add_new_room: "Adicionar nova sala"
+  new_room: "Nova Sala"
+  room_name: "Nome da sala"
+  add_room_name: "Insira o nome da sala"
   will_paginate:
     previous_label: "Anterior"
     next_label: "Próximo"

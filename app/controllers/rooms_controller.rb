@@ -1,15 +1,15 @@
 # frozen_string_literal: true
 
-class RoomController < ApplicationController
+class RoomsController < ApplicationController
   before_action :set_place, only: %I[new create edit update destroy]
   before_action :set_room, only: %I[edit update destroy]
   before_action :authenticate_user!
   def new
-    @room = @place.room.new
+    @room = @place.rooms.new
   end
 
   def create
-    @room = @place.room.new(room_params)
+    @room = @place.rooms.new(room_params)
     return render 'new' unless @room.save
     flash[:success] = I18n.t(:register_add_success)
     redirect_to @place
