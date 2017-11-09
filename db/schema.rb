@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171108104535) do
+ActiveRecord::Schema.define(version: 20171108193546) do
 
   create_table "addresses", force: :cascade do |t|
     t.string "street_address"
@@ -102,6 +102,55 @@ ActiveRecord::Schema.define(version: 20171108104535) do
     t.index ["product_id"], name: "index_grades_on_product_id"
   end
 
+  create_table "order_items", force: :cascade do |t|
+    t.integer "product_id"
+    t.integer "order_id"
+    t.integer "quantity"
+    t.integer "total_value"
+    t.integer "unit_price"
+    t.datetime "deleted_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["deleted_at"], name: "index_order_items_on_deleted_at"
+    t.index ["order_id"], name: "index_order_items_on_order_id"
+    t.index ["product_id"], name: "index_order_items_on_product_id"
+    t.index ["quantity"], name: "index_order_items_on_quantity"
+  end
+
+  create_table "order_statuses", force: :cascade do |t|
+    t.integer "category"
+    t.integer "order_id"
+    t.datetime "deleted_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category"], name: "index_order_statuses_on_category"
+    t.index ["deleted_at"], name: "index_order_statuses_on_deleted_at"
+    t.index ["order_id"], name: "index_order_statuses_on_order_id"
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.integer "subtotal"
+    t.integer "tax"
+    t.integer "shipping"
+    t.integer "discount"
+    t.integer "total"
+    t.integer "user_id"
+    t.integer "person_id"
+    t.boolean "cart"
+    t.datetime "deleted_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["cart"], name: "index_orders_on_cart"
+    t.index ["deleted_at"], name: "index_orders_on_deleted_at"
+    t.index ["discount"], name: "index_orders_on_discount"
+    t.index ["person_id"], name: "index_orders_on_person_id"
+    t.index ["shipping"], name: "index_orders_on_shipping"
+    t.index ["subtotal"], name: "index_orders_on_subtotal"
+    t.index ["tax"], name: "index_orders_on_tax"
+    t.index ["total"], name: "index_orders_on_total"
+    t.index ["user_id"], name: "index_orders_on_user_id"
+  end
+
   create_table "people", force: :cascade do |t|
     t.string "type", null: false
     t.string "name"
@@ -159,6 +208,8 @@ ActiveRecord::Schema.define(version: 20171108104535) do
     t.datetime "deleted_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "active"
+    t.index ["active"], name: "index_products_on_active"
     t.index ["category"], name: "index_products_on_category"
     t.index ["deleted_at"], name: "index_products_on_deleted_at"
     t.index ["name"], name: "index_products_on_name"
