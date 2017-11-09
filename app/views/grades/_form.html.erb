@@ -20,7 +20,7 @@
                      </div>
                   </div>
                   <div class="form-group">
-                     <label class="control-label col-md-3"><%= t(:product) %></label>
+                     <label class="control-label col-md-3"><%= t(:course) %></label>
                      <div class="col-md-4">
                         <%= f.collection_select :product_id,
                            Product.where(type: "Service", category: "course").order(:id), :id, :name,
