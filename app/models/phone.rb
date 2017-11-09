@@ -20,6 +20,7 @@ class Phone < ApplicationRecord
   before_save :clean_phone_number
   before_save :clean_instant_message_text
 
+  # validate :check_main_phone
   validates :number, :kind, presence: true
   validates :number, phone: { possible: true }
 
@@ -45,4 +46,11 @@ class Phone < ApplicationRecord
   def clean_instant_message_text
     self.instant_message = instant_message.gsub(/[^0-9]/, '*')
   end
+
+  # def check_main_phone
+  #   phonable.phones.map do |phone|
+  #     phone.id.eql? self.id && phone.main.eql? true
+  #   end
+  #   self.main = false if phonable.phones.map(&:main).include?(true) && main.eql?(true)
+  # end
 end
