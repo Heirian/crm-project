@@ -5,5 +5,6 @@ class Place < ApplicationRecord
   has_many :emails, as: :emailable, dependent: :destroy
   has_many :phones, as: :phonable, dependent: :destroy
   has_many :addresses, as: :addressable, dependent: :destroy
+  has_many :rooms, dependent: :destroy
   belongs_to :person
 end
