@@ -14,6 +14,7 @@ class Person < ApplicationRecord
   has_many :addresses, as: :addressable, dependent: :destroy
   has_many :places, dependent: :destroy
   has_many :bank_accounts, dependent: :destroy
+  has_many :orders, dependent: :nullify
 
   enum gender: %I[male female]
   enum marital_status: %I[single married divorced separated widowed common_law_marriage]

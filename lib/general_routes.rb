@@ -29,6 +29,8 @@ module GeneralRoutes
     get '/service_index', to: 'products#service_index'
     get '/good_index', to: 'products#good_index'
     resources :products
+    resource :cart, only: [:show]
+    resources :order_items, only: %I[create update destroy]
   end
 
   def resource_routes

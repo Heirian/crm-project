@@ -7,6 +7,7 @@ class ProductsController < ApplicationController
 
   def index
     @products = Product.paginate(page: params[:page], per_page: 10)
+    @order_item = current_order.order_items.new
   end
 
   def service_index

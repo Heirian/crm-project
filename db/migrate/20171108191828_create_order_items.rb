@@ -8,7 +8,7 @@ class CreateOrderItems < ActiveRecord::Migration[5.1]
       t.integer :unit_price
 
       t.datetime :deleted_at, index: true
-      t.timestamps
+      t.timestampsf
     end
   end
 end

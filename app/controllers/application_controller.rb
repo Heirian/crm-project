@@ -5,6 +5,15 @@ class ApplicationController < ActionController::Base
   before_action :set_locale
   before_action :default_url_options
   layout :layout_by_resource
+  helper_method :current_order
+
+  def current_order
+    if !session[:order_id].nil?
+      Order.find(session[:order_id])
+    else
+      Order.new
+    end
+  end
 
   private
 
