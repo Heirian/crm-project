@@ -15,9 +15,12 @@ class Product < ApplicationRecord
   validates_with ProductValidator, fields: [:type]
   validates :name, uniqueness: true
   has_many :grades, dependent: :nullify
+  has_many :order_items, dependent: :nullify
 
   # add any other characters you'd like to disallow inside the [ brackets ]
   # metacharacters [, \, ^, $, ., |, ?, *, +, (, and ) need to be escaped with a \
   monetize :base_value, as: :base_value_cent
   enum category: { book: 0, course: 1 }
+
+  default_scope { where(active: true) }
 end
