@@ -2,7 +2,7 @@
 
 class CoursesController < ApplicationController
   before_action :set_course, only: %i[show edit update destroy]
-
+  before_action :authenticate_user!
   # GET /courses
   # GET /courses.json
   def index

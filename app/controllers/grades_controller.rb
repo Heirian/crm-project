@@ -25,7 +25,7 @@ class GradesController < ApplicationController
   # POST /grades.json
   def create
     @grade = Grade.new(grade_params)
-    return render_new_grade_page(@grade) unless @grade.save
+    return render 'new' unless @grade.save
     flash[:success] = I18n.t(:register_add_success)
     redirect_to :grades
   end
