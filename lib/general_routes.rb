@@ -20,6 +20,7 @@ module GeneralRoutes
       scope module: :places do
         resources :emails, :phones, :addresses
       end
+      resources :rooms
     end
   end
 
@@ -42,5 +43,6 @@ module GeneralRoutes
     resources :states
     resources :cities
     resources :emails
+    resources :rooms
   end
 end
