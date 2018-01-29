@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+   <head>
+      <title><%= full_title(yield(:title)) %></title>
+      <%= csrf_meta_tags %>
+      <meta charset="utf-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta content="width=device-width, initial-scale=1" name="viewport" />
+      <meta content="" name="author" />
+      <!-- BEGIN GLOBAL MANDATORY STYLES -->
+      <%= render 'layouts/layout_css' %>
+      <%= render 'layouts/layout_js' %>
+      <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+   </head>
+   <div class="clearfix"> </div>
+   <div class="page-container">
+      <%= render 'layouts/menu-sidebar' if user_signed_in? %>
+      <%= render 'layouts/flash_messages' %>
+      <%= yield %>
+   </div>
+   <%= render 'layouts/footer' %>
+</html>

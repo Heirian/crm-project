@@ -1,0 +1,24 @@
+<div class="container">
+  <div align="center">
+    <br>
+    <div class="col-12">
+      <% @cities.each do |city| %>
+          <div class="col-4">
+            <h3>
+              <%= link_to city.name, city_path(city) %>
+            </h3>
+            <h5>
+              <%= link_to city.state.name, state_path(city.state) %>
+            </h5>
+            <h6>
+              <%= link_to city.state.country.name, country_path(city.state.country) %>
+            </h6>
+
+            <%= link_to t(:delete), city_path(city), method: :delete,
+            data: { confirm: t(:delete_city?)}, class: 'btn btn-danger' %>
+          </div>
+          <br>
+      <% end %>
+    </div>
+  </div>
+</div>

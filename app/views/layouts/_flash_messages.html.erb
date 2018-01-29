@@ -1,0 +1,29 @@
+<script type="text/javascript">
+   $(document).ready(function() {
+   window.setTimeout("fadeMyAlert();", 1000); //call fade in 3 seconds
+     }
+    )
+
+    function fadeMyAlert() {
+       $(".alert").fadeOut(10000);
+    }
+</script>
+<br />
+<div class="message-positon">
+
+  <% flash.each do |name, message| %>
+
+        <div class="col-md-12">
+          <div class="alert alert-<%= name %> pull-right" role="alert">
+            <a href="#" class="close" data-dismiss="alert">&#215</a>
+            <% if message.class.equal? Array %>
+              <%= simple_format(message.join("<br>")) %>
+            <% else %>
+              <%= message %>
+            <% end %>
+          </div>
+        </div>
+
+  <% end %>
+
+</div>

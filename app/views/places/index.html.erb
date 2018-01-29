@@ -1,0 +1,67 @@
+
+<div class="page-content-wrapper">
+   <!-- BEGIN CONTENT BODY -->
+   <div class="page-content">
+      <!-- END PAGE BAR -->
+      <!-- BEGIN PAGE TITLE-->
+      <h1 class="page-title"> <%= t(:places) %></h1>
+      <!-- END PAGE TITLE-->
+      <!-- END PAGE HEADER-->
+      <div class="row">
+         <div class="col-md-12">
+
+            <!-- BEGIN SAMPLE TABLE PORTLET-->
+            <div class="portlet box green">
+               <div class="portlet-title">
+                  <div class="caption">
+                     <i class="fa fa-cogs"></i><%= t(:places_list) %>
+                  </div>
+               </div>
+               <div class="portlet-body flip-scroll">
+                  <table class="table table-bordered table-striped table-condensed flip-content">
+                     <thead class="flip-content">
+                        <tr>
+                          <% if current_user.has_role? :admin %>
+                            <th width="10%"> <%= t(:id) %> </th>
+                          <% end %>
+                          <th> <%= t(:name) %> </th>
+                          <th class="numeric"> <%= t(:manager) %> </th>
+                          <th class="numeric"> <%= t(:action) %> </th>
+
+                        </tr>
+                     </thead>
+                     <tbody>
+                      <% @places.each do |place| %>
+                        <tr>
+                          <% if current_user.has_role? :admin %>
+                            <td> <%= place.id %> </td>
+                          <% end %>
+                          <td> <%= place.name %></td>
+                          <td > <%= place.person.name %> </td>
+                          <td >
+                             <%= link_to(place_path(place), class: "btn btn-circle btn-icon-only blue") do %>
+                               <i class="fa fa-eye" aria-hidden="true"></i>
+                             <% end %>
+                             <%= link_to(edit_place_path(place), class: "btn btn-circle btn-icon-only green") do %>
+                               <i class="fa fa-edit" aria-hidden="true"></i>
+                             <% end %>
+                             <%#= link_to t(:delete), place_path(place), method: :delete,
+                                  data: {confirm: t(:delete_person?)}, class: 'btn btn-danger' %> </td>
+
+                        </tr>
+                      <% end %>
+                     </tbody>
+                  </table>
+                  <div align="center">
+                    <%= will_paginate %>
+                  </div>
+               </div>
+            </div>
+            <!-- END SAMPLE TABLE PORTLET-->
+            <!-- BEGIN SAMPLE TABLE PORTLET-->
+
+         </div>
+      </div>
+   </div>
+</div>
+</div>

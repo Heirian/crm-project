@@ -1,0 +1,9 @@
+<%= render 'form_page_title', title: t(:edit_person) %>
+
+
+
+<% if @person.type == 'Company' %>
+  <%= render 'company_form' %>
+<% else %>
+  <%= render 'individual_form' %>
+<% end %>

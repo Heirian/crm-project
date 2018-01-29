@@ -1,0 +1,71 @@
+<script type="text/javascript">
+   $(document).ready(function () {
+     $("#select2-country").select2();
+     $("#select2-state").select2();
+     $("#select2-city").select2();
+     theme : "bootstrap"
+   });
+</script>
+<div style="margin-top: 0;padding-left: 17%;background-color: #fff;">
+<div class="row">
+   <div class="col-md-12">
+      <!-- BEGIN VALIDATION STATES-->
+      <div class="portlet-form bordered">
+
+            <div class="portlet-body">
+
+                  <%= form_for([@addressable, @address], html: { class: "form-horizontal", role: "form" }) do |af| %>
+                  <div class="form-body">
+                     <div class="form-group">
+                        <label class="control-label col-md-3"><%= t(:street_address) %></label>
+                        <div class="col-md-4">
+                           <%= af.text_field :street_address, class: "form-control", placeholder: I18n.t(:add_street_address) %>
+                        </div>
+                     </div>
+                     <div class="form-group">
+                       <label class="control-label col-md-3"><%= t(:zip_code) %></label>
+                        <div class="col-md-4">
+                           <%= af.text_field :zip_code, class: "form-control", placeholder: I18n.t(:add_zip_code) %>
+                        </div>
+                     </div>
+                     <div class="form-group">
+                        <div class="control-label col-md-3">
+                           <%= af.label t(:kind) %>
+                        </div>
+                        <div class="col-md-4">
+                           <%= af.select :kind, options_for_enum(@address, :kind), {}, { class: 'form-control' } %>
+                        </div>
+                     </div>
+                     <div class="form-group">
+                        <div class="col-md-offset-3 col-md-4">
+                           <%= af.collection_select :country_id, Country.order(:name), :id, :name, { include_blank: false }, { multiple: false, class: 'form-control', id: 'select2-country', style:'width:100%' } %>
+                        </div>
+                     </div>
+                     <div class="form-group">
+                        <div class="col-md-offset-3 col-md-4">
+                           <%= af.grouped_collection_select :state_id, Country.includes(:states).order(:name), :states, :name, :id, :name, { include_blank: false }, { multiple: false, class: 'form-control', id: 'select2-state', style:'width:100%' } %>
+                        </div>
+                     </div>
+                     <div class="form-group">
+                        <div class="col-md-offset-3 col-md-4">
+                           <%= af.grouped_collection_select :city_id, State.includes(:cities).order(:name), :cities, :name, :id, :name, { include_blank: false }, { multiple: false, class: 'form-control', id: 'select2-city', style:'width:100%' } %>
+                        </div>
+                     </div>
+
+                  </div>
+                  <div class="form-actions">
+                    <div class="row">
+                      <div class="col-md-offset-3 col-md-4">
+                        <%= af.submit t(:create_address), class: 'btn btn-circle btn-primary' %>
+                        <%= link_to t(:back), @addressable, class: "btn btn-default btn-circle" %>
+                      </div>
+                    </div>
+                  </div>
+                  <% end %>
+
+               </div>
+
+      </div>
+   </div>
+</div>
+</div>

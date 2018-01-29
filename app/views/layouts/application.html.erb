@@ -1,14 +1,35 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Testapp</title>
-    <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+<html lang="pt-BR">
+    <head>
+      <title><%= full_title(yield(:title)) %></title>
+      <%= csrf_meta_tags %>
 
-  <body>
-    <%= yield %>
-  </body>
-</html>
+      
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta content="width=device-width, initial-scale=1" name="viewport" />
+
+        <%= render 'layouts/layout_css' %>
+        <%= render 'layouts/layout_js' %>
+        <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+        <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+      </head>
+
+      <body class="page-header-fixed page-sidebar-closed-hide-logo">
+
+          <div class="page-wrapper">
+            <%= render 'layouts/flash_messages' %>
+            <%= render 'layouts/nav_bar' %>
+          </div>
+
+        <div class="page-container">
+
+            <%= render 'layouts/menu-sidebar' if user_signed_in? %>
+            <%= yield %>
+        </div>
+      <%= render 'layouts/footer' %>
+
+    </body>
+  </html>

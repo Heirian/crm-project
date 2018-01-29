@@ -1,0 +1,95 @@
+<div class="page-content-wrapper">
+   <!-- BEGIN CONTENT BODY -->
+   <div class="page-content">
+      <!-- END PAGE BAR -->
+      <!-- BEGIN PAGE TITLE-->
+      <h1 class="page-title"> <%= t(:people) %> </h1>
+      <!-- END PAGE TITLE-->
+      <!-- END PAGE HEADER-->
+      <div class="row">
+        <div class="col-md-12">
+          <%= search_form_for(@q, validate: true, html: { class: "form-horizontal", role: "form" }) do |f| %>
+
+
+            <!-- Attributes may be chained. Search multiple attributes for one value... -->
+            <div class="form-group">
+
+              <div class="col-md-4">
+                <%= f.search_field :name_cont, class: 'form-control', placeholder: I18n.t(:name) %>
+              </div>
+              <%= f.submit(class: "btn btn-circle blue") %>
+            </div>
+
+
+          <% end %>
+        </div>
+
+      </div>
+
+      <div class="row">
+         <div class="col-md-12">
+
+            <!-- BEGIN SAMPLE TABLE PORTLET-->
+            <div class="portlet box green">
+               <div class="portlet-title">
+                  <div class="caption">
+                     <i class="fa fa-cogs"></i><%= t(:people_list) %>
+                  </div>
+               </div>
+               <div class="portlet-body flip-scroll">
+                  <table class="table table-bordered table-striped table-condensed flip-content">
+                     <thead class="flip-content">
+                        <tr>
+                          <% if current_user.has_role? :admin %>
+                            <th width="20%"><%= t(:id) %> </th>
+                          <% end %>
+                          <th>
+                            <%= t(:name) %>
+                          </th>
+                          <th class="numeric"> <%= t(:type) %> </th>
+                          <th class="numeric"> <%= t(:action) %> </th>
+
+                        </tr>
+                     </thead>
+                     <tbody>
+                      <% @people.each do |person| %>
+                        <tr>
+                          <% if current_user.has_role? :admin %>
+                            <td>
+                              <%= person.id  %>
+                            </td>
+                          <% end %>
+                           <td> <%= person.name %></td>
+
+                           <td > <%= I18n.t(person.type.downcase) %> </td>
+
+                           <td >
+                             <%= link_to(person_path(person), class: "btn btn-circle btn-icon-only blue") do %>
+                               <i class="fa fa-eye" aria-hidden="true"></i>
+                             <% end %>
+                             <%= link_to(edit_person_path(person), class: "btn btn-circle btn-icon-only green") do %>
+                               <i class="fa fa-edit" aria-hidden="true"></i>
+                             <% end %>
+                             <%#= link_to t(:delete), person_path(person), method: :delete,
+                                  data: {confirm: t(:delete_person?)}, class: 'btn btn-danger' %> </td>
+
+                        </tr>
+                      <% end %>
+                     </tbody>
+                  </table>
+                  <div align="center">
+                    <%= will_paginate %>
+                  </div>
+               </div>
+
+            </div>
+
+            <!-- END SAMPLE TABLE PORTLET-->
+            <!-- BEGIN SAMPLE TABLE PORTLET-->
+
+
+         </div>
+      </div>
+   </div>
+</div>
+</div>

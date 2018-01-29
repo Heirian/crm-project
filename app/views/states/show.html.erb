@@ -1,0 +1,16 @@
+<br>
+<div class="row">
+  <div class="col-12">
+    <ul class="listing">
+      <div align="center">
+        <h1>
+          <%= link_to @state.name, state_path(@state) %>
+        </h1>
+        <hr />
+        <p><%= render @state.cities %></p>
+        <%= link_to "#{t(:delete)}", state_path(@state), method: :delete,
+        data: {confirm: "#{t(:delete_state?)}"}, class: 'btn btn-danger' %>
+      </div>
+    </ul>
+  </div>
+</div>

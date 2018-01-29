@@ -1,0 +1,40 @@
+<script type="text/javascript">
+  $(document).ready(function() {
+    $("#select2-country").select2();
+    theme: "bootstrap"
+  });
+</script>
+<div class="container">
+  <div align="center">
+    <div class="col-md-6">
+        <%= form_for(@state, html: { class: "form-horizontal", role: "form" }) do |f| %>
+          <div class="form-group">
+            <div class="control-label">
+              <%= f.label :name, "#{t(:state)}" %>
+            </div>
+            <div>
+              <%= f.text_field :name, class: "form-control", placeholder: "#{t(:enter_state_name)}" %>
+            </div>
+          </div>
+
+          <div class="form-group">
+              <div>
+                <%= f.collection_select :country_id, Country.order(:name), :id, :name, { include_blank: false }, { multiple: false, class: 'form-control', id: 'select2-country' } %>
+              </div>
+          </div>
+
+
+          <div class="form-group">
+            <div>
+              <%= f.submit(@state.new_record? ? t(:add_a_state) : t(:update_state),
+                                class: "btn btn-primary") %>
+            </div>
+          </div>
+        <% end %>
+        <hr />
+        <%= link_to t(:back), :back %>
+      </div>
+    </div>
+
+  </div>
+</div>

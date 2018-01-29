@@ -1,0 +1,47 @@
+<script type="text/javascript">
+  $(document).ready(function() {
+    $("#select2-country").select2();
+    $("#select2-state").select2();
+  });
+</script>
+
+<div class="container">
+  <div align="center">
+    <div class="col-md-6">
+    <%= form_for(@city, html: { class: "form-horizontal", role: "form" }) do |f| %>
+      <div class="form-group">
+        <div class="control-label">
+          <%= f.label :name, t(:city) %>
+        </div>
+        <div>
+          <%= f.text_field :name, class: "form-control", placeholder: t(:enter_city_name) %>
+        </div>
+      </div>
+
+      <div class="form-group">
+
+          <div>
+            <%= f.collection_select :country_id, Country.order(:name), :id, :name, { include_blank: false }, { multiple: false, class: 'form-control', id: 'select2-country' } %>
+          </div>
+
+      </div>
+
+      <div class="form-group">
+
+          <div>
+            <%= f.grouped_collection_select :state_id, Country.includes(:states).order(:name), :states, :name, :id, :name, { include_blank: false }, { multiple: false, class: 'form-control', id: 'select2-state' } %>
+          </div>
+
+      </div>
+
+      <div class="form-group">
+        <div>
+          <%= f.submit(@city.new_record? ? t(:add_a_city) : t(:update_city),
+                            class: "btn btn-primary") %>
+        </div>
+      </div>
+    <% end %>
+    <hr />
+    <%= link_to t(:back), :back %>
+  </div>
+</div>

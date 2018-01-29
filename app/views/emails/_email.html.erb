@@ -1,0 +1,25 @@
+
+  <tr>
+     <td>     <% if email.main %>
+            <i class="fa fa-certificate" aria-hidden="true"></i>
+            <% end %>
+     </td>
+     <td><%= email.body %></td>
+     <td ><%= I18n.t(email.kind) %></td>
+     <td ><% if emailable == @person %>
+          <%= link_to(edit_person_email_path(emailable, email), class: "btn btn-circle btn-icon-only green pull-right") do %>
+            <i class="fa fa-edit" aria-hidden="true" title="<%= t(:edit) %>"></i>
+          <% end %>
+          <%#= link_to "#{t(:delete)}", person_email_path(emailable, email), method: :delete,
+          data: { confirm: "#{t(:delete_email?)}" }, class: 'btn btn-danger' if current_user.has_role? :admin %>
+         <% else %>
+           <%= link_to(edit_place_email_path(emailable, email), class: "btn btn-circle btn-icon-only green pull-right") do %>
+             <i class="fa fa-edit" aria-hidden="true" title="<%= t(:edit) %>"></i>
+           <% end %>
+           <%#= link_to "#{t(:delete)}", place_email_path(emailable, email), method: :delete,
+           data: { confirm: "#{t(:delete_email?)}" }, class: 'btn btn-danger' if current_user.has_role? :admin %>
+         <% end %>
+
+         </td>
+
+  </tr>

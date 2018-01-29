@@ -1,0 +1,57 @@
+<div style="margin-top: 0;padding-left: 17%;background-color: #fff;">
+   <div class="row">
+      <div class="col-md-12">
+         <!-- BEGIN VALIDATION STATES-->
+         <div class="portlet light portlet-fit portlet-form bordered">
+            <div class="portlet-body">
+               <!-- BEGIN FORM-->
+               <%= form_for(@product, html: { class: "form-horizontal", role: "form" }) do |f| %>
+               <div class="type-person-no-display" hidden>
+                  <%= f.select :type, ['Service'] if @product.new_record? %>
+               </div>
+               <div class="form-body">
+                  <br />
+                  <div class="form-group">
+                     <label class="control-label col-md-3">Nome</label>
+                     <div class="col-md-4">
+                        <%= f.text_field :name, class: "form-control", placeholder: t(:enter_service_name) %>
+                     </div>
+                  </div>
+                  <div class="form-group">
+                     <label class="control-label col-md-3"><%= t(:base_value) %></label>
+                     <div class="col-md-2">
+                        <%= f.text_field :base_value, class: "form-control" %>
+                     </div>
+                  </div>
+                  <div>
+                     <div class="form-group">
+                        <label class="control-label col-md-3"><%= t(:category) %></label>
+                        <div class="col-md-2">
+                           <%= f.select :category, options_for_enum(@product, :category), {}, { class: 'form-control', onchange: 'addCourseLoad(this)' } %>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="form-group">
+                     <label class="control-label col-md-3"><%= t(:product_description) %></label>
+                     <div class="col-md-2">
+                        <%= f.text_area :description, class: "form-control" %>
+                     </div>
+                  </div>
+
+               </div>
+               <div class="form-actions">
+                  <div class="row">
+                     <div class="col-md-offset-3 col-md-9">
+                        <%= f.submit(@product.new_record? ? t(:add_register) : t(:update_register),
+                           class: "btn btn-primary btn-circle") %>
+                        <%= link_to t(:back), :back,class: "btn btn-default btn-circle" %>
+                     </div>
+                  </div>
+               </div>
+               <% end %>
+               <!-- END FORM-->
+            </div>
+         </div>
+      </div>
+   </div>
+</div>

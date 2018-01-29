@@ -34,8 +34,6 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-# Bootstrap 4 (beta) - https://github.com/twbs/bootstrap-rubygem
-gem 'bootstrap', '~> 4.0.0.beta'
 # jquery for bootstrap - https://github.com/rails/jquery-rails
 gem 'jquery-rails'
 # gem to control pages pagination - https://github.com/mislav/will_paginate
@@ -47,9 +45,16 @@ gem 'bootstrap-filestyle-rails'
 
 # Devise is a flexible authentication solution for Rails based on Warden - https://github.com/plataformatec/devise
 gem 'devise'
+gem 'devise-i18n-views'
 # CanCanCan is an authorization library which restricts what resources a given user is allowed to access.
 # https://github.com/CanCanCommunity/cancancan
 gem 'cancancan', '~> 2.0'
+
+# add roles
+gem 'rolify'
+# Rails admin
+gem 'rails_admin'
+gem 'rails_admin_rollincode'
 
 # Ransack enables the creation of sim and adv search forms for your RoR appl
 # https://github.com/activerecord-hackery/ransack
@@ -70,6 +75,33 @@ gem 'public_activity'
 # attributes, and CSS properties, Sanitize will remove all unacceptable HTML and/or CSS from a string.
 # https://github.com/rgrove/sanitize
 gem 'sanitize'
+
+# Add some nice ActiveModel/ActiveRecord validators.
+# https://github.com/fnando/validators
+gem 'cpf_cnpj'
+gem 'validators'
+
+# ClientSideValidations made easy for your Rails 5 applications!
+# https://github.com/DavyJonesLocker/client_side_validations
+gem 'client_side_validations', '~> 10.0', '>= 10.0.1'
+
+# phone validaton - https://github.com/daddyz/phonelib
+gem 'phonelib'
+
+# When your app is using Paranoia, calling destroy on an ActiveRecord object
+# doesn't actually destroy the database record, Soft delete
+# https://github.com/rubysherpas/paranoia
+gem 'paranoia', '~> 2.3', '>= 2.3.1'
+
+# internationalization
+gem 'rails-i18n', '~> 5.0.0'
+
+# forms control
+gem 'formtastic', '~> 3.1', '>= 3.1.5'
+
+# This library provides integration of the money gem with Rails.
+# https://github.com/RubyMoney/money-rails
+gem 'money-rails', '~> 1.9'
 
 group :development, :test do
   gem 'brakeman', require: false
@@ -93,6 +125,9 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3'
+  # see better errors screens
+  gem 'better_errors'
+  gem 'binding_of_caller'
 end
 
 group :production do

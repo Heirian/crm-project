@@ -1,0 +1,82 @@
+<div class="page-content-wrapper">
+   <!-- BEGIN CONTENT BODY -->
+   <div class="page-content">
+      <!-- END PAGE BAR -->
+      <!-- BEGIN PAGE TITLE-->
+      <h1 class="page-title"> <%= t(:product) %> </h1>
+      <!-- END PAGE TITLE-->
+      <!-- END PAGE HEADER-->
+      <div class="row">
+         <div class="col-md-12">
+
+            <!-- BEGIN SAMPLE TABLE PORTLET-->
+            <div class="portlet box green">
+               <div class="portlet-title">
+                  <div class="caption">
+                     <i class="fa fa-cogs"></i><%= t(:product_list) %>
+                  </div>
+               </div>
+               <div class="portlet-body flip-scroll">
+                  <table class="table table-bordered table-striped table-condensed flip-content">
+                     <thead class="flip-content">
+                        <tr>
+                          <% if current_user.has_role? :admin %>
+                            <th width="20%"><%= t(:id) %></th>
+                          <% end %>
+                          <th><%= t(:name) %></th>
+                          <th> <%= t(:type) %> </th>
+                          <th> <%= t(:category) %> </th>
+                          <th class="numeric"> <%= t(:base_value) %> </th>
+                          <th class="numeric"> <%= t(:action) %> </th>
+                          <th width="15%" class="numeric"> OrderItem </th>
+
+                        </tr>
+                     </thead>
+                     <tbody>
+                      <% @products.each do |product| %>
+                        <tr>
+                          <% if current_user.has_role? :admin %>
+                            <td>
+                              <%= product.id  %>
+                            </td>
+                          <% end %>
+                           <td> <%= product.name %></td>
+
+                           <td> <%= I18n.t(product.type.downcase) %> </td>
+
+                           <td> <%= I18n.t(product.category) %></td>
+                           <td> <%= product.base_value %></td>
+                           <td>
+                             <%= link_to(product_path(product), class: "btn btn-circle btn-icon-only blue") do %>
+                               <i class="fa fa-eye" aria-hidden="true"></i>
+                             <% end %>
+                             <%= link_to(edit_product_path(product), class: "btn btn-circle btn-icon-only green") do %>
+                               <i class="fa fa-edit" aria-hidden="true"></i>
+                             <% end %>
+                             <%#= link_to t(:delete), person_path(person), method: :delete,
+                                  data: {confirm: t(:delete_person?)}, class: 'btn btn-danger' %> </td>
+
+                            <td>
+                            <%= form_for @order_item, remote: true do |f| %>
+                            <div class="input-group">
+                              <%= f.number_field :quantity, value: 1, class: "form-control", min: 1 %>
+                              <div class="input-group-btn">
+                                <%= f.hidden_field :product_id, value: product.id %>
+                                <%= f.submit "Add to Cart", class: "btn btn-primary" %>
+                              </div>
+                            </div>
+                            <% end %>
+                          </td>
+                        </tr>
+                      <% end %>
+                     </tbody>
+                  </table>
+               </div>
+            </div>
+            <!-- END SAMPLE TABLE PORTLET-->
+            <!-- BEGIN SAMPLE TABLE PORTLET-->
+         </div>
+      </div>
+   </div>
+</div>
+</div>

@@ -1,0 +1,60 @@
+
+<div class="page-content-wrapper">
+   <!-- BEGIN CONTENT BODY -->
+   <div class="page-content">
+      <!-- END PAGE BAR -->
+      <!-- BEGIN PAGE TITLE-->
+      <h1 class="page-title"> <%= t(:phones) %></h1>
+      <!-- END PAGE TITLE-->
+      <!-- END PAGE HEADER-->
+      <div class="col-lg-6 col-md-6">
+
+        <div class="input-group">
+
+
+
+            <input class="form-control input-lg" value="<%= @phonable.name %>" disabled />
+            <%= link_to(person_path(@phonable), class: "btn blue input-group-addon") do %>
+            <i class="fa fa-user" aria-hidden="true" title="<%= t(:view_profile) %>"></i>
+            <% end %>
+
+        </div><br><br>
+
+      </div>
+      <div class="row">
+         <div class="col-md-12">
+
+            <!-- BEGIN SAMPLE TABLE PORTLET-->
+            <div class="portlet box green">
+               <div class="portlet-title">
+                  <div class="caption">
+                     <i class="fa fa-cogs"></i><%= t(:phones_list) %>
+                  </div>
+               </div>
+               <div class="portlet-body flip-scroll">
+                  <table class="table table-bordered table-striped table-condensed flip-content">
+                     <thead class="flip-content">
+                        <tr>
+                          <th width="2%"></th>
+                          <th width="10%"><%= t(:phone_number) %> </th>
+                          <th width="5%" class="numeric"><%= t(:kind) %></th>
+                          <th width="40%" class="numeric"> <%= t(:instant_message) %> </th>
+                          <th width="1%" class="numeric"> <%= t(:edit) %> </th>
+
+                        </tr>
+                     </thead>
+                     <tbody>
+                       <tbody>
+                         <%= render @phones, phonable: @phonable %>
+                       </tbody>
+                     </tbody>
+                  </table>
+               </div>
+            </div>
+            <!-- END SAMPLE TABLE PORTLET-->
+            <!-- BEGIN SAMPLE TABLE PORTLET-->
+         </div>
+      </div>
+   </div>
+</div>
+</div>
